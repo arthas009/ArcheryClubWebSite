@@ -29,10 +29,11 @@ export default function Header(props) {
   const classes = useStyles();
   const { sections, title } = props;
 
+  /* h1 is used to display data on top left side of page */
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Button size="small">AMINA KOYAYIM ENES</Button>
+        <h1 size="small"></h1>
         <Typography
           component="h2"
           variant="h5"

@@ -36,30 +36,32 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: 'Okçuluk Klübü Resmi Web Sayfasına Hoş Geldiniz',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random',
-  imgText: 'main image description',
-  linkText: 'Continue reading…',
+    "",
+  image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
+  imgText: '',
+  linkText: '',
 };
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'Haber 1',
+    date: 'Ağustos 2020',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+      'Yarışmada ilk 3\'e giren sporcularımız',
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
+    linkTextt: 'Okumaya Devam Et..'
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Haber 2',
+    date: 'Haziran 2020',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    'Türkiyenin en değerli klübü seçildik !',
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
+    linkTextt: 'Okumaya Devam Et..'
   },
 ];
 
@@ -96,7 +98,7 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="OKÇULUK KLÜBÜ" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
