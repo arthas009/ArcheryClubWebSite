@@ -36,7 +36,7 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: 'Okçuluk Klübü Resmi Web Sayfasına Hoş Geldiniz',
+  title: '',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -98,7 +98,7 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="OKÇULUK KLÜBÜ" sections={sections} />
+        <Header title="Türkiyenin en iyi okçuluk klübü" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
