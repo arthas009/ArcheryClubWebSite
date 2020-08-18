@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     flexShrink: 0,
   },
+  girisButon:
+  {
+    marginRight:2
+  }
 }));
 
 export default function Header(props) {
@@ -47,8 +51,11 @@ export default function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
+        <Button className={classes.girisButon} name="giris_buton" variant="outlined" size="small">
+          Giriş Yap
+        </Button>
+        <Button name="kayit_buton" variant="outlined" size="small">
+          Kayıt Ol
         </Button>
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>

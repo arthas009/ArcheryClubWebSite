@@ -11,6 +11,7 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Main from './Main';
 import Sidebar from './Sidebar';
+import ResponsiveDrawer from './ResponsiveDrawer.js';
 import Footer from './Footer';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Technology', url: '#' },
+  { title: 'Technology', url: 'Technology' },
   { title: 'Design', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
@@ -36,7 +37,7 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: 'Okçuluk Klübü Resmi Web Sayfasına Hoş Geldiniz',
+  title: '',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -98,10 +99,12 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="OKÇULUK KLÜBÜ" sections={sections} />
+        <Header title="" sections={sections} />
+        <ResponsiveDrawer></ResponsiveDrawer>
+
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
+          <Grid container spacing={3}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
