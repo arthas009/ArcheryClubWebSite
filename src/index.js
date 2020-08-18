@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import Blog from "./material-ui/Blog"
 import * as serviceWorker from './serviceWorker';
 
