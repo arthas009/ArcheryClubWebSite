@@ -6,6 +6,12 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link as RouterLink
+} from "react-router-dom";
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,10 +34,19 @@ const useStyles = makeStyles((theme) => ({
     marginRight:2
   }
 }));
-
+const featuredPosts = 
+  {
+    title: 'Haber 1',
+    date: 'Ağustos 2020',
+    description:
+      'Yarışmada ilk 3\'e giren sporcularımız',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+    linkTextt: 'Okumaya Devam Et..'
+  }
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title } = props;
+  const { sections, title , handleClick } = props;
 
   /* h1 is used to display data on top left side of page */
   return (
@@ -60,16 +75,21 @@ export default function Header(props) {
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
-          <Link
+          <Router>
+            <div>
+          <Link 
             color="inherit"
             noWrap
             key={section.title}
             variant="body2"
-            href={section.url}
+            href={"/"}
             className={classes.toolbarLink}
+            onClick = {() => handleClick(section.title)}
           >
             {section.title}
           </Link>
+          </div>
+          </Router>
         ))}
       </Toolbar>
     </React.Fragment>

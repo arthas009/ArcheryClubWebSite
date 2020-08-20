@@ -9,9 +9,9 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
+import Blog from './Blog';
 import Main from './Main';
+import Technology from './Technology';
 import Sidebar from './Sidebar';
 import ResponsiveDrawer from './ResponsiveDrawer.js';
 import Footer from './Footer';
@@ -90,28 +90,46 @@ const sidebar = {
 };
 
 
-export default function Blog() {
+export default function BlogHeaderComponent() {
   const classes = useStyles();
-    
+  const [whichPage, setwhichPage] = useState("");
+  const changePage = (newPage) =>  
+  {
+    let x = newPage;
+    setwhichPage(x);
+    console.log(x);
+    console.log(whichPage);
+  }
+  
+  if(whichPage === "")
+  {
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+    ReactDOM.render(
+      <React.StrictMode>
+        <Blog />
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+  }
+  else if(whichPage === "Technology")
+  {
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+    ReactDOM.render(
+      <React.StrictMode>
+        <Technology />
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+  }
+  
     return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <ResponsiveDrawer></ResponsiveDrawer>
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={3}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-          
-        </main>
+        <button onClick={() => changePage("Technology")}></button>
+        <Header title="" sections={sections} handleClick = {changePage}/>
       </Container>
-      <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>
   );
   
-  
-    
 }
