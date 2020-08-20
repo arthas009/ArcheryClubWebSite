@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Technology() {
+export default function Culture() {
   const classes = useStyles();
 
   return (
@@ -46,9 +46,11 @@ export default function Technology() {
         variant="body2"
         className={classes.bodyClass}
        >
-        This is an Example Typography;
+        Yıldırım Öncü
         <br />
-        To add more definition here, please contact with your developer.
+Gökay Güneş
+        <br />
+        Yusuf Altıparmak & Enes Afsar.
        </Typography>
        </Grid>
       </Container>
