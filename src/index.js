@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Blog from "./material-ui/Blog"
 import * as serviceWorker from './serviceWorker';
+import Technology from './material-ui/Technology';
+import BlogHeaderComponent from './material-ui/BlogHeaderComponent';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Blog />
+    <BlogHeaderComponent />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('toolbar_section')
 );
 
 // If you want your app to work offline and load faster, you can change

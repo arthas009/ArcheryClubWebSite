@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -13,9 +15,6 @@ import Main from './Main';
 import Sidebar from './Sidebar';
 import ResponsiveDrawer from './ResponsiveDrawer.js';
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Technology', url: 'Technology' },
+  { title: 'Technology', url: '/Technology.html' },
   { title: 'Design', url: '#' },
   { title: 'Culture', url: '#' },
   { title: 'Business', url: '#' },
@@ -66,8 +65,6 @@ const featuredPosts = [
   },
 ];
 
-const posts = [post1, post2, post3];
-
 const sidebar = {
   title: 'About',
   description:
@@ -92,16 +89,15 @@ const sidebar = {
   ],
 };
 
+
 export default function Blog() {
   const classes = useStyles();
-
-  return (
+    
+    return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="" sections={sections} />
         <ResponsiveDrawer></ResponsiveDrawer>
-
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={3}>
@@ -109,18 +105,13 @@ export default function Blog() {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
-          <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="From the firehose" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
+          
         </main>
       </Container>
       <Footer title="Footer" description="Something here to give the footer a purpose!" />
     </React.Fragment>
   );
+  
+  
+    
 }
