@@ -7,16 +7,14 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Typography from '@material-ui/core/Typography';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
-import ResponsiveDrawer from './ResponsiveDrawer.js';
-import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
+import Header from '../Header';
+import MainFeaturedPost from '../../MainFeaturedPost';
+import FeaturedPost from '../../FeaturedPost';
+import Main from '../../Main';
+import Sidebar from '../../Sidebar';
+import ResponsiveDrawer from '../../ResponsiveDrawer.js';
+import Footer from '../../Footer';
+
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -30,14 +28,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Design() {
+export default function Madalyalar() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
-       <ResponsiveDrawer></ResponsiveDrawer> 
        <Grid container spacing={3}>
        <Typography
         color="green"
@@ -46,14 +42,10 @@ export default function Design() {
         variant="body2"
         className={classes.bodyClass}
        >
-        This is an Example Typography for Design Category;
-        <br />
-        To add more definition here, please contact with your developer.
-        <br />
-        Yusuf Altıparmak & Enes Afsar.
+           
+        Madalyalar
        </Typography>
        </Grid>
-      </Container>
     </React.Fragment>
   );
 }

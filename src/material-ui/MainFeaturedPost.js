@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(6),
       paddingRight: 0,
     },
-    height: 300,
+    height: 600,
   },
 }));
 

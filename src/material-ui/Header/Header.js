@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Popover from '@material-ui/core/Popover';
+import AppBar from '@material-ui/core/AppBar';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,12 +20,14 @@ import Link from '@material-ui/core/Link';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    height: 100
   },
   toolbarTitle: {
     flex: 1,
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    padding: theme.spacing(2),
     overflowX: 'auto',
   },
   toolbarLink: {
@@ -37,19 +41,14 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     padding: theme.spacing(2),
   },
+  logo: {    
+    maxWidth: 150,
+    maxHeight: 90,
+    margin:"300px" 
+  },
 }));
 
 
-const featuredPosts = 
-  {
-    title: 'Haber 1',
-    date: 'Ağustos 2020',
-    description:
-      'Yarışmada ilk 3\'e giren sporcularımız',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
-    linkTextt: 'Okumaya Devam Et..'
-  }
 export default function Header(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -69,7 +68,8 @@ export default function Header(props) {
   /* h1 is used to display data on top left side of page */
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
+      <Toolbar className={classes.toolbar} >
+        <img src="https://img.grouponcdn.com/iam/nkKNf9vTEzfS65GM8jYy/5n-2048x1229/v1/sc600x362.jpg" alt="logo" className={classes.logo} />
         <h1 size="small"></h1>
         <Typography
           component="h2"
@@ -107,10 +107,11 @@ export default function Header(props) {
           Kayıt Ol
         </Button>
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+      <Toolbar style={{backgroundColor: 'black', color: 'white'}} component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (        
           <Button 
             color="inherit"
+          
             noWrap
             key={section.title}
             variant="body2"

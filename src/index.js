@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Blog from "./material-ui/Blog"
 import * as serviceWorker from './serviceWorker';
-import Technology from './material-ui/Technology';
-import BlogHeaderComponent from './material-ui/BlogHeaderComponent';
+import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
+import Example from './Example';
 
 ReactDOM.render(
   <React.StrictMode>
