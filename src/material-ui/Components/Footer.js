@@ -7,7 +7,9 @@ import Link from '@material-ui/core/Link';
 
 function Copyright() {
   return (
+    
     <Typography variant="body2" color="textSecondary" align="center">
+      <hr />
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
