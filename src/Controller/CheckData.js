@@ -6,5 +6,5 @@ export default function CheckData() {
             postMessage(data)
             //Prints result from `response.json()` in getRequest
         })
-        setInterval(CheckData,4000);
+        setInterval(CheckData,5000);
 }

@@ -3,7 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
-import Example from './Example';
+import SwipeableContent from './material-ui/Components/SwipeableContent';
+import Footer from './material-ui/Components/Footer';
+
+ReactDOM.render(
+  <React.StrictMode>
+  <SwipeableContent></SwipeableContent> 
+  </React.StrictMode>,
+  document.getElementById('carousel_section')
+);
+ReactDOM.render(
+  <React.StrictMode>
+  <Footer description ="Copyright All Rights Reserved" title= "Alt Başlık"></Footer> 
+  </React.StrictMode>,
+  document.getElementById('footer')
+);
 
 ReactDOM.render(
   <React.StrictMode>

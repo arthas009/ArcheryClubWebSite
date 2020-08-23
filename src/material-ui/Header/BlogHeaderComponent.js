@@ -3,26 +3,19 @@ import ReactDOM from 'react-dom';
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
-import Sidebar from '../Sidebar';
-import ResponsiveDrawer from '../ResponsiveDrawer.js';
-import Footer from '../Footer';
 import Sporcularımız from './HeaderButtons/Sporcularımız';
 import Madalyalar from './HeaderButtons/Madalyalar';
 import Hakkında from './HeaderButtons/Hakkında';
 import FarklıBilgiler from './HeaderButtons/FarklıBilgiler';
-import CheckData from '../../Controller/CheckData';
-import WebWorker from '../../Controller/WebWorker';
-import MainFeaturedPost from '../MainFeaturedPost';
-import Carousel from 'react-bootstrap/Carousel'
+import Haberler from './HeaderButtons/Haberler';
+import Iletisim from './HeaderButtons/Iletisim';
 
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { whichPage: "Ana Sayfa", keytosearch: "", xmlfound: false, jsonstring: "",index:0};
+    this.state = { whichPage: "Ana Sayfa", NewsList:null, xmlfound: false, jsonstring: "",index:0};
     this.handleSelect = this.handleSelect.bind(this);
     this.useStyles = makeStyles((theme) => ({
       mainGrid: {
@@ -32,40 +25,57 @@ class BlogHeaderComponent extends Component {
     this.sections = [
       { title: 'Ana Sayfa', url: '#' },
       { title: 'Hakkında', url: '#' },
+      { title: 'Haberler', url: '#' },
       { title: 'Madalyalar', url: '#' },
       { title: 'Sporcularımız', url: '#' },
       { title: 'Farklı Bilgiler', url: '#' },
+      { title: 'İletisim', url: '#' },
     ];
 
-    this.mainFeaturedPost = {
+    this.mainFeaturedPost = [{
       title: '',
       description:
         "",
       image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
       imgText: '',
       linkText: '',
-    };
+    },
+    {
+    title: '',
+      description:
+        "",
+      image: 'https://miro.medium.com/max/3000/1*bHf1bqIQEJmtRDnuxVPdfg.jpeg',
+      imgText: '',
+      linkText: '',
+    },
+  ];
+
     
   }
 
-  componentDidMount() {
-    this.XmlFetcherWorker = new WebWorker(CheckData);
-    //LISTEN MESSAGES FROM WORKER
-    this.XmlFetcherWorker.addEventListener('message', function (event) {
-      if (event.data == "" || event.data == null) {
-        this.setState({ xmlfound: false });
-        return;
-      }
-      this.state.xmlfound = true;
-      var jsontext = JSON.stringify(event.data);
-      var parser = new DOMParser();
-      // SET OBJECT STRING TO STATE. THIS WILL TRIGGER A COMPONENT REFRESH
-      this.setState({ jsonstring: jsontext });
-    }.bind(this));
-
+  async componentDidMount() {
+    console.log(this.NewsList);
+    try {
+      /*
+      let [items, news] = await Promise.all([
+        fetch("http://localhost:4000/"),
+        fetch("http://localhost:4000/news")
+      ]);      
+      */
+     let [news] = await Promise.all([
+      fetch("http://localhost:4000/news")
+    ]);   
+      const a = await news.json();
+      this.setState({NewsList:a});
+       
+    }
+    catch(err) {
+      console.log(err);
+    };
+    
   }
   componentWillUnmount() {
-    this.XmlFetcherWorker.terminate();
+    
   }
   handleSelect(selectedIndex, e) {
 		this.setState({
@@ -74,6 +84,7 @@ class BlogHeaderComponent extends Component {
 		});
 	}
   render() {
+
     const changePage = (newPage) => {
       //setState()
       //This will trigger a refresh
@@ -84,8 +95,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          <MainFeaturedPost post={this.mainFeaturedPost} />
-          <MainPage />
+          <MainPage/>
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -94,8 +104,16 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          <MainFeaturedPost post={this.mainFeaturedPost} />
           <Hakkında />
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+    }
+    else if (this.state.whichPage === "Haberler") {
+      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+      ReactDOM.render(
+        <React.StrictMode>
+-          <Haberler news= {this.state.NewsList}/>
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -104,8 +122,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          <MainFeaturedPost post={this.mainFeaturedPost} />
-          <Madalyalar />
+-          <Madalyalar />
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -114,8 +131,9 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
       <React.StrictMode>
-     
-        </React.StrictMode>,
+      <Sporcularımız></Sporcularımız>
+      <MainPage />
+      </React.StrictMode>,
         document.getElementById('root')
       );
     }
@@ -123,17 +141,25 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          <MainFeaturedPost post={this.mainFeaturedPost} />
           <FarklıBilgiler />
         </React.StrictMode>,
         document.getElementById('root')
       );
     }
+    else if (this.state.whichPage === "İletisim") {
+      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+      ReactDOM.render(
+        <React.StrictMode>
+          <Iletisim />
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+    }
+    
     return (
       <React.Fragment>
         <CssBaseline />
-
-        <Header title="" sections={this.sections} handleClick={changePage} />
+        <Header title="Hoş Geldiniz" sections={this.sections} handleClick={changePage} />
       </React.Fragment>
     );
   }
