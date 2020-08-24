@@ -26,17 +26,22 @@ export default function Hakkında() {
   return (
     <React.Fragment>
       <CssBaseline />
+      <Container>
        <Grid className={classes.mainGrid} container spacing={3}>
+         <div>
        <Typography
         color="green"
         noWrap
         key="TechnologyPageMainBody"
-        variant="h2"
+        variant="h4"
         className={classes.bodyClass}
        >
          Biz Kimiz ?
-       </Typography>
+       </Typography>  
+       <hr color="black"></hr>
+       </div>
        </Grid>
+       </Container>
     </React.Fragment>
   );
 }

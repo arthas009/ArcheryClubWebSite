@@ -2,7 +2,9 @@ import React from 'react';
 import {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
+import {Grid} from '@material-ui/core';
+import {Container} from '@material-ui/core';
+
 import FeaturedPost from '../../Components/FeaturedPost';
 
 
@@ -23,6 +25,7 @@ export default function MainPage(props) {
     return (
     <React.Fragment>
       <CssBaseline /> 
+      <Container>
         <main>
           <Grid container spacing={3}>
             {news.News.New.map((post) => (
@@ -30,6 +33,7 @@ export default function MainPage(props) {
             ))}
           </Grid>
         </main>
+        </Container>
     </React.Fragment>
   );
   

@@ -58,12 +58,13 @@ export default function Haberler(props) {
             <Box className={classes.pageHeader}>
             <Typography variant="h3" color="textPrimary">Haberler</Typography>
             </Box>
-            </Container>
+            
             <Grid className = {classes.mainGrid} container spacing={3}>
             {news.News.New.map((post) => (
               <FeaturedPost key={post.haberBasligi} post={post} />
             ))}
           </Grid>
+          </Container>
         </main>
     </React.Fragment>
   );

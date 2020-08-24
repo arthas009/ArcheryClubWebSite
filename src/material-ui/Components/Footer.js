@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { Grid } from '@material-ui/core';
 
 function Copyright() {
   return (
@@ -12,7 +13,7 @@ function Copyright() {
       <hr />
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Gazi Okçuluk Klübü. Tüm Hakları Saklıdır.
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -23,7 +24,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
-    // marginTop: theme.spacing(8),
+    marginTop: theme.spacing(2),
     padding: theme.spacing(6, 0),
   },
 }));
@@ -35,6 +36,21 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="lg">
+        <Grid spacing={4}>
+        <Typography display="" variant="h6" align="left">
+          <Typography variant="h7" align="left">İletişim</Typography>
+          <Typography display="block" variant="h7" align="left"> +90 546 457 72 59</Typography>
+          <Typography display="block" variant="h7" align="left">A Mah. B Bul. No: C/D. Ankara. </Typography>
+        </Typography>
+
+        <Typography display="" variant="h6" align="left">
+          <Typography variant="h7" align="left">İletişim</Typography>
+          <Typography display="block" variant="h7" align="left"> +90 546 457 72 59</Typography>
+          <Typography display="block" variant="h7" align="left">A Mah. B Bul. No: C/D. Ankara. </Typography>
+        </Typography>
+    
+
+
         <Typography variant="h6" align="center" gutterBottom>
           {title}
         </Typography>
@@ -42,6 +58,7 @@ export default function Footer(props) {
           {description}
         </Typography>
         <Copyright />
+        </Grid>
       </Container>
     </footer>
   );

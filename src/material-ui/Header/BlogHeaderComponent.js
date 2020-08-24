@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Container } from '@material-ui/core';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
 import Sporcularımız from './HeaderButtons/Sporcularımız';
@@ -15,7 +16,8 @@ import Iletisim from './HeaderButtons/Iletisim';
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { whichPage: "Ana Sayfa", NewsList:null, xmlfound: false, jsonstring: "",index:0};
+    this.state = { whichPage: "Ana Sayfa", NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
+    this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
     this.useStyles = makeStyles((theme) => ({
       mainGrid: {
@@ -41,16 +43,16 @@ class BlogHeaderComponent extends Component {
       linkText: '',
     },
     {
-    title: '',
+      title: '',
       description:
         "",
       image: 'https://miro.medium.com/max/3000/1*bHf1bqIQEJmtRDnuxVPdfg.jpeg',
       imgText: '',
       linkText: '',
     },
-  ];
+    ];
 
-    
+
   }
 
   async componentDidMount() {
@@ -62,32 +64,33 @@ class BlogHeaderComponent extends Component {
         fetch("http://localhost:4000/news")
       ]);      
       */
-     let [news] = await Promise.all([
-      fetch("http://localhost:4000/news")
-    ]);   
+      let [news] = await Promise.all([
+        fetch("http://192.168.1.21:4000/news")
+      ]);
       const a = await news.json();
-      this.setState({NewsList:a});
-       
+      this.setState({ NewsList: a });
+
     }
-    catch(err) {
+    catch (err) {
       console.log(err);
     };
-    
+
   }
   componentWillUnmount() {
-    
+
   }
   handleSelect(selectedIndex, e) {
-		this.setState({
-			index: selectedIndex,
-			direction: e.direction,
-		});
-	}
+    this.setState({
+      index: selectedIndex,
+      direction: e.direction,
+    });
+  }
   render() {
 
     const changePage = (newPage) => {
       //setState()
       //This will trigger a refresh
+      this.clickedName = newPage;
       this.setState({ whichPage: newPage });
     }
 
@@ -95,7 +98,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          <MainPage/>
+          <MainPage />
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -113,7 +116,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
--          <Haberler news= {this.state.NewsList}/>
+          -          <Haberler news={this.state.NewsList} />
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -122,7 +125,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
--          <Madalyalar />
+          -          <Madalyalar />
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -130,10 +133,10 @@ class BlogHeaderComponent extends Component {
     else if (this.state.whichPage === "Sporcularımız") {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
-      <React.StrictMode>
-      <Sporcularımız></Sporcularımız>
-      <MainPage />
-      </React.StrictMode>,
+        <React.StrictMode>
+          <Sporcularımız></Sporcularımız>
+          <MainPage />
+        </React.StrictMode>,
         document.getElementById('root')
       );
     }
@@ -155,11 +158,13 @@ class BlogHeaderComponent extends Component {
         document.getElementById('root')
       );
     }
-    
+
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header title="Hoş Geldiniz" sections={this.sections} handleClick={changePage} />
+        <Container maxWidth="lg">
+          <Header title="Hoş Geldiniz" clickedName = {this.clickedName} sections={this.sections} handleClick={changePage} />
+        </Container>
       </React.Fragment>
     );
   }

@@ -6,31 +6,28 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Popover } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    height: 70
+    height: 70,
+    borderBottom: `1px solid gray`,
   },
   toolbarTitle: {
     flex: 1,
+
   },
   toolbarSecondary: {
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: theme.spacing(2),
     overflowX: 'auto',
-    backgroundColor: 'black',
-    color: 'white',
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    color: 'black',
+    borderBottom: `1px solid gray`,
 
   },
   menuButton:
   {
-    background:'linear-gradient(45deg, #CC3040 30%, #BB5050 90%)',
-    color: '#EEEE30',
-    boxShadow: '0 5px 7px 4px rgba(92, 151, 211, .8)',
-    marginLeft:theme.spacing(1),
-    marginRight:theme.spacing(1),
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -72,7 +69,7 @@ export default function Header(props) {
       <Toolbar className={classes.toolbar} >
         <h1 size="small"></h1>
         <Typography
-          component="h2"
+          component="h3"
           variant="h5"
           color="inherit"
           align="center"
@@ -97,6 +94,7 @@ export default function Header(props) {
               aria-haspopup="true"
               onMouseEnter={handlePopoverOpen}
               onMouseLeave={handlePopoverClose}
+              onMouseClick={handlePopoverClose}
             >
               {section.title}
             </Button>
