@@ -10,7 +10,7 @@ function Copyright() {
   const classes = useStyles();
 
   return (
-    <Typography className ={classes.typho} variant="body2" color="textSecondary" align="center">
+    <Typography className ={classes.typhoDown} variant="body2" color="textSecondary" align="center">
           <hr />
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
@@ -24,21 +24,33 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    marginTop: theme.spacing(3),
     padding: theme.spacing(2, 0),
-    backgroundColor: 'rgba(200,200,200,.9)'
+    backgroundColor: 'rgba(200,200,200,.9)',
+    bottom: 0,
   },
   typho:
   {
     marginTop: theme.spacing(1),
     color: "#000000",
   },
+  typhoDown:
+  {
+    marginTop: theme.spacing(3),
+    color: "#000000",
+  },
   card:
   {
     display: 'flex',
     backgroundColor:'inherit',
-    marginLeft: theme.spacing(10),
+    [theme.breakpoints.up('lg')]: {
+      marginLeft:theme.spacing(25),
+    },
+    marginLeft:theme.spacing(15),
 
+    [theme.breakpoints.down('md')]: {
+      marginLeft:theme.spacing(2),
+
+    },    
   },
   cardDetails: {
     flex: 1,
