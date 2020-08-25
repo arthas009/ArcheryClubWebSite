@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Popover } from '@material-ui/core';
-import { Grid, Avatar } from '@material-ui/core';
+import { Grid, Avatar, ButtonGroup } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
@@ -15,16 +15,19 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import PhotoAlbumIcon from '@material-ui/icons/PhotoAlbum';
+import CallIcon from '@material-ui/icons/Call';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
     justifyContent: 'left',
     overflowX: 'auto',
-    height:   50,
-    borderBottom: `2px solid gray`,
+    height: 50,
+    borderBottom: `1px solid gray`,
   },
   toolbarTitle: {
-    marginLeft:theme.spacing(1),
+    marginLeft: theme.spacing(1),
 
   },
   toolbarSecondary: {//alt çizgi
@@ -63,6 +66,8 @@ const useStyles = makeStyles((theme) => ({
   },
   ButtonGroup: {
     marginLeft:theme.spacing(50),
+    marginLeft: theme.spacing(3),
+
 
   },
 }));
@@ -82,28 +87,31 @@ export default function Header(props) {
   };
 
   const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   /* h1 is used to display data on top left side of page */
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
         <Grid>
       <PhoneIcon fontSize="small" />  
+        <PhoneIcon fontSize="small" />
         <Typography
           component="h8"
           variant="body2"
           color="inherit"
           className={classes.toolbarTitle}
         >
-        +90 546 457 72 59
+          +90 546 457 72 59
         </Typography>
-      <EmailIcon className={classes.emailIcon} fontSize="small" />  
+        <EmailIcon className={classes.emailIcon} fontSize="small" />
         <Typography
           component="h8"
           variant="body2"
           color="inherit"
           className={classes.toolbarTitle}
         >
-        yusufalti1997@gmail.com
+          yusufalti1997@gmail.com
         </Typography>
   
         <ButtonGroup variant="text" color="black" aria-label="text primary button group">
@@ -114,27 +122,79 @@ export default function Header(props) {
 
       </Grid>
 
-        </Toolbar>
+      </Toolbar>
 
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
           <div>
-            <Button
+            {section.title == "Galeri" ? <div><Button
               color="inherit"
               noWrap
               key={section.title}
               variant="body2"
               className={classes.menuButton}
-              onClick={() => handleClick(section.title)}
+              onClick={handlePopoverOpen}
               aria-owns={open ? 'mouse-over-popover' : undefined}
               aria-haspopup="true"
-              onMouseEnter={handlePopoverOpen}
-              onMouseLeave={handlePopoverClose}
-              onMouseClick={handlePopoverClose}
+              endIcon={<ArrowDropDownIcon />}
             >
               {section.title}
             </Button>
-          
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handlePopoverClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+              >
+                <ButtonGroup orientation="vertical"
+                  color="primary"
+                  aria-label="vertical contained primary button group"
+                  variant="text">
+                  <Button
+                    color="inherit"
+                    noWrap
+                    key={"Madalyalar"}
+                    variant="body2"
+                    className={classes.menuButton}
+                    onClick={() => handleClick("Madalyalar")}
+                  >
+                    Madalyalar
+            </Button>
+                  <Button
+                    color="inherit"
+                    noWrap
+                    key={"Sporcularımız"}
+                    variant="body2"
+                    className={classes.menuButton}
+                    onClick={() => handleClick("Sporcularımız")}
+                  >
+                    Sporcularımız
+            </Button>
+                </ButtonGroup>
+              </Popover>
+            </div>
+              :
+              <Button
+                color="inherit"
+                noWrap
+                key={section.title}
+                variant="body2"
+                className={classes.menuButton}
+                onClick={() => handleClick(section.title)}
+              >
+                {section.title}
+              </Button>
+
+            }
+
           </div>
         ))}
       </Toolbar>

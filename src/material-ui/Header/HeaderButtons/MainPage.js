@@ -1,9 +1,9 @@
 import React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Grid} from '@material-ui/core';
-import {Container} from '@material-ui/core';
+import { Grid, Box, Typography } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 import FeaturedPost from '../../Components/FeaturedPost';
 
@@ -13,31 +13,38 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
     justifyContent: "space-between",
   },
+  heaederGrid:
+  {
+    marginTop: theme.spacing(3),
+  },
+  pageHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflowX: 'auto',
+  },
 }));
 
 export default function MainPage(props) {
   const classes = useStyles();
-  const { news } = props;
-  if(news === undefined)
-  {
-    return <div></div>;
-  }
-  
-    return (
+
+  return (
     <React.Fragment>
-      <CssBaseline /> 
-      <Container>
-        <main>
-          <Grid spacing={5} xs={3} xl ={3}>
-            {news.News.New.map((post) => (
-              <FeaturedPost key={post.haberBasligi} post={post} />
-            ))}
+      <CssBaseline />
+        <Container>
+        <Grid className={classes.heaederGrid}>
+            <Box className={classes.pageHeader}>
+              <Typography variant="h3" color="textPrimary">Gazi Okçuluk Klübü</Typography>
+            </Box>
           </Grid>
-        </main>
+          <Grid className={classes.mainGrid}>
+
+          </Grid>
         </Container>
+
     </React.Fragment>
   );
-  
-  
-    
+
+
+
 }

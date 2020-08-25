@@ -90,6 +90,7 @@ export default function Footer(props) {
 
   return (
     <footer className={classes.footer}>
+      <hr></hr>
         <Grid container spacing={1} xs={12} xl= {12}>
         <Card className={classes.card}>
           <CardHeader

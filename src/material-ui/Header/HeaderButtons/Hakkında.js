@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
   },
+  heaederGrid:
+  {
+    marginTop: theme.spacing(3),
+  },
   bodyClass:
   {
     marginTop: theme.spacing(2),
@@ -24,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: theme.spacing(2),
     overflowX: 'auto',
   },
 }));
@@ -38,11 +41,13 @@ export default function Hakkında() {
     <React.Fragment>
       <CssBaseline />
       <Container>
-
-        <Grid className={classes.mainGrid}>
+      <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <Typography variant="h3" color="textPrimary">Hakkında</Typography>
           </Box>
+        </Grid>
+        <Grid className={classes.mainGrid}>
+
           <div>
             <Typography
               noWrap
