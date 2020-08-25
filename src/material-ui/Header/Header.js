@@ -67,9 +67,16 @@ const useStyles = makeStyles((theme) => ({
   ButtonGroup: {
     marginLeft:theme.spacing(50),
     marginLeft: theme.spacing(3),
-
-
   },
+solaGidecekOlanlar:
+{
+
+},
+sagaGidecekOlanlar:
+{
+
+},
+
 }));
 
 
@@ -94,6 +101,7 @@ export default function Header(props) {
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
         <Grid>
+          <div className = {classes.solaGidecekOlanlar}>
       <PhoneIcon fontSize="small" />  
         <PhoneIcon fontSize="small" />
         <Typography
@@ -113,13 +121,15 @@ export default function Header(props) {
         >
           yusufalti1997@gmail.com
         </Typography>
-  
+        </div>
+        
+        <div className={classes.sagaGidecekOlanlar}>
         <ButtonGroup variant="text" color="black" aria-label="text primary button group">
         <Button><TwitterIcon fontSize="small" /></Button>
         <Button><FacebookIcon fontSize="small" /></Button>
         <Button><InstagramIcon fontSize="small" /></Button>
       </ButtonGroup>
-
+      </div>
       </Grid>
 
       </Toolbar>
