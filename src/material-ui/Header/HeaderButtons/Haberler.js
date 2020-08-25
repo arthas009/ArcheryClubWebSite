@@ -7,6 +7,7 @@ import FeaturedPost from '../../Components/FeaturedPost';
 import { Typography } from '@material-ui/core';
 import {Box} from '@material-ui/core';
 import {Container} from '@material-ui/core';
+import CollapseableCard from '../../Components/CollapseableCard';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -59,9 +60,9 @@ export default function Haberler(props) {
             <Typography variant="h3" color="textPrimary">Haberler</Typography>
             </Box>
             
-            <Grid className = {classes.mainGrid} container spacing={3}>
+            <Grid className = {classes.mainGrid} container spacing={4}>
             {news.News.New.map((post) => (
-              <FeaturedPost key={post.haberBasligi} post={post} />
+              <CollapseableCard key={post.haberBasligi} post={post} />
             ))}
           </Grid>
           </Container>

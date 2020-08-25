@@ -11,6 +11,7 @@ import FeaturedPost from '../../Components/FeaturedPost';
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
+    justifyContent: "space-between",
   },
 }));
 
@@ -27,7 +28,7 @@ export default function MainPage(props) {
       <CssBaseline /> 
       <Container>
         <main>
-          <Grid container spacing={3}>
+          <Grid spacing={5} xs={3} xl ={3}>
             {news.News.New.map((post) => (
               <FeaturedPost key={post.haberBasligi} post={post} />
             ))}

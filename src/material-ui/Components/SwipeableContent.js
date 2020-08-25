@@ -27,7 +27,6 @@ const mainFeaturedPost = [{
 export default function SwipeableContent(props) {
     return (
         <React.Fragment>
-            <Container maxWidth="lg">
                 <Grid spacing={4}>
                     <Carousel autoPlay={true} navButtonsAlwaysInvisible={true}>
                         {
@@ -37,7 +36,6 @@ export default function SwipeableContent(props) {
                         }
                     </Carousel>
                 </Grid>
-            </Container>
         </React.Fragment>
     )
 

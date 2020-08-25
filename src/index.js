@@ -16,10 +16,8 @@ ReactDOM.render(
 );
 ReactDOM.render(
   <React.StrictMode>
-  <Container>
-  <Footer description ="" title= ""></Footer> 
-  </Container>
-  
+  <hr style = { {marginTop:"15px"}} />
+  <Footer description ="" title= ""></Footer>   
   </React.StrictMode>,
   document.getElementById('footer')
 );

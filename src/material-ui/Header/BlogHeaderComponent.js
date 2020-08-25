@@ -65,7 +65,7 @@ class BlogHeaderComponent extends Component {
       ]);      
       */
       let [news] = await Promise.all([
-        fetch("http://192.168.1.21:4000/news")
+        fetch("http://192.168.43.124:4000/news")
       ]);
       const a = await news.json();
       this.setState({ NewsList: a });
@@ -163,7 +163,7 @@ class BlogHeaderComponent extends Component {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="lg">
-          <Header title="Hoş Geldiniz" clickedName = {this.clickedName} sections={this.sections} handleClick={changePage} />
+          <Header title="" clickedName = {this.clickedName} sections={this.sections} handleClick={changePage} />
         </Container>
       </React.Fragment>
     );
