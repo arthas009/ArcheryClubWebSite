@@ -1,7 +1,4 @@
-sa enes kardesim
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It's about to build build static or dynamic web sites for commercial use :)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It's main purpose is building static or dynamic web sites for commercial use :)
 
 It's also using Material-UI framework to supply Web Site with beautiful responsive design. See details: https://material-ui.com/
 

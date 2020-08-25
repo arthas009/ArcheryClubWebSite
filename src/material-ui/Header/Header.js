@@ -6,31 +6,33 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Popover } from '@material-ui/core';
-
+import { Grid, Avatar } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
+import PhoneIcon from '@material-ui/icons/Phone';
+import EmailIcon from '@material-ui/icons/Email';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
-    height: 70
+    justifyContent: 'left',
+    overflowX: 'auto',
+    height:   50,
+    borderBottom: `1px solid gray`,
   },
   toolbarTitle: {
-    flex: 1,
+    marginLeft:theme.spacing(1),
+
   },
   toolbarSecondary: {
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     padding: theme.spacing(2),
     overflowX: 'auto',
-    backgroundColor: 'black',
-    color: 'white',
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    color: 'black',
+    borderBottom: `1px solid gray`,
 
   },
   menuButton:
   {
-    background:'linear-gradient(45deg, #CC3040 30%, #BB5050 90%)',
-    color: '#EEEE30',
-    boxShadow: '0 5px 7px 4px rgba(92, 151, 211, .8)',
-    marginLeft:theme.spacing(1),
-    marginRight:theme.spacing(1),
+
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -46,21 +48,25 @@ const useStyles = makeStyles((theme) => ({
   popover: {
     pointerEvents: 'none',
   },
+  phoneIcon: {
+
+  },
+  emailIcon: {
+    marginLeft:theme.spacing(3),
+
+  },
 }));
 
 
 
 export default function Header(props) {
   const classes = useStyles();
-
   const { sections, title, handleClick } = props;
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
@@ -70,18 +76,26 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
-        <h1 size="small"></h1>
+      <PhoneIcon fontSize="small" />  
         <Typography
-          component="h2"
-          variant="h5"
+          component="h8"
+          variant="body2"
           color="inherit"
-          align="center"
-          noWrap
           className={classes.toolbarTitle}
         >
-          {title}
+        +90 546 457 72 59
         </Typography>
-      </Toolbar>
+      <EmailIcon className={classes.emailIcon} fontSize="small" />  
+        <Typography
+          component="h8"
+          variant="body2"
+          color="inherit"
+          className={classes.toolbarTitle}
+        >
+        yusufalti1997@gmail.com
+        </Typography>
+
+        </Toolbar>
 
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
@@ -97,30 +111,11 @@ export default function Header(props) {
               aria-haspopup="true"
               onMouseEnter={handlePopoverOpen}
               onMouseLeave={handlePopoverClose}
+              onMouseClick={handlePopoverClose}
             >
               {section.title}
             </Button>
-            <Popover
-              id="mouse-over-popover"
-              className={classes.popover}
-              classes={{
-                paper: classes.paper,
-              }}
-              open={open}
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              onClose={handlePopoverClose}
-              disableRestoreFocus
-            >
-              <Typography>I use Popover.</Typography>
-            </Popover>
+          
           </div>
         ))}
       </Toolbar>

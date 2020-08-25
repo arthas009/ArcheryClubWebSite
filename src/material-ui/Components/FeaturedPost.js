@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     display: 'flex',
   },
@@ -18,25 +18,37 @@ const useStyles = makeStyles({
   },
   cardMedia: {
     width: 100,
+    [theme.breakpoints.down('md')]: {
+      bottom: 0,
+    },
+    display: 'inline',
   },
   cardContent: {
     overflow: "hidden", 
     textOverflow: "ellipsis", 
-    width: '20rem'
+    [theme.breakpoints.up('lg')]: {
+      width: '25rem',
+      overflow:'auto',
+    },
+    width: '25rem',
+    [theme.breakpoints.down('md')]: {
+      width: '10rem',
+      overflow:'auto',
+    },    
   }
-});
+}));
 
 export default function FeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
 
   return (
-    <Grid item xs={8} md={4}>
+    <Grid item xs={6} md={6}>
       <CardActionArea component="a" href="/">
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent className={classes.cardContent}>
-              <Typography  component="h2" variant="h5">
+              <Typography component="h2" variant="h5">
                 {post.haberBasligi}
               </Typography>
               <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" color="textSecondary">
@@ -50,9 +62,7 @@ export default function FeaturedPost(props) {
               </Typography>
             </CardContent>
           </div>
-          <Hidden xsDown>
             <CardMedia className={classes.cardMedia} image="https://mind4survival.com/wp-content/uploads/2018/08/Traditional-Archery-Mind4Survival.jpg" title="" />
-          </Hidden>
         </Card>
       </CardActionArea>
     </Grid>

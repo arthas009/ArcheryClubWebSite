@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
 import SwipeableContent from './material-ui/Components/SwipeableContent';
 import Footer from './material-ui/Components/Footer';
+import { Grid } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +16,8 @@ ReactDOM.render(
 );
 ReactDOM.render(
   <React.StrictMode>
-  <Footer description ="Copyright All Rights Reserved" title= "Alt Başlık"></Footer> 
+  <hr style = { {marginTop:"15px"}} />
+  <Footer description ="" title= ""></Footer>   
   </React.StrictMode>,
   document.getElementById('footer')
 );

@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import {Button} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
@@ -16,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
+    height: '100%',
+    width: '100%'
   },
   overlay: {
     position: 'absolute',
@@ -27,13 +30,21 @@ const useStyles = makeStyles((theme) => ({
   },
   mainFeaturedPostContent: {
     position: 'relative',
-    padding: theme.spacing(3),
+    justifyContent: 'center',
+    align: 'center',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6),
       paddingRight: 0,
+      height: 300,
     },
-    height: 400,
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(2),
+      paddingRight: 0,
+      height: 200,
+    },
+    
   },
+ 
 }));
 
 export default function MainFeaturedPost(props) {
@@ -45,21 +56,21 @@ export default function MainFeaturedPost(props) {
       {/* Increase the priority of the hero background image */}
       {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
       <div className={classes.overlay} />
-      <Grid container>
-        <Grid item md={6}>
+        <Grid>
           <div className={classes.mainFeaturedPostContent}>
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+            <Typography className={classes.primaryTyphography} align="center" variant="h5" color="inherit" gutterBottom>
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography className={classes.secondaryTyphography} align="center" variant="h7" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
+            <Typography align="center" variant="h7" color="inherit" paragraph>
+              <Button variant="outlined" color="inherit">
+                 {post.title == "Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir" ? "İLETİŞİM":""}
+              </Button>
+            </Typography>
           </div>
         </Grid>
-      </Grid>
     </Paper>
   );
 }
