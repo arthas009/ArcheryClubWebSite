@@ -5,6 +5,17 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { Grid, Card, Paper, CardContent, CardHeader } from '@material-ui/core';
+//import TwitterIcon from '@material-ui/icons/Twitter';
+//import FacebookIcon from '@material-ui/icons/Facebook';
+//import InstagramIcon from '@material-ui/icons/Instagram';
+import Icon from '@material-ui/core/Icon';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+
+
 
 function Copyright() {
   const classes = useStyles();
@@ -14,10 +25,11 @@ function Copyright() {
           <hr />
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Gazi Okçuluk Klübü. Tüm Hakları Saklıdır.
+        Gazi Okçuluk Kulübü. Tüm Hakları Saklıdır.
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
+      
     </Typography>
   );
 }
@@ -107,6 +119,23 @@ export default function Footer(props) {
           <Typography className ={classes.typho} variant="h6" align="left"> Google Maps</Typography>
           <Typography className ={classes.typho} display="block" variant="h7" align="left"></Typography>
           <Typography className ={classes.typho} display="block" variant="h7" align="left"></Typography>
+        </CardContent>
+        </Card>
+
+        <Card className={classes.card}>
+        <CardHeader
+            subheader="Sosyal Medya Hesaplarımız" />
+        <CardContent className={classes.cardContent}>
+          <Typography className ={classes.typho} variant="h6" align="left">Takip Ediyor Musunuz ?</Typography>
+         
+         
+         
+          <ButtonGroup variant="text" color="black" aria-label="text primary button group">
+        <Button><TwitterIcon fontSize="small" /></Button>
+        <Button><FacebookIcon fontSize="small" /></Button>
+        <Button><InstagramIcon fontSize="small" /></Button>
+      </ButtonGroup>
+      
         </CardContent>
         </Card>
         </Grid>
