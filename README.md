@@ -3,7 +3,17 @@ sa enes kardesim
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It's about to build build static or dynamic web sites for commercial use :)
 
+It's also using Material-UI framework to supply Web Site with beautiful responsive design. See details: https://material-ui.com/
+
+
+
 ## Available Scripts
+
+In the project directory, you have to run:
+
+### `npm install`
+### `npm install @material-ui/core`
+### `npm install @material-ui/icons`
 
 In the project directory, you can run:
 

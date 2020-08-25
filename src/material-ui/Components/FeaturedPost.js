@@ -17,8 +17,13 @@ const useStyles = makeStyles({
     flex: 1,
   },
   cardMedia: {
-    width: 160,
+    width: 100,
   },
+  cardContent: {
+    overflow: "hidden", 
+    textOverflow: "ellipsis", 
+    width: '20rem'
+  }
 });
 
 export default function FeaturedPost(props) {
@@ -26,27 +31,27 @@ export default function FeaturedPost(props) {
   const { post } = props;
 
   return (
-    <Grid item xs={12} md={6}>
-      <CardActionArea component="a" href="/Technology.html">
+    <Grid item xs={8} md={4}>
+      <CardActionArea component="a" href="/">
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
-            <CardContent>
-              <Typography component="h2" variant="h5">
-                {post.title}
+            <CardContent className={classes.cardContent}>
+              <Typography  component="h2" variant="h5">
+                {post.haberBasligi}
               </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
+              <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" color="textSecondary">
+                {post.haberTarihi}
               </Typography>
-              <Typography variant="subtitle1" paragraph>
-                {post.description}
+              <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" paragraph>
+                {post.haberIcerigi}
               </Typography>
-              <Typography variant="subtitle1" color="primary">
-                {post.linkTextt}
+              <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" color="primary">
+                Okumaya devam ett....
               </Typography>
             </CardContent>
           </div>
           <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+            <CardMedia className={classes.cardMedia} image="https://mind4survival.com/wp-content/uploads/2018/08/Traditional-Archery-Mind4Survival.jpg" title="" />
           </Hidden>
         </Card>
       </CardActionArea>

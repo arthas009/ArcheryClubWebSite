@@ -1,10 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Blog from "./material-ui/Blog"
 import * as serviceWorker from './serviceWorker';
-import Technology from './material-ui/Technology';
-import BlogHeaderComponent from './material-ui/BlogHeaderComponent';
+import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
+import SwipeableContent from './material-ui/Components/SwipeableContent';
+import Footer from './material-ui/Components/Footer';
+
+ReactDOM.render(
+  <React.StrictMode>
+  <SwipeableContent></SwipeableContent> 
+  </React.StrictMode>,
+  document.getElementById('carousel_section')
+);
+ReactDOM.render(
+  <React.StrictMode>
+  <Footer description ="Copyright All Rights Reserved" title= "Alt Başlık"></Footer> 
+  </React.StrictMode>,
+  document.getElementById('footer')
+);
 
 ReactDOM.render(
   <React.StrictMode>
