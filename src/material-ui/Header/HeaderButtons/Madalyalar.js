@@ -32,8 +32,7 @@ export default function Madalyalar() {
         variant="body2"
         className={classes.bodyClass}
        >
-           
-        Madalyalar
+
        </Typography>
        </Grid>
     </React.Fragment>

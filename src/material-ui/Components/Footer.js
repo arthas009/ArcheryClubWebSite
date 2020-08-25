@@ -4,15 +4,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { Grid, Card, Paper, CardContent, CardHeader } from '@material-ui/core';
 
 function Copyright() {
+  const classes = useStyles();
+
   return (
-    
-    <Typography variant="body2" color="textSecondary" align="center">
-      <hr />
+    <Typography className ={classes.typho} variant="body2" color="textSecondary" align="center">
+          <hr />
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Gazi Okçuluk Klübü. Tüm Hakları Saklıdır.
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -22,10 +24,40 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    backgroundColor: theme.palette.background.paper,
-    // marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0),
+    marginTop: theme.spacing(3),
+    padding: theme.spacing(2, 0),
+    backgroundColor: 'rgba(200,200,200,.9)'
   },
+  typho:
+  {
+    marginTop: theme.spacing(1),
+    color: "#000000",
+  },
+  card:
+  {
+    display: 'flex',
+    backgroundColor:'inherit',
+    marginLeft: theme.spacing(10),
+
+  },
+  cardDetails: {
+    flex: 1,
+    backgroundColor:'inherit',
+  },
+  cardContent: {
+    overflow: "hidden", 
+    textOverflow: "ellipsis", 
+    [theme.breakpoints.up('md')]: {
+      width: '18rem',
+      marginLeft:theme.spacing(3),
+      overflow:'auto',
+    },
+  
+    [theme.breakpoints.down('md')]: {
+      width: '10rem',
+      overflow:'auto',
+    },    
+  }
 }));
 
 export default function Footer(props) {
@@ -34,7 +66,39 @@ export default function Footer(props) {
 
   return (
     <footer className={classes.footer}>
-      <Container maxWidth="lg">
+        <Grid container spacing={1} xs={12} xl= {12}>
+        <Card className={classes.card}>
+          <CardHeader
+            subheader="İletişim" />
+          <CardContent className={classes.cardContent}>
+          <Typography className ={classes.typho} variant="h6" align="left">Gazi Okçuluk Klübü</Typography>
+          <Typography className ={classes.typho} display="block" variant="h7" align="left"> +90 546 457 72 59</Typography>
+          <Typography className ={classes.typho} display="block" variant="h7" align="left">A Mah. B Bul. No: C/D. Ankara. </Typography>
+          </CardContent>
+        </Card>
+
+        <Card className={classes.card}>
+        <CardHeader
+            subheader="Hakkında" />
+        <CardContent className={classes.cardContent}>
+          <Typography className ={classes.typho} variant="h6" align="left">Biz Kimiz ?</Typography>
+          <Typography className ={classes.typho} display="block" variant="h7" align="left">Misyonumuz & Vizyonumuz</Typography>
+          <Typography className ={classes.typho} display="block" variant="h7" align="left">Tarihçe</Typography>
+        </CardContent>
+        </Card>
+
+        <Card className={classes.card}>
+        <CardHeader
+            subheader="Harita" />
+        <CardContent className={classes.cardContent}>
+          <Typography className ={classes.typho} variant="h6" align="left"> Google Maps</Typography>
+          <Typography className ={classes.typho} display="block" variant="h7" align="left"></Typography>
+          <Typography className ={classes.typho} display="block" variant="h7" align="left"></Typography>
+        </CardContent>
+        </Card>
+        </Grid>
+
+
         <Typography variant="h6" align="center" gutterBottom>
           {title}
         </Typography>
@@ -42,7 +106,6 @@ export default function Footer(props) {
           {description}
         </Typography>
         <Copyright />
-      </Container>
     </footer>
   );
 }
