@@ -28,9 +28,9 @@ class BlogHeaderComponent extends Component {
       { title: 'Ana Sayfa', url: '#' },
       { title: 'Hakkında', url: '#' },
       { title: 'Haberler', url: '#' },
-      { title: 'Madalyalar', url: '#' },
-      { title: 'Sporcularımız', url: '#' },
+      { title: 'Galeri', url: '#' },
       { title: 'Farklı Bilgiler', url: '#' },
+      { title: 'Okçuluk Hakkında', url: '#' },
       { title: 'İletisim', url: '#' },
     ];
 
@@ -65,7 +65,7 @@ class BlogHeaderComponent extends Component {
       ]);      
       */
       let [news] = await Promise.all([
-        fetch("http://192.168.43.124:4000/news")
+        fetch("http://192.168.1.21:4000/news")
       ]);
       const a = await news.json();
       this.setState({ NewsList: a });
@@ -135,7 +135,6 @@ class BlogHeaderComponent extends Component {
       ReactDOM.render(
         <React.StrictMode>
           <Sporcularımız></Sporcularımız>
-          <MainPage />
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -145,6 +144,15 @@ class BlogHeaderComponent extends Component {
       ReactDOM.render(
         <React.StrictMode>
           <FarklıBilgiler />
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+    }
+    else if (this.state.whichPage === "Okçuluk Hakkında") {
+      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+      ReactDOM.render(
+        <React.StrictMode>
+
         </React.StrictMode>,
         document.getElementById('root')
       );
