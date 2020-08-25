@@ -10,24 +10,29 @@ import { Grid, Avatar } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: {
+  toolbar: { //üst çizgi
     justifyContent: 'left',
     overflowX: 'auto',
     height:   50,
-    borderBottom: `1px solid gray`,
+    borderBottom: `2px solid gray`,
   },
   toolbarTitle: {
     marginLeft:theme.spacing(1),
 
   },
-  toolbarSecondary: {
+  toolbarSecondary: {//alt çizgi
     justifyContent: 'space-between',
     padding: theme.spacing(2),
     overflowX: 'auto',
     color: 'black',
-    borderBottom: `1px solid gray`,
+    borderBottom: `2px solid gray`,
 
   },
   menuButton:
@@ -49,10 +54,15 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: 'none',
   },
   phoneIcon: {
+    marginLeft:theme.spacing(0),
 
   },
   emailIcon: {
     marginLeft:theme.spacing(3),
+   // marginRight:theme.spacing(50)
+  },
+  ButtonGroup: {
+    marginLeft:theme.spacing(50),
 
   },
 }));
@@ -76,6 +86,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
+        <Grid>
       <PhoneIcon fontSize="small" />  
         <Typography
           component="h8"
@@ -94,6 +105,14 @@ export default function Header(props) {
         >
         yusufalti1997@gmail.com
         </Typography>
+  
+        <ButtonGroup variant="text" color="black" aria-label="text primary button group">
+        <Button><TwitterIcon fontSize="small" /></Button>
+        <Button><FacebookIcon fontSize="small" /></Button>
+        <Button><InstagramIcon fontSize="small" /></Button>
+      </ButtonGroup>
+
+      </Grid>
 
         </Toolbar>
 
