@@ -50,7 +50,6 @@ export default function Hakkında() {
 
           <div>
             <Typography
-              noWrap
               key="TechnologyPageMainBody"
               variant="h4"
               className={classes.bodyClass}
@@ -58,7 +57,6 @@ export default function Hakkında() {
               Biz Kimiz ?
        </Typography>
             <Typography
-              noWrap
               key="TechnologyPageMainBody"
               variant="h7"
               className={classes.bodyClass}
@@ -69,7 +67,6 @@ export default function Hakkında() {
           <div className={classes.marginTopDiv}>
 
             <Typography
-              noWrap
               key="TechnologyPageMainBody"
               variant="h4"
               className={classes.bodyClass}
@@ -77,7 +74,6 @@ export default function Hakkında() {
               Misyonumuz
        </Typography>
             <Typography
-              noWrap
               key="TechnologyPageMainBody"
               variant="h7"
               className={classes.bodyClass}
@@ -88,7 +84,6 @@ export default function Hakkında() {
 
           <div className={classes.marginTopDiv}>
             <Typography
-              noWrap
               key="VizyonTypography"
               variant="h4"
               className={classes.bodyClass}
@@ -96,7 +91,6 @@ export default function Hakkında() {
               Vizyonumuz
        </Typography>
             <Typography
-              noWrap
               key="TechnologyPageMainBody"
               variant="h7"
               className={classes.bodyClass}
@@ -106,7 +100,6 @@ export default function Hakkında() {
           </div>
           <div className={classes.marginTopDiv}>
             <Typography
-              noWrap
               key="VizyonTypography"
               variant="h4"
               className={classes.bodyClass}
@@ -114,7 +107,6 @@ export default function Hakkında() {
               Tarihçe
        </Typography>
             <Typography
-              noWrap
               key="TechnologyPageMainBody"
               variant="h7"
               className={classes.bodyClass}

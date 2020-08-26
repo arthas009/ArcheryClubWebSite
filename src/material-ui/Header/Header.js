@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Popover } from '@material-ui/core';
+import { Popover,Link } from '@material-ui/core';
 import { Grid, Avatar, ButtonGroup } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -27,9 +27,7 @@ import CallIcon from '@material-ui/icons/Call';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
-    justifyContent: 'left',
     overflowX: 'auto',
-    height: 50,
     borderBottom: `1px solid gray`,
   },
   toolbarTitle: {
@@ -62,24 +60,21 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: 'none',
   },
   phoneIcon: {
-    marginLeft: theme.spacing(0),
-
   },
   emailIcon: {
     marginLeft: theme.spacing(3),
     // marginRight:theme.spacing(50)
   },
   ButtonGroup: {
-    marginLeft: theme.spacing(50),
     marginLeft: theme.spacing(3),
   },
-  solaGidecekOlanlar:
+  flexToolbarGrid:
   {
-
+    display: "flex",
   },
-  sagaGidecekOlanlar:
+  flexToolbarGrids:
   {
-
+    flex: 1,
   },
 
 }));
@@ -116,11 +111,16 @@ export default function Header(props) {
   /* h1 is used to display data on top left side of page */
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar} >
-        <Grid>
-          <div className={classes.solaGidecekOlanlar}>
-            <PhoneIcon fontSize="small" />
-            <PhoneIcon fontSize="small" />
+      <Toolbar className={classes.toolbar}>
+        <Grid container
+          direction="row"
+          justify="space-between"
+          alignItems="flex-start"
+        >
+          <Grid justify="flex-start"
+            alignItems="center"
+          >
+            <PhoneIcon color="inherit" fontSize="small" />
             <Typography
               component="h8"
               variant="body2"
@@ -129,29 +129,30 @@ export default function Header(props) {
             >
               +90 546 457 72 59
         </Typography>
-            <EmailIcon className={classes.emailIcon} fontSize="small" />
+            <EmailIcon color="inherit" className={classes.emailIcon} fontSize="small" />
             <Typography
               component="h8"
               variant="body2"
               color="inherit"
               className={classes.toolbarTitle}
             >
-              yusufalti1997@gmail.com
+              <Link color="inherit" stlye = {{cursor:'default'}}> yusufalti1997@gmail.com</Link>
+              
         </Typography>
-          </div>
-
-          <div className={classes.sagaGidecekOlanlar}>
-            <ButtonGroup variant="text" color="black" aria-label="text primary button group">
+          </Grid>
+          <Grid justify="flex-end"
+            alignItems="flex-start">
+            <ButtonGroup variant="text" color="inherit" aria-label="text primary button group">
               <Button><TwitterIcon fontSize="small" /></Button>
               <Button><FacebookIcon fontSize="small" /></Button>
               <Button><InstagramIcon fontSize="small" /></Button>
             </ButtonGroup>
-          </div>
+          </Grid>
         </Grid>
-
       </Toolbar>
 
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+
         {sections.map((section) => (
           /* Galeriyse farklı bir buton, değilse farklı bir buton yapısı oluşacak */
           <div>
