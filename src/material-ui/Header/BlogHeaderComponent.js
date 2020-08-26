@@ -12,7 +12,7 @@ import Hakkında from './HeaderButtons/Hakkında';
 import FarklıBilgiler from './HeaderButtons/FarklıBilgiler';
 import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
-
+import Klübümüz from './HeaderButtons/Klübümüz';
 /*
 * BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
 * Üzerinde oluşan menü butonları (Header.js dosyasında oluşmaktadır), sahip oldukları tıklama eventi
@@ -105,10 +105,10 @@ class BlogHeaderComponent extends Component {
   }
   render() {
 
+     /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
+         onClick event handler function inside <Header> */
     const changePage = (newPage) => {
-      //setState()
-      /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
-      /* onClick event handler function inside <Header> */
+      //setState()  
       this.clickedName = newPage;
       this.setState({ whichPage: newPage });
     }
@@ -137,6 +137,15 @@ class BlogHeaderComponent extends Component {
       ReactDOM.render(
         <React.StrictMode>
         <Haberler news={this.state.NewsList} />
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+    }
+    else if (this.state.whichPage === "Klübümüz") {
+      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+      ReactDOM.render(
+        <React.StrictMode>
+        <Klübümüz />
         </React.StrictMode>,
         document.getElementById('root')
       );

@@ -32,22 +32,22 @@ const useStyles = makeStyles((theme) => ({
 const ImageList = [
   {
     id: 1,
-    src: "https://worldarchery.org/sites/default/files/styles/manual_crop_16_9/public/page/image/archery_web.jpg?itok=EP-1kTyE&c=42aab2c8019a0badf60dfe63e9e50f7f",
-    title: "Ahmet Mehmet",
+    src: "https://i.pinimg.com/originals/6a/a5/ad/6aa5adeecdacef3978628080a0555d8a.jpg",
+    title: "",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 2,
-    src: "https://lh3.googleusercontent.com/proxy/TNscVndH7d8Yw0H_Rl3gLQIZ6ExrbsEeDhGHkJa586DD4FhnH4nW2-RyJUdpwRnKK0hT2SO4BxBSSES_upQ61f86DhOpz3k5wGOl8lVQjF12gb84lzPauY6N",
-    title: "Hasan Hüseyin",
+    src: "https://lh3.googleusercontent.com/proxy/cXaM7rP2l4KPjipOe4JD-NqGK7wyXXQ7hmCQfRs2NDMyiWoH1zXUANWfwU3PnxxVZ2nuvqZU48mE8isMA1Mz01ZEzmDdsqztUnM",
+    title: "",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 3,
     src: "https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg",
-    title: "Ok atan adam",
+    title: "",
     description: "bar",
     author: "Gazi Okçuluk"
   },
@@ -95,7 +95,7 @@ const ImageList = [
   }
 ];
 
-export default function Sporcularımız() {
+export default function Klübümüz() {
   const classes = useStyles();
 
   return (
@@ -104,7 +104,7 @@ export default function Sporcularımız() {
       <Container>
       <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-            <Typography variant="h3" color="textPrimary">Sporcularımız</Typography>
+            <Typography variant="h3" color="textPrimary">Klübümüz</Typography>
           </Box>
         </Grid>
        <Grid className={classes.mainGrid} container spacing={3}>

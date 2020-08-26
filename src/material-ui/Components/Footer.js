@@ -140,8 +140,6 @@ export default function Footer(props) {
         </CardContent>
         </Card>
         </Grid>
-
-
         <Typography variant="h6" align="center" gutterBottom>
           {title}
         </Typography>

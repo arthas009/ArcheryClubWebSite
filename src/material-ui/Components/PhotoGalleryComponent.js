@@ -37,6 +37,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
+    border: "1px solid #000000",
     overflow: "hidden",
     backgroundColor: theme.palette.background.paper
   },
@@ -85,7 +86,7 @@ export default function PhotoGalleryComponent(props) {
             <img onClick={() => handleClickOpen(tile)} src={tile.src} alt={tile.title} />
             <GridListTileBar
               title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
+              subtitle={<span>Ekleyen: {tile.author}</span>}
             />
           </GridListTile>
         ))}

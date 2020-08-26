@@ -105,6 +105,11 @@ export default function Header(props) {
     setAnchorEl(null);
     handleClick("Sporcularımız");
   };
+
+  const handlePopoverCloseKlubumuz = () => {
+    setAnchorEl(null);
+    handleClick("Klübümüz");
+  };
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -185,6 +190,16 @@ export default function Header(props) {
                   <Button
                     color="inherit"
                     noWrap
+                    key={"Klübümüz"}
+                    variant="body2"
+                    className={classes.menuButton}
+                    onClick={handlePopoverCloseKlubumuz}
+                  >
+                    Klübümüz
+            </Button>
+                  <Button
+                    color="inherit"
+                    noWrap
                     key={"Madalyalar"}
                     variant="body2"
                     className={classes.menuButton}
@@ -202,6 +217,8 @@ export default function Header(props) {
                   >
                     Sporcularımız
             </Button>
+
+
                 </ButtonGroup>
               </Popover>
             </div>

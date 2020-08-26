@@ -39,7 +39,6 @@ export default function MainPage(props) {
             </Box>
           </Grid>
           <Grid container className={classes.mainGrid}>
-
           </Grid>
         </Container>
 

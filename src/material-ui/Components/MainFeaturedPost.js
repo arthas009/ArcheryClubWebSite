@@ -65,9 +65,13 @@ export default function MainFeaturedPost(props) {
               {post.description}
             </Typography>
             <Typography align="center" variant="h7" color="inherit" paragraph>
-              <Button variant="outlined" color="inherit">
-                 {post.title == "Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir" ? "İLETİŞİM":""}
-              </Button>
+             {post.title == "Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir" ? <Button variant="outlined" color="inherit">
+                 İletişim
+                 </Button>:
+                 <Button variant="outlined" color="inherit">
+                 Okçuluk Hakkında
+                 </Button> }
+              
             </Typography>
           </div>
         </Grid>
