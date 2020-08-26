@@ -25,6 +25,8 @@ import Klübümüz from './HeaderButtons/Klübümüz';
 */
 
 
+
+
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +49,25 @@ class BlogHeaderComponent extends Component {
       { title: 'Okçuluk Hakkında', url: '#' },
       { title: 'İletisim', url: '#' },
     ];
+    /*this.featuredPost = [
+      {
+        title: 'PhotowithPost',
+        date: 'Nov 12',
+        description:
+          'This is a wider card with supporting text below as a natural lead-in to additional content.',
+        image: 'https://source.unsplash.com/random',
+        imageText: 'Image Text',
+      },
+      {
+        title: 'Post title',
+        date: 'Nov 11',
+        description:
+          'This is a wider card with supporting text below as a natural lead-in to additional content.',
+        image: 'https://source.unsplash.com/random',
+        imageText: 'Image Text',
+      },
+    ];*/
+   
 
     /* This is sample object for MainFeaturedPost component. Going to be removed later. */
     this.mainFeaturedPost = [{
@@ -103,6 +124,7 @@ class BlogHeaderComponent extends Component {
       direction: e.direction,
     });
   }
+  
   render() {
 
      /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be

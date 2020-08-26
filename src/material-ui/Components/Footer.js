@@ -36,19 +36,18 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   footer: {
-    marginTop: theme.spacing(20),
-    padding: theme.spacing(2, 0),
+    padding: theme.spacing(2, 2),
     backgroundColor: 'rgba(200,200,200,.9)',
     bottom: 0,
   },
   typho:
   {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
     color: "#000000",
   },
   typhoDown:
   {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     color: "#000000",
   },
   card:
@@ -56,12 +55,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     backgroundColor:'inherit',
     [theme.breakpoints.up('lg')]: {
-      marginLeft:theme.spacing(25),
+      marginLeft:theme.spacing(2), //kartın soldan uzaklığı
     },
     marginLeft:theme.spacing(15),
 
     [theme.breakpoints.down('md')]: {
-      marginLeft:theme.spacing(2),
+      marginLeft:theme.spacing(20),
 
     },    
   },
@@ -92,7 +91,7 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <hr></hr>
-        <Grid container spacing={1} xs={12} xl= {12}>
+        <Grid container spacing={2} xs="auto" xl= "auto">
         <Card className={classes.card}>
           <CardHeader
             subheader="İletişim" />
@@ -128,15 +127,12 @@ export default function Footer(props) {
             subheader="Sosyal Medya Hesaplarımız" />
         <CardContent className={classes.cardContent}>
           <Typography className ={classes.typho} variant="h6" align="left">Takip Ediyor Musunuz ?</Typography>
-         
-         
-         
+
           <ButtonGroup variant="text" color="black" aria-label="text primary button group">
         <Button><TwitterIcon fontSize="small" /></Button>
         <Button><FacebookIcon fontSize="small" /></Button>
         <Button><InstagramIcon fontSize="small" /></Button>
       </ButtonGroup>
-      
         </CardContent>
         </Card>
         </Grid>
@@ -150,7 +146,6 @@ export default function Footer(props) {
     </footer>
   );
 }
-
 Footer.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,

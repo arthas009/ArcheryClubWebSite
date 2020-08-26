@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   cardMedia: {
-    width: 100,
+    width: 200,
     [theme.breakpoints.down('md')]: {
       bottom: 0,
     },
@@ -43,7 +43,8 @@ export default function FeaturedPost(props) {
   const { post } = props;
 
   return (
-    <Grid item xs={6} md={6}>
+    
+    <Grid item xs={6} md={6} className={classes.featuredPost}> 
       <CardActionArea component="a" href="/">
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
@@ -66,6 +67,7 @@ export default function FeaturedPost(props) {
         </Card>
       </CardActionArea>
     </Grid>
+    
   );
 }
 

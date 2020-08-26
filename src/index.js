@@ -8,6 +8,7 @@ import Footer from './material-ui/Components/Footer';
 import { Grid } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 
+
 ReactDOM.render(
   <React.StrictMode>
   <SwipeableContent></SwipeableContent> 

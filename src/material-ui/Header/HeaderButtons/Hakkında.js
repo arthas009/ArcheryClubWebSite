@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  Typography: {
+    fontStyle: 'italic',
+
+  },
 }));
 
 
@@ -43,7 +47,7 @@ export default function Hakkında() {
       <Container>
       <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-            <Typography variant="h3" color="textPrimary">Hakkında</Typography>
+            <Typography variant="h3"  color="textPrimary">Hakkında</Typography>
           </Box>
         </Grid>
         <Grid className={classes.mainGrid}>

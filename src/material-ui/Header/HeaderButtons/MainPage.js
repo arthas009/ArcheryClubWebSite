@@ -10,12 +10,12 @@ import FeaturedPost from '../../Components/FeaturedPost';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(8),
     justifyContent: "space-between",
   },
   heaederGrid:
   {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(5),
   },
   pageHeader: {
     display: 'flex',
@@ -25,7 +25,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
+const featuredPosts = [
+  {
+    title: 'Featured post',
+    date: 'Nov 12',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+ /* {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },*/
+];
 export default function MainPage(props) {
   const classes = useStyles();
 
@@ -35,10 +52,16 @@ export default function MainPage(props) {
         <Container>
         <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
-              <Typography variant="h3" color="textPrimary">Gazi Okçuluk Klübü</Typography>
+              <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulübü</Typography>
             </Box>
           </Grid>
+         
           <Grid container className={classes.mainGrid}>
+          </Grid>
+          <Grid container spacing={6}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
           </Grid>
         </Container>
 
