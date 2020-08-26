@@ -33,14 +33,14 @@ export default function Sporcularımız() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-        <Container>
-          <Grid className={classes.heaederGrid}>
-            <Box className={classes.pageHeader}>
-              <Typography variant="h3" color="textPrimary">Sporcularımız</Typography>
-            </Box>
+    <CssBaseline />
+      <Container>
+      <Grid className={classes.heaederGrid}>
+          <Box className={classes.pageHeader}>
+            <Typography variant="h3" color="textPrimary">Sporcularımız</Typography>
+          </Box>
         </Grid>
-       <Grid container spacing={3}>
+       <Grid className={classes.mainGrid} container spacing={3}>
        
        </Grid>
        </Container>

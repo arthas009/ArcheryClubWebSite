@@ -13,6 +13,18 @@ import FarklıBilgiler from './HeaderButtons/FarklıBilgiler';
 import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
 
+/*
+* BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
+* Üzerinde oluşan menü butonları (Header.js dosyasında oluşmaktadır), sahip oldukları tıklama eventi
+* ile tüm sayfanın kontrolünü saglamaktadır. Tıklanan butona göre root isimli <div> ögesinin içerisin-
+* de ki componenti kaldırıp ilgili yeni componenti koyarak sayfanın bedenini düzenler.
+* Ayrıca sunucu ile iletişim de şu an burada yapılmaktadır
+
+* Yapılacaklar:
+* component kaldırıp yenisini ekleme işleminden vazgeçip Router kullanılarak yeni html sayfalarına zıplama yapılacaktır.
+*/
+
+
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +36,8 @@ class BlogHeaderComponent extends Component {
         marginTop: theme.spacing(3),
       },
     }));
+
+    /* These are the names to be placed on menu buttons. Props of <Header> component*/
     this.sections = [
       { title: 'Ana Sayfa', url: '#' },
       { title: 'Hakkında', url: '#' },
@@ -34,6 +48,7 @@ class BlogHeaderComponent extends Component {
       { title: 'İletisim', url: '#' },
     ];
 
+    /* This is sample object for MainFeaturedPost component. Going to be removed later. */
     this.mainFeaturedPost = [{
       title: '',
       description:
@@ -55,6 +70,7 @@ class BlogHeaderComponent extends Component {
 
   }
 
+  /* Fetching News(Haberler) data from a local server program. */
   async componentDidMount() {
     console.log(this.NewsList);
     try {
@@ -79,6 +95,8 @@ class BlogHeaderComponent extends Component {
   componentWillUnmount() {
 
   }
+
+
   handleSelect(selectedIndex, e) {
     this.setState({
       index: selectedIndex,
@@ -89,11 +107,13 @@ class BlogHeaderComponent extends Component {
 
     const changePage = (newPage) => {
       //setState()
-      //This will trigger a refresh
+      /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
+      /* onClick event handler function inside <Header> */
       this.clickedName = newPage;
       this.setState({ whichPage: newPage });
     }
 
+    /* In this section, root element, which is the symbolic body of the body will be changed accordingly */
     if (this.state.whichPage === "Ana Sayfa") {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
@@ -116,7 +136,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          -          <Haberler news={this.state.NewsList} />
+        <Haberler news={this.state.NewsList} />
         </React.StrictMode>,
         document.getElementById('root')
       );
@@ -125,7 +145,7 @@ class BlogHeaderComponent extends Component {
       ReactDOM.unmountComponentAtNode(document.getElementById('root'));
       ReactDOM.render(
         <React.StrictMode>
-          -          <Madalyalar />
+        <Madalyalar />
         </React.StrictMode>,
         document.getElementById('root')
       );

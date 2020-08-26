@@ -13,11 +13,17 @@ import EmailIcon from '@material-ui/icons/Email';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import PhotoAlbumIcon from '@material-ui/icons/PhotoAlbum';
 import CallIcon from '@material-ui/icons/Call';
+
+/*
+* Header, BlogHeaderComponent tarafından renderleniyor. Dışardan aldığı json bilgileri üzerine ikinci toolbar ögesi üzerinde
+* menü butonları oluşturmaktan sorumlu. İlk toolbar ögesinde ise iletişim ve sosyal medya hesaplarının bilgilerini koymayı
+* planladık. Bu durum değişebilir.
+
+*/
+
 
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
@@ -30,12 +36,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
 
   },
-  toolbarSecondary: {//alt çizgi
+  toolbarSecondary: {
     justifyContent: 'space-between',
     padding: theme.spacing(2),
     overflowX: 'auto',
     color: 'black',
-    borderBottom: `2px solid gray`,
 
   },
   menuButton:
@@ -57,25 +62,25 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: 'none',
   },
   phoneIcon: {
-    marginLeft:theme.spacing(0),
+    marginLeft: theme.spacing(0),
 
   },
   emailIcon: {
-    marginLeft:theme.spacing(3),
-   // marginRight:theme.spacing(50)
+    marginLeft: theme.spacing(3),
+    // marginRight:theme.spacing(50)
   },
   ButtonGroup: {
-    marginLeft:theme.spacing(50),
+    marginLeft: theme.spacing(50),
     marginLeft: theme.spacing(3),
   },
-solaGidecekOlanlar:
-{
+  solaGidecekOlanlar:
+  {
 
-},
-sagaGidecekOlanlar:
-{
+  },
+  sagaGidecekOlanlar:
+  {
 
-},
+  },
 
 }));
 
@@ -92,7 +97,14 @@ export default function Header(props) {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-
+  const handlePopoverCloseMadalyalar = () => {
+    setAnchorEl(null);
+    handleClick("Madalyalar");
+  };
+  const handlePopoverCloseSporcularımız = () => {
+    setAnchorEl(null);
+    handleClick("Sporcularımız");
+  };
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -101,41 +113,42 @@ export default function Header(props) {
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
         <Grid>
-          <div className = {classes.solaGidecekOlanlar}>
-      <PhoneIcon fontSize="small" />  
-        <PhoneIcon fontSize="small" />
-        <Typography
-          component="h8"
-          variant="body2"
-          color="inherit"
-          className={classes.toolbarTitle}
-        >
-          +90 546 457 72 59
+          <div className={classes.solaGidecekOlanlar}>
+            <PhoneIcon fontSize="small" />
+            <PhoneIcon fontSize="small" />
+            <Typography
+              component="h8"
+              variant="body2"
+              color="inherit"
+              className={classes.toolbarTitle}
+            >
+              +90 546 457 72 59
         </Typography>
-        <EmailIcon className={classes.emailIcon} fontSize="small" />
-        <Typography
-          component="h8"
-          variant="body2"
-          color="inherit"
-          className={classes.toolbarTitle}
-        >
-          yusufalti1997@gmail.com
+            <EmailIcon className={classes.emailIcon} fontSize="small" />
+            <Typography
+              component="h8"
+              variant="body2"
+              color="inherit"
+              className={classes.toolbarTitle}
+            >
+              yusufalti1997@gmail.com
         </Typography>
-        </div>
-        
-        <div className={classes.sagaGidecekOlanlar}>
-        <ButtonGroup variant="text" color="black" aria-label="text primary button group">
-        <Button><TwitterIcon fontSize="small" /></Button>
-        <Button><FacebookIcon fontSize="small" /></Button>
-        <Button><InstagramIcon fontSize="small" /></Button>
-      </ButtonGroup>
-      </div>
-      </Grid>
+          </div>
+
+          <div className={classes.sagaGidecekOlanlar}>
+            <ButtonGroup variant="text" color="black" aria-label="text primary button group">
+              <Button><TwitterIcon fontSize="small" /></Button>
+              <Button><FacebookIcon fontSize="small" /></Button>
+              <Button><InstagramIcon fontSize="small" /></Button>
+            </ButtonGroup>
+          </div>
+        </Grid>
 
       </Toolbar>
 
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (
+          /* Galeriyse farklı bir buton, değilse farklı bir buton yapısı oluşacak */
           <div>
             {section.title == "Galeri" ? <div><Button
               color="inherit"
@@ -164,6 +177,7 @@ export default function Header(props) {
                   horizontal: 'center',
                 }}
               >
+                {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
                 <ButtonGroup orientation="vertical"
                   color="primary"
                   aria-label="vertical contained primary button group"
@@ -174,7 +188,7 @@ export default function Header(props) {
                     key={"Madalyalar"}
                     variant="body2"
                     className={classes.menuButton}
-                    onClick={() => handleClick("Madalyalar")}
+                    onClick={handlePopoverCloseMadalyalar}
                   >
                     Madalyalar
             </Button>
@@ -184,7 +198,7 @@ export default function Header(props) {
                     key={"Sporcularımız"}
                     variant="body2"
                     className={classes.menuButton}
-                    onClick={() => handleClick("Sporcularımız")}
+                    onClick={handlePopoverCloseSporcularımız}
                   >
                     Sporcularımız
             </Button>
@@ -207,6 +221,7 @@ export default function Header(props) {
 
           </div>
         ))}
+
       </Toolbar>
     </React.Fragment>
   );

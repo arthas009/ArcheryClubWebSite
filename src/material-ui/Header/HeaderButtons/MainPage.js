@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Grid, Box, Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
-
 import FeaturedPost from '../../Components/FeaturedPost';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function MainPage(props) {
   const classes = useStyles();
 
@@ -37,7 +38,7 @@ export default function MainPage(props) {
               <Typography variant="h3" color="textPrimary">Gazi Okçuluk Klübü</Typography>
             </Box>
           </Grid>
-          <Grid className={classes.mainGrid}>
+          <Grid container className={classes.mainGrid}>
 
           </Grid>
         </Container>
