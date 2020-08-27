@@ -3,7 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box,ButtonGroup } from '@material-ui/core';
+import ViewListIcon from '@material-ui/icons/ViewList';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+
 import PhotoGalleryComponent from '../../Components/PhotoGalleryComponent';
 
 
@@ -65,54 +71,44 @@ const ImageList = [
     description: "bar",
     author: "Gazi Okçuluk"
   },
-  {
-    id: 6,
-    src: "images/sunset_road.jpg",
-    title: "Sunset_Road",
-    description: "bar",
-    author: "Sudhanshu"
-  },
-  {
-    id: 5,
-    src: "images/bridge.jpg",
-    title: "Sunset on the Bridge",
-    description: "bar",
-    author: "Dabang"
-  },
-  {
-    id: 5,
-    src: "images/fire.jpg",
-    title: "Fire",
-    description: "bar",
-    author: "Komali"
-  },
-  {
-    id: 5,
-    src: "images/set.jpg",
-    title: "Set",
-    description: "bar",
-    author: "CCV"
-  }
 ];
 
 export default function Klübümüz() {
   const classes = useStyles();
+  const [view, setView] = React.useState(1);
+  const handleChange = (nextViewCount) => {
+    setView(nextViewCount);
+    console.log(view);
+  };
 
   return (
     <React.Fragment>
-    <CssBaseline />
+      <CssBaseline />
       <Container>
-      <Grid className={classes.heaederGrid}>
+        <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <Typography variant="h3" color="textPrimary">Klübümüz</Typography>
           </Box>
         </Grid>
-       <Grid className={classes.mainGrid} container spacing={3}>
-       <PhotoGalleryComponent ImageList={ImageList}> 
+        <Grid className={classes.mainGrid} container spacing={3}>
+          <Grid>
+            <ButtonGroup variant="text" color="inherit" aria-label="text primary button group">
+              <ToggleButton value="list" aria-label="list" onClick={() => handleChange (1)}>
+                <ViewListIcon />
+              </ToggleButton>
+              <ToggleButton value="module" aria-label="module" onClick={() => handleChange (3)}>
+                <ViewModuleIcon />
+              </ToggleButton>
+            </ButtonGroup>
+          </Grid>
+          <Grid>
+            <PhotoGalleryComponent cols = {view} ImageList={ImageList}>
 
-        </PhotoGalleryComponent>
-       </Grid>
-       </Container>
+            </PhotoGalleryComponent>
+          </Grid>
+
+        </Grid>
+      </Container>
     </React.Fragment>
   );
 }

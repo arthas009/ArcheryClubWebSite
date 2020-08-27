@@ -102,7 +102,7 @@ export default function Header(props) {
 
   const handlePopoverCloseKlubumuz = () => {
     setAnchorEl(null);
-    handleClick("Kulübümüz");
+    handleClick("Klübümüz");
   };
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;

@@ -9,12 +9,15 @@ import { Grid } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 
 
+/*
 ReactDOM.render(
   <React.StrictMode>
   <SwipeableContent></SwipeableContent> 
   </React.StrictMode>,
   document.getElementById('carousel_section')
 );
+*/
+
 ReactDOM.render(
   <React.StrictMode>
   <Footer description ="" title= ""></Footer>   

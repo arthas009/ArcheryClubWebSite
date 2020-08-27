@@ -65,8 +65,7 @@ export default function PhotoGalleryComponent(props) {
   const classes = useStyles();
   const [selectedTile, setSelectedTile] = React.useState(null);
   const [value, setValue] = React.useState([]);
-  const { ImageList } = props;
-
+  const { cols, ImageList } = props;
   const handleClickOpen = tile => {
     setSelectedTile(tile);
     console.log("clicked");
@@ -78,7 +77,7 @@ export default function PhotoGalleryComponent(props) {
   };
   return (
     <div className={classes.root}>
-      <GridList cols={3}>
+      <GridList cols={cols}>
         className={classes.gridList}
         
         {ImageList.map(tile => (

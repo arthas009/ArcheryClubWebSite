@@ -5,7 +5,17 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography, Box } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import MainFeaturedPost from '../../Components/MainFeaturedPost';
 
+const mainFeaturedPost = [{
+  title: 'Gazi Okçuluk Klübü / Hakkında',
+  description:
+    "",
+  image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
+  imgText: '',
+  linkText: '',
+}
+];
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,13 +46,13 @@ const useStyles = makeStyles((theme) => ({
 const theme = createMuiTheme({
   typography: {
     overline: {
-      fontSize:20,
+      fontSize: 20,
       fontStyle: 'underline',
     },
     body1: {
       fontWeight: 500,
     },
-   
+
   },
 });
 
@@ -52,11 +62,15 @@ export default function Hakkında() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container>
-      <Grid className={classes.heaederGrid}>
+      {
+        mainFeaturedPost.map((item, i) =>
+          <MainFeaturedPost key={i} post={item} />
+        )
+      }      <Container>
+        <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-          <ThemeProvider theme={theme}>
-            <Typography variant="overline"   color="textPrimary">Hakkında</Typography>
+            <ThemeProvider theme={theme}>
+              <Typography variant="overline" color="textPrimary">Hakkında</Typography>
             </ThemeProvider>
           </Box>
         </Grid>

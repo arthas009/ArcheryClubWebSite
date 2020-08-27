@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Grid, Box, Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
+import SwipeableContent from '../../Components/SwipeableContent';
 
 
 
@@ -49,6 +50,8 @@ export default function MainPage(props) {
   return (
     <React.Fragment>
       <CssBaseline />
+      <SwipeableContent></SwipeableContent> 
+
         <Container>
         <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
