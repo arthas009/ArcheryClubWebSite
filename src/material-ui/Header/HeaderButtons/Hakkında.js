@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography, Box } from '@material-ui/core';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 
 
@@ -30,13 +31,20 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
-  Typography: {
-    fontStyle: 'italic',
-
-  },
 }));
 
-
+const theme = createMuiTheme({
+  typography: {
+    overline: {
+      fontSize:20,
+      fontStyle: 'underline',
+    },
+    body1: {
+      fontWeight: 500,
+    },
+   
+  },
+});
 
 export default function Hakkında() {
   const classes = useStyles();
@@ -47,7 +55,9 @@ export default function Hakkında() {
       <Container>
       <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-            <Typography variant="h3"  color="textPrimary">Hakkında</Typography>
+          <ThemeProvider theme={theme}>
+            <Typography variant="overline"   color="textPrimary">Hakkında</Typography>
+            </ThemeProvider>
           </Box>
         </Grid>
         <Grid className={classes.mainGrid}>
