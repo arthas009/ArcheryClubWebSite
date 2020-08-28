@@ -12,16 +12,16 @@ const mainFeaturedPost = [{
     description:
         "Kendine bir hedef belirlemek istiyorsan",
     image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
-    imgText: '',
-    linkText: '',
+    btnName: "İletişim",
+    btnUrl:"Iletisim",
 },
 {
     title: 'Atılan her ok, hedefe değmelidir!',
     description:
         "",
     image: 'https://miro.medium.com/max/3000/1*bHf1bqIQEJmtRDnuxVPdfg.jpeg',
-    imgText: '',
-    linkText: '',
+    btnName:"Okçuluk Hakkında",
+    btnUrl:"OkculukHakkinda"
 },
 ];
 

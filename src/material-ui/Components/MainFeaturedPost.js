@@ -9,7 +9,7 @@ import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
-    
+
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
     backgroundSize: 'cover',
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
       height: 200,
     },
-    
+
   },
   overlay: {
 
@@ -38,18 +38,23 @@ const useStyles = makeStyles((theme) => ({
   mainFeaturedPostContent: {
     justifyContent: 'center',
   },
+  button:
+  {
+    marginBottom: theme.spacing(2),
+  }
 
 }));
 
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
+  const CustomLink = props => <Link to={"/" + props.name} {...props}></Link>;
 
   return (
     <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
       {/* Increase the priority of the hero background image */}
       {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
-      <Grid container className={classes.mainFeaturedPostContent}>
+      <Grid container justify='left' className={classes.mainFeaturedPostContent}>
         <div className={classes.overlay}>
           <Typography className={classes.primaryTyphography} align="center" variant="h5" color="inherit" gutterBottom>
             {post.title}
@@ -57,11 +62,27 @@ export default function MainFeaturedPost(props) {
           <Typography className={classes.secondaryTyphography} align="center" variant="h7" color="inherit" paragraph>
             {post.description}
           </Typography>
+          {
+            post.btnName === '' ? null :
+              <Typography align="center">
+                <Button
+                  component={CustomLink}
+                  color="inherit"
+                  name={"/" + post.btnUrl}
+                  key={"Klubumuz"}
+                  variant="outlined"
+                  className={classes.button}
+                >
+                  {post.btnName}
+                </Button>
+              </Typography>
+          }
         </div>
       </Grid>
     </Paper>
   );
-}
+};
+
 
 MainFeaturedPost.propTypes = {
   post: PropTypes.object,

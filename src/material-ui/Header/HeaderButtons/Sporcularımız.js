@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  yatayCizgi:{
+    width: '50%',
+  }
 }));
 
 const ImageList = [
@@ -106,6 +109,7 @@ export default function Sporcularımız() {
           <Box className={classes.pageHeader}>
             <Typography variant="h3" color="textPrimary">Sporcularımız</Typography>
           </Box>
+          <hr className={classes.yatayCizgi}/>
         </Grid>
        <Grid className={classes.mainGrid} container spacing={3}>
        <PhotoGalleryComponent ImageList={ImageList}> 

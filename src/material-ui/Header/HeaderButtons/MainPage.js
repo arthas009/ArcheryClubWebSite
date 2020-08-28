@@ -63,6 +63,8 @@ export default function MainPage(props) {
             <Box className={classes.pageHeader}>
               <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulübü</Typography>
             </Box>
+            <hr/>
+
           </Grid>
          
           <Grid container className={classes.mainGrid}>
