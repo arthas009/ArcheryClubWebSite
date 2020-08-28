@@ -6,6 +6,7 @@ import { Grid, Box, Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
+import VideoPlayer from '../../Components/VideoPlayer';
 
 
 
@@ -53,7 +54,7 @@ export default function MainPage(props) {
       <SwipeableContent></SwipeableContent> 
 
         <Container>
-        <Grid className={classes.heaederGrid}>
+-        <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
               <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulübü</Typography>
             </Box>

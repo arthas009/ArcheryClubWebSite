@@ -38,14 +38,14 @@ const useStyles = makeStyles((theme) => ({
 const ImageList = [
   {
     id: 1,
-    src: "https://i.pinimg.com/originals/6a/a5/ad/6aa5adeecdacef3978628080a0555d8a.jpg",
+    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
     title: "",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 2,
-    src: "https://lh3.googleusercontent.com/proxy/cXaM7rP2l4KPjipOe4JD-NqGK7wyXXQ7hmCQfRs2NDMyiWoH1zXUANWfwU3PnxxVZ2nuvqZU48mE8isMA1Mz01ZEzmDdsqztUnM",
+    src: "https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg",
     title: "",
     description: "bar",
     author: "Gazi Okçuluk"
@@ -75,7 +75,7 @@ const ImageList = [
 
 export default function Klübümüz() {
   const classes = useStyles();
-  const [view, setView] = React.useState(1);
+  const [view, setView] = React.useState(3);
   const handleChange = (nextViewCount) => {
     setView(nextViewCount);
     console.log(view);

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container } from '@material-ui/core';
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
 import Sporcularımız from './HeaderButtons/Sporcularımız';
@@ -46,13 +46,15 @@ class BlogHeaderComponent extends Component {
       { title: 'Hakkında', url: 'Hakkinda' },
       { title: 'Haberler', url: 'Haberler' },
 
-      { title: 'Galeri', 
-      subtitles:[
-        {title:'KLÜBÜMÜZ', url:'Klubumuz'},
-        {title:'Madalyalar', url:'Madalyalar'},
-        {title:'Sporcularımız', url:'Sporcularimiz'},
-      ],
-       url: 'Galeri' },
+      {
+        title: 'Galeri',
+        subtitles: [
+          { title: 'KLÜBÜMÜZ', url: 'Klubumuz' },
+          { title: 'Madalyalar', url: 'Madalyalar' },
+          { title: 'Sporcularımız', url: 'Sporcularimiz' },
+        ],
+        url: 'Galeri'
+      },
 
       { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
       { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
@@ -145,9 +147,9 @@ class BlogHeaderComponent extends Component {
     }
 
     /* In this section, root element, which is the symbolic body of the body will be changed accordingly */
-   
-     
-    
+
+
+
 
     return (
       <React.Fragment>
@@ -155,8 +157,8 @@ class BlogHeaderComponent extends Component {
         <Container maxWidth="lg">
           <Header title="" clickedName={this.clickedName} sections={this.sections} handleClick={changePage} />
         </Container>
-        <Container maxWidth="lg">                
-           <Route
+        <Container maxWidth="lg">
+          <Route
             exact
             path='/'
             render={() => (<MainPage></MainPage>)}
@@ -176,21 +178,25 @@ class BlogHeaderComponent extends Component {
             path='/Haberler'
             render={() => (<Haberler></Haberler>)}
           />
-          <Route
-            exact
-            path='/Galeri/Klubumuz'
-            render={() => (<Klübümüz></Klübümüz>)}
-          />
-           <Route
-            exact
-            path='/Galeri/Madalyalar'
-            render={() => (<Madalyalar></Madalyalar>)}
-          />
-          <Route
-            exact
-            path='/Galeri/Sporcularimiz'
-            render={() => (<Sporcularımız></Sporcularımız>)}
-          />
+         
+            <Route
+              exact
+              path='/Galeri/Klubumuz'
+              render={() => (<Klübümüz></Klübümüz>)}
+            />
+            <Route
+              exact
+              path='/Galeri/Madalyalar'
+              render={() => (<Madalyalar></Madalyalar>)}
+            />
+            <Route
+              exact
+              path='/Galeri/Sporcularimiz'
+              render={() => (<Sporcularımız></Sporcularımız>)}
+            />
+
+        
+
           <Route
             exact
             path='/FarkliBilgiler'
