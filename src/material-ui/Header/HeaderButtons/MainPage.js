@@ -6,6 +6,7 @@ import { Grid, Box, Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
+import Paper from '../../Components/Paper'
 
 
 
@@ -25,7 +26,12 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
 }));
+const paper = [
+  {
 
+
+  }
+]
 const featuredPosts = [
   {
     title: 'Featured post',
@@ -66,6 +72,8 @@ export default function MainPage(props) {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+          <Grid><Paper><Typography ></Typography></Paper></Grid>
+          <Grid><Paper><Typography ></Typography></Paper></Grid><Grid><Paper><Typography ></Typography></Paper></Grid><Grid><Paper><Typography ></Typography></Paper></Grid><Grid><Paper><Typography ></Typography></Paper></Grid>
         </Container>
 
     </React.Fragment>
