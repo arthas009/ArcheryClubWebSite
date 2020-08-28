@@ -12,8 +12,8 @@ const mainFeaturedPost = [{
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
-  imgText: '',
-  linkText: '',
+  btnName: '',
+  btnUrl: '',
 }
 ];
 
@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  yatayCizgi:{
+    width: '50%',
+  }
 }));
 
 const theme = createMuiTheme({
@@ -52,7 +55,6 @@ const theme = createMuiTheme({
     body1: {
       fontWeight: 500,
     },
-
   },
 });
 
@@ -67,13 +69,16 @@ export default function Hakkında() {
           <MainFeaturedPost key={i} post={item} />
         )
       }      <Container>
+        <ThemeProvider theme={theme}>
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-            <ThemeProvider theme={theme}>
+            
               <Typography variant="overline" color="textPrimary">Hakkında</Typography>
-            </ThemeProvider>
           </Box>
+          <hr className={classes.yatayCizgi}/>
         </Grid>
+        </ThemeProvider>
+
         <Grid className={classes.mainGrid}>
 
           <div>

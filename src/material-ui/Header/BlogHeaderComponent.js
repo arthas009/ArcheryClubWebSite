@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container } from '@material-ui/core';
+import {Route} from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
 import Sporcularımız from './HeaderButtons/Sporcularımız';
@@ -41,13 +42,21 @@ class BlogHeaderComponent extends Component {
 
     /* These are the names to be placed on menu buttons. Props of <Header> component*/
     this.sections = [
-      { title: 'Ana Sayfa', url: '#' },
-      { title: 'Hakkında', url: '#' },
-      { title: 'Haberler', url: '#' },
-      { title: 'Galeri', url: '#' },
-      { title: 'Farklı Bilgiler', url: '#' },
-      { title: 'Okçuluk Hakkında', url: '#' },
-      { title: 'İletisim', url: '#' },
+      { title: 'AnaSayfa', url: 'AnaSayfa' },
+      { title: 'Hakkında', url: 'Hakkinda' },
+      { title: 'Haberler', url: 'Haberler' },
+
+      { title: 'Galeri', 
+      subtitles:[
+        {title:'KLÜBÜMÜZ', url:'Klubumuz'},
+        {title:'Madalyalar', url:'Madalyalar'},
+        {title:'Sporcularımız', url:'Sporcularimiz'},
+      ],
+       url: 'Galeri' },
+
+      { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
+      { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
+      { title: 'İLETİŞİM', url: 'Iletisim' },
     ];
     /*this.featuredPost = [
       {
@@ -67,7 +76,7 @@ class BlogHeaderComponent extends Component {
         imageText: 'Image Text',
       },
     ];*/
-   
+
 
     /* This is sample object for MainFeaturedPost component. Going to be removed later. */
     this.mainFeaturedPost = [{
@@ -124,11 +133,11 @@ class BlogHeaderComponent extends Component {
       direction: e.direction,
     });
   }
-  
+
   render() {
 
-     /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
-         onClick event handler function inside <Header> */
+    /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
+        onClick event handler function inside <Header> */
     const changePage = (newPage) => {
       //setState()  
       this.clickedName = newPage;
@@ -136,93 +145,67 @@ class BlogHeaderComponent extends Component {
     }
 
     /* In this section, root element, which is the symbolic body of the body will be changed accordingly */
-    if (this.state.whichPage === "Ana Sayfa") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <MainPage />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Hakkında") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <Hakkında />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Haberler") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-        <Haberler news={this.state.NewsList} />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Klübümüz") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-        <Klübümüz />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Madalyalar") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-        <Madalyalar />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Sporcularımız") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <Sporcularımız></Sporcularımız>
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Farklı Bilgiler") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <FarklıBilgiler />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Okçuluk Hakkında") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "İletisim") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <Iletisim />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
+   
+     
+    
 
     return (
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="lg">
-          <Header title="" clickedName = {this.clickedName} sections={this.sections} handleClick={changePage} />
+          <Header title="" clickedName={this.clickedName} sections={this.sections} handleClick={changePage} />
+        </Container>
+        <Container maxWidth="lg">                
+           <Route
+            exact
+            path='/'
+            render={() => (<MainPage></MainPage>)}
+          />
+          <Route
+            exact
+            path='/AnaSayfa'
+            render={() => (<MainPage></MainPage>)}
+          />
+          <Route
+            exact
+            path='/Hakkinda'
+            render={() => (<Hakkında></Hakkında>)}
+          />
+          <Route
+            exact
+            path='/Haberler'
+            render={() => (<Haberler></Haberler>)}
+          />
+          <Route
+            exact
+            path='/Galeri/Klubumuz'
+            render={() => (<Klübümüz></Klübümüz>)}
+          />
+           <Route
+            exact
+            path='/Galeri/Madalyalar'
+            render={() => (<Madalyalar></Madalyalar>)}
+          />
+          <Route
+            exact
+            path='/Galeri/Sporcularimiz'
+            render={() => (<Sporcularımız></Sporcularımız>)}
+          />
+          <Route
+            exact
+            path='/FarkliBilgiler'
+            render={() => (<FarklıBilgiler></FarklıBilgiler>)}
+          />
+          <Route
+            exact
+            path='/OkculukHakkinda'
+            render={() => (<FarklıBilgiler></FarklıBilgiler>)}
+          />
+          <Route
+            exact
+            path='/Iletisim'
+            render={() => (<Iletisim></Iletisim>)}
+          />
         </Container>
       </React.Fragment>
     );

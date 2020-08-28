@@ -17,6 +17,8 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import PhotoAlbumIcon from '@material-ui/icons/PhotoAlbum';
 import CallIcon from '@material-ui/icons/Call';
+import { Link } from 'react-router-dom';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,21 +62,21 @@ const useStyles = makeStyles((theme) => ({
 
   },
   emailIcon: {
-    marginLeft:theme.spacing(1),
-   // marginRight:theme.spacing(50)
+    marginLeft: theme.spacing(1),
+    // marginRight:theme.spacing(50)
   },
   /*ButtonGroup: {
     marginLeft:theme.spacing(50),
     marginLeft: theme.spacing(3),
   },*/
-/*solaGidecekOlanlar:
-{
-
-},*/
-sagaGidecekOlanlar:
-{
-  marginLeft:theme.spacing(135),
-},
+  /*solaGidecekOlanlar:
+  {
+  
+  },*/
+  sagaGidecekOlanlar:
+  {
+    marginLeft: theme.spacing(135),
+  },
 
 }));
 
@@ -84,6 +86,7 @@ export default function Header(props) {
   const classes = useStyles();
   const { sections, title, handleClick } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const CustomLink = props => <Link to={"/" + props.name} {...props}></Link>;
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -112,38 +115,38 @@ export default function Header(props) {
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
         <Grid>
-          <div className = {classes.solaGidecekOlanlar} style={{ flex: 1 }} >
-      <PhoneIcon fontSize="small" />  
-        
-        <Typography
-          component="h8"
-          variant="body2"
-          color="inherit"
-          className={classes.toolbarTitle}
-          style={{ flex: 1 }}
-        >
-          +90 546 457 72 59
+          <div className={classes.solaGidecekOlanlar} style={{ flex: 1 }} >
+            <PhoneIcon fontSize="small" />
+
+            <Typography
+              component="h8"
+              variant="body2"
+              color="inherit"
+              className={classes.toolbarTitle}
+              style={{ flex: 1 }}
+            >
+              +90 546 457 72 59
         </Typography>
-        <EmailIcon className={classes.emailIcon} fontSize="small" />
-        <Typography
-          component="h8"
-          variant="body2"
-          color="inherit"
-          className={classes.toolbarTitle}
-          style={{ flex: 1 }}
-        >
-          yusufalti1997@gmail.com
+            <EmailIcon className={classes.emailIcon} fontSize="small" />
+            <Typography
+              component="h8"
+              variant="body2"
+              color="inherit"
+              className={classes.toolbarTitle}
+              style={{ flex: 1 }}
+            >
+              yusufalti1997@gmail.com
         </Typography>
-        </div>
-        
-        <div className={classes.sagaGidecekOlanlar} style={{ flex: 1 }}>
-        <ButtonGroup variant="text" color="black" aria-label="text primary button group" style={{ flex: 1 }}>
-        <Button><TwitterIcon fontSize="small" /></Button>
-        <Button><FacebookIcon fontSize="small" /></Button>
-        <Button><InstagramIcon fontSize="small" /></Button>
-      </ButtonGroup>
-      </div>
-      </Grid>
+          </div>
+
+          <div className={classes.sagaGidecekOlanlar} style={{ flex: 1 }}>
+            <ButtonGroup variant="text" color="black" aria-label="text primary button group" style={{ flex: 1 }}>
+              <Button><TwitterIcon fontSize="small" /></Button>
+              <Button><FacebookIcon fontSize="small" /></Button>
+              <Button><InstagramIcon fontSize="small" /></Button>
+            </ButtonGroup>
+          </div>
+        </Grid>
 
       </Toolbar>
 
@@ -153,7 +156,6 @@ export default function Header(props) {
           <div>
             {section.title == "Galeri" ? <div><Button
               color="inherit"
-              noWrap
               key={section.title}
               variant="body2"
               className={classes.menuButton}
@@ -183,45 +185,28 @@ export default function Header(props) {
                   color="primary"
                   aria-label="vertical contained primary button group"
                   variant="text">
-                  <Button
-                    color="inherit"
-                    noWrap
-                    key={"Klübümüz"}
-                    variant="body2"
-                    className={classes.menuButton}
-                    onClick={handlePopoverCloseKlubumuz}
-                  >
-                    Klübümüz
-            </Button>
-                  <Button
-                    color="inherit"
-                    noWrap
-                    key={"Madalyalar"}
-                    variant="body2"
-                    className={classes.menuButton}
-                    onClick={handlePopoverCloseMadalyalar}
-                  >
-                    Madalyalar
-            </Button>
-                  <Button
-                    color="inherit"
-                    noWrap
-                    key={"Sporcularımız"}
-                    variant="body2"
-                    className={classes.menuButton}
-                    onClick={handlePopoverCloseSporcularımız}
-                  >
-                    Sporcularımız
-            </Button>
+                  {section.subtitles.map((subsection) => (
+                    <Button
+                      component={CustomLink}
+                      color="inherit"
+                      name={"Galeri/" + subsection.url}
+                      key={"Klubumuz"}
+                      variant="body2"
+                      className={classes.menuButton}
+                      onClick={handlePopoverCloseKlubumuz}
+                    >
+                      {subsection.title}
+                    </Button>
 
-
-                </ButtonGroup>
+                  ))}
+                    </ButtonGroup>              
               </Popover>
             </div>
               :
               <Button
+                component={CustomLink}
+                name={section.url}
                 color="inherit"
-                noWrap
                 key={section.title}
                 variant="body2"
                 className={classes.menuButton}
@@ -241,6 +226,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  sections: PropTypes.array,
+        sections: PropTypes.array,
   title: PropTypes.string,
 };
