@@ -182,17 +182,17 @@ class BlogHeaderComponent extends Component {
             <Route
               exact
               path='/Galeri/Klubumuz'
-              render={() => (<Klübümüz></Klübümüz>)}
+              render={() => (<Klübümüz section={"Klubumuz"}></Klübümüz>)}
             />
             <Route
               exact
               path='/Galeri/Madalyalar'
-              render={() => (<Madalyalar></Madalyalar>)}
+              render={() => (<Klübümüz section={"Madalyalar"}></Klübümüz>)}
             />
             <Route
               exact
               path='/Galeri/Sporcularimiz'
-              render={() => (<Sporcularımız></Sporcularımız>)}
+              render={() => (<Klübümüz section={"Sporcularimiz"}></Klübümüz>)}
             />
 
         

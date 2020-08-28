@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
-  const CustomLink = props => <Link to={"/" + props.name} {...props}></Link>;
+  const CustomLink = props => <Link to={"/Hakkinda"} {...props}></Link>;
 
   return (
     <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
@@ -68,10 +68,11 @@ export default function MainFeaturedPost(props) {
                 <Button
                   component={CustomLink}
                   color="inherit"
-                  name={"/" + post.btnUrl}
+                  name={post.btnUrl}
                   key={"Klubumuz"}
                   variant="outlined"
                   className={classes.button}
+                  
                 >
                   {post.btnName}
                 </Button>

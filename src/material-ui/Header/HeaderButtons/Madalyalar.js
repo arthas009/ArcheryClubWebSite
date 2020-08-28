@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImageList = [
+const MadalyalarImageList = [
   {
     id: 1,
     src: "https://n11scdn.akamaized.net/a1/450/spor-outdoor/kupa-ve-madalya/madalya-1-adet-altin-gumus-bronz-renk__1427895175396524.jpeg",
@@ -108,7 +108,7 @@ export default function Madalyalar() {
             </Box>
         </Grid>
         <Grid className={classes.mainGrid} container spacing={3}>
-        <PhotoGalleryComponent ImageList={ImageList}> 
+        <PhotoGalleryComponent ImageList={MadalyalarImageList}> 
 
         </PhotoGalleryComponent>
        </Grid>

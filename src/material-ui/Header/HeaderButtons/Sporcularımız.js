@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ImageList = [
+const SporcularImageList = [
   {
     id: 1,
     src: "https://worldarchery.org/sites/default/files/styles/manual_crop_16_9/public/page/image/archery_web.jpg?itok=EP-1kTyE&c=42aab2c8019a0badf60dfe63e9e50f7f",
@@ -112,7 +112,7 @@ export default function Sporcularımız() {
           <hr className={classes.yatayCizgi}/>
         </Grid>
        <Grid className={classes.mainGrid} container spacing={3}>
-       <PhotoGalleryComponent ImageList={ImageList}> 
+       <PhotoGalleryComponent ImageList={SporcularImageList}> 
 
         </PhotoGalleryComponent>
        </Grid>

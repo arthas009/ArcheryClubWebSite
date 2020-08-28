@@ -54,7 +54,7 @@ export default function MainPage(props) {
       <SwipeableContent></SwipeableContent> 
 
         <Container>
--        <Grid className={classes.heaederGrid}>
+        <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
               <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulübü</Typography>
             </Box>

@@ -13,7 +13,7 @@ const mainFeaturedPost = [{
         "Kendine bir hedef belirlemek istiyorsan",
     image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
     btnName: "İletişim",
-    btnUrl:"Iletisim",
+    btnUrl:"Iletisim"
 },
 {
     title: 'Atılan her ok, hedefe değmelidir!',

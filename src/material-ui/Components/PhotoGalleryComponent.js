@@ -16,10 +16,11 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import {Container,Paper} from "@material-ui/core";
+import { Container, Paper } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
+import VideoPlayer from "./VideoPlayer";
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
     position: 'relative',
@@ -65,7 +66,7 @@ export default function PhotoGalleryComponent(props) {
   const classes = useStyles();
   const [selectedTile, setSelectedTile] = React.useState(null);
   const [value, setValue] = React.useState([]);
-  const { cols, ImageList } = props;
+  const { category, cols, ImageList, VideoList } = props;
   const handleClickOpen = tile => {
     setSelectedTile(tile);
     console.log("clicked");
@@ -75,40 +76,79 @@ export default function PhotoGalleryComponent(props) {
   const handleClose = () => {
     setSelectedTile(null);
   };
-  return (
-    <div className={classes.root}>
-      <GridList cols={cols}>
-        className={classes.gridList}
-        
-        {ImageList.map(tile => (
-          <GridListTile key={tile.id}>
-            <img onClick={() => handleClickOpen(tile)} src={tile.src} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              subtitle={<span>Ekleyen: {tile.author}</span>}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-      <Dialog 
-        fullScreen
-        open={selectedTile !== null}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-      >
 
-        {selectedTile && (       
-          <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${selectedTile.src})` }}>
-          {/* Increase the priority of the hero background image */}
-          </Paper >
-          
-        )}
+  if (category === "Fotoğraflar") {
+    return (
+      <div className={classes.root}>
+        <GridList cols={cols}>
+          className={classes.gridList}
 
-      </Dialog>
-    </div>
+          {ImageList.map(tile => (
+            <GridListTile key={tile.id}>
+              <img onClick={() => handleClickOpen(tile)} src={tile.src} alt={tile.title} />
+              <GridListTileBar
+                title={tile.title}
+                subtitle={<span>Ekleyen: {tile.author}</span>}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+        <Dialog
+          fullScreen
+          open={selectedTile !== null}
+          onClose={handleClose}
+          TransitionComponent={Transition}
+        >
+
+          {selectedTile && (
+            <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${selectedTile.src})` }}>
+              {/* Increase the priority of the hero background image */}
+            </Paper >
+
+          )}
+
+        </Dialog>
+      </div>
 
 
-  );
+    );
+  }
+  else if (category === "Videolar") {
+    return (
+      <div className={classes.root}>
+        <GridList cols={cols}>
+          className={classes.gridList}
+
+          {VideoList.map(tile => (
+            <GridListTile key={tile.id}>
+              <VideoPlayer playing = {true} url={tile.src} />
+              <GridListTileBar
+                title={tile.title}
+                subtitle={<span>Ekleyen: {tile.author}</span>}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+        <Dialog
+          fullScreen
+          open={selectedTile !== null}
+          onClose={handleClose}
+          TransitionComponent={Transition}
+        >
+
+          {selectedTile && (
+            <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${selectedTile.src})` }}>
+              {/* Increase the priority of the hero background image */}
+            </Paper >
+
+          )}
+
+        </Dialog>
+      </div>
+
+
+    );
+  }
 }
 
 PhotoGalleryComponent.propTypes = {
