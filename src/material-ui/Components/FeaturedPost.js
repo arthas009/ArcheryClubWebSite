@@ -44,16 +44,16 @@ const useStyles = makeStyles((theme) => ({
     },
     width: '25rem',
     [theme.breakpoints.down('md')]: {
-      width: '10rem',
+      width: '20rem',
     },
     display: 'flex',
-    height: 400,
   },
   cardDetails: {
     flex: 1,
   },
   cardMedia: {
     width: 600,
+    height: 400,
   },
   cardContent:
   {
@@ -65,7 +65,9 @@ const useStyles = makeStyles((theme) => ({
     width: '25rem',
     [theme.breakpoints.down('md')]: {
       width: '10rem',
-    }
+    },
+    height: "100%"
+
  }
 }));
 

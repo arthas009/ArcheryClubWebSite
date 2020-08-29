@@ -55,13 +55,13 @@ const useStyles = makeStyles((theme) => ({
   {
     display: 'flex',
     backgroundColor:'inherit',
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('md')]: {
       marginLeft:theme.spacing(2), //kartın soldan uzaklığı
     },
-    marginLeft:theme.spacing(15),
+    marginLeft:theme.spacing(10),
 
     [theme.breakpoints.down('md')]: {
-      marginLeft:theme.spacing(20),
+      marginLeft:theme.spacing(2),
 
     },    
   },

@@ -103,10 +103,19 @@ export default function Haberler(props) {
   return (
     <React.Fragment>
       <CssBaseline />
+      {
+        mainFeaturedPost.map((item, i) =>
+          <MainFeaturedPost key={i} post={item} />
+        )
+      }  
         <Container>
           <Grid><Box className={classes.pageHeader}>
-            <Typography variant="h3" color="textPrimary">Haberler</Typography>
+          <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">Haberler</Typography>
+            </ThemeProvider>
           </Box>
+          <hr className={classes.yatayCizgi} />
+
           </Grid>
 
           <Grid className={classes.mainGrid} container spacing={4}>

@@ -171,7 +171,7 @@ class BlogHeaderComponent extends Component {
           <Route
             exact
             path='/Haberler'
-            render={() => (<Haberler></Haberler>)}
+            render={() => (<Haberler news={this.state.NewsList}></Haberler>)}
           />
          
             <Route

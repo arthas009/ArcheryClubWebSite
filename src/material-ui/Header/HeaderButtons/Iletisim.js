@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  yatayCizgi: {
+    width: '50%',
+  },
 }));
 
 const themeTypography = createMuiTheme({
@@ -69,8 +72,12 @@ export default function Iletisim() {
       <Container>
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-            <Typography variant="h3" color="textPrimary">İletişim</Typography>
+          <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">İLETİŞİM</Typography>
+            </ThemeProvider>
           </Box>
+          <hr className={classes.yatayCizgi} />
+
         </Grid>
         <Grid className={classes.mainGrid}>
 

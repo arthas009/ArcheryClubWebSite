@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Popover } from '@material-ui/core';
-import { Grid, Avatar, ButtonGroup, AppBar, Container } from '@material-ui/core';
+import { Grid, Avatar, ButtonGroup, AppBar, Container,Box } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 
   },
   flexGrid: {
-    display:'flex',
   },
   typography: {
     padding: theme.spacing(2),
@@ -101,9 +100,10 @@ export default function Header(props) {
           >
           <Grid
               alignItems="flex-start">
-            <span>
+            <Box display={{ xs: 'none', md: 'inline' }}>
               <PhoneIcon fontSize="small" />
-              <Typography
+              
+              <Typography 
                 component="h8"
                 variant="body2"
                 color="inherit"
@@ -111,8 +111,8 @@ export default function Header(props) {
               >
                 +90 546 457 72 59
                </Typography>
-            </span>
-            <span>
+               </Box>
+               <Box display={{ xs: 'none', md: 'inline' }}>
 
               <EmailIcon className={classes.emailIcon} fontSize="small" />
               <Typography
@@ -123,10 +123,10 @@ export default function Header(props) {
               >
                 yusufalti1997@gmail.com
                </Typography>
-            </span>
+            </Box>
           </Grid>
           
-          <Grid   alignItems="flex-start"
+          <Grid alignItems="flex-start"
 > 
             <ButtonGroup variant="text" color="black">
               <Button><TwitterIcon fontSize="small" /></Button>

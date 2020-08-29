@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  yatayCizgi: {
+    width: '50%',
+  },
 }));
 const themeTypography = createMuiTheme({
   typography: {
@@ -61,8 +64,12 @@ export default function FarklıBilgiler() {
         <Container>
           <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
-              <Typography variant="h3" color="textPrimary">Farklı Bilgiler</Typography>
+            <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">Faklı BİLGİLER</Typography>
+            </ThemeProvider>
             </Box>
+            <hr className={classes.yatayCizgi} />
+
         </Grid>
        <Grid container spacing={3}>
       
