@@ -9,19 +9,11 @@ import { Box } from '@material-ui/core';
 import { Container } from '@material-ui/core'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CollapseableCard from '../../Components/CollapseableCard';
-import MainFeaturedPost from '../../Components/MainFeaturedPost';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 
-const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Klübü / Haberler',
-  description:
-    "",
-  image: 'https://wallpapercave.com/wp/WJrXzyI.jpg',
-  btnName: '',
-  btnUrl: '',
-}
-];
+
+
+
 
 
 const useStyles = makeStyles((theme) => ({
