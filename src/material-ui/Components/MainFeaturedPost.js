@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       height: 300,
     },
     [theme.breakpoints.down('md')]: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(1),
       height: 200,
     },
 
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   primaryTyphography:
   {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
 
   },
   mainFeaturedPostContent: {
@@ -56,10 +56,10 @@ export default function MainFeaturedPost(props) {
       {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
       <Grid container justify='left' className={classes.mainFeaturedPostContent}>
         <div className={classes.overlay}>
-          <Typography className={classes.primaryTyphography} align="center" variant="h5" color="inherit" gutterBottom>
+          <Typography className={classes.primaryTyphography} align="center" color="inherit" gutterBottom>
             {post.title}
           </Typography>
-          <Typography className={classes.secondaryTyphography} align="center" variant="h7" color="inherit" paragraph>
+          <Typography className={classes.secondaryTyphography} align="center" color="inherit" paragraph>
             {post.description}
           </Typography>
           {

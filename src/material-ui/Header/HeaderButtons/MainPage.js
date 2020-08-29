@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Grid, Box, Typography } from '@material-ui/core';
+import { Grid, Box, Typography,ThemeProvider } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
@@ -26,7 +26,17 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
 }));
-
+const themeTypography = createMuiTheme({
+  typography: {
+    overline: {
+      fontSize: 25,
+      //textDecorationLine: 'underline'
+    },
+    body1: {
+      fontWeight: 500,
+    },
+  },
+});
 const featuredPosts = [
   {
     title: 'Featured post',
@@ -63,9 +73,7 @@ export default function MainPage(props) {
           </Grid>
          
           <Grid container className={classes.mainGrid}>
-          </Grid>
-          <Grid container spacing={6}>
-            {featuredPosts.map((post) => (
+          {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>

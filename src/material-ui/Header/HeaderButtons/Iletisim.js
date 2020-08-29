@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  yatayCizgi: {
+    width: '50%',
+  },
 }));
 
  

@@ -3,13 +3,26 @@ import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import FeaturedPost from '../../Components/FeaturedPost';
+import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import { Typography } from '@material-ui/core';
 import { Box } from '@material-ui/core';
-import { Container } from '@material-ui/core';
+import { Container } from '@material-ui/core'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CollapseableCard from '../../Components/CollapseableCard';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+
+const mainFeaturedPost = [{
+  title: 'Gazi Okçuluk Klübü / Haberler',
+  description:
+    "",
+  image: 'https://wallpapercave.com/wp/WJrXzyI.jpg',
+  btnName: '',
+  btnUrl: '',
+}
+];
+
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -24,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     overflowX: 'auto',
+  },
+  yatayCizgi: {
+    width: '50%',
   },
 }));
 const themeTypography = createMuiTheme({
@@ -97,10 +113,19 @@ export default function Haberler(props) {
   return (
     <React.Fragment>
       <CssBaseline />
+      {
+        mainFeaturedPost.map((item, i) =>
+          <MainFeaturedPost key={i} post={item} />
+        )
+      }  
         <Container>
           <Grid><Box className={classes.pageHeader}>
-            <Typography variant="h3" color="textPrimary">Haberler</Typography>
+          <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">Haberler</Typography>
+            </ThemeProvider>
           </Box>
+          <hr className={classes.yatayCizgi} />
+
           </Grid>
 
           <Grid className={classes.mainGrid} container spacing={4}>

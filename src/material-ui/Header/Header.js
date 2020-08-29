@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Popover } from '@material-ui/core';
-import { Grid, Avatar, ButtonGroup } from '@material-ui/core';
+import { Grid, Avatar, ButtonGroup, AppBar, Container,Box } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
@@ -23,9 +23,8 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
-    justifyContent: 'left',
     overflowX: 'auto',
-    height: 50,
+    height: 'auto',
     borderBottom: `1px solid gray`,
   },
   toolbarTitle: {
@@ -37,15 +36,12 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     overflowX: 'auto',
     color: 'black',
-
   },
   menuButton:
   {
 
   },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
+  flexGrid: {
   },
   typography: {
     padding: theme.spacing(2),
@@ -69,14 +65,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft:theme.spacing(50),
     marginLeft: theme.spacing(3),
   },*/
-  /*solaGidecekOlanlar:
-  {
-  
-  },*/
-  sagaGidecekOlanlar:
-  {
-    marginLeft: theme.spacing(135),
-  },
+
 
 }));
 
@@ -94,19 +83,7 @@ export default function Header(props) {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-  const handlePopoverCloseMadalyalar = () => {
-    setAnchorEl(null);
-    handleClick("Madalyalar");
-  };
-  const handlePopoverCloseSporcularımız = () => {
-    setAnchorEl(null);
-    handleClick("Sporcularımız");
-  };
 
-  const handlePopoverCloseKlubumuz = () => {
-    setAnchorEl(null);
-    handleClick("Klübümüz");
-  };
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -114,38 +91,50 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
-        <Grid>
-          <div className={classes.solaGidecekOlanlar} style={{ flex: 1 }} >
-            <PhoneIcon fontSize="small" />
+        <Grid className={classes.flexGrid}
+        container
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="flex-start"
+          >
+          <Grid
+              alignItems="flex-start">
+            <Box display={{ xs: 'none', md: 'inline' }}>
+              <PhoneIcon fontSize="small" />
+              
+              <Typography 
+                component="h8"
+                variant="body2"
+                color="inherit"
+                className={classes.toolbarTitle}
+              >
+                +90 546 457 72 59
+               </Typography>
+               </Box>
+               <Box display={{ xs: 'none', md: 'inline' }}>
 
-            <Typography
-              component="h8"
-              variant="body2"
-              color="inherit"
-              className={classes.toolbarTitle}
-              style={{ flex: 1 }}
-            >
-              +90 546 457 72 59
-        </Typography>
-            <EmailIcon className={classes.emailIcon} fontSize="small" />
-            <Typography
-              component="h8"
-              variant="body2"
-              color="inherit"
-              className={classes.toolbarTitle}
-              style={{ flex: 1 }}
-            >
-              yusufalti1997@gmail.com
-        </Typography>
-          </div>
-
-          <div className={classes.sagaGidecekOlanlar} style={{ flex: 1 }}>
-            <ButtonGroup variant="text" color="black" aria-label="text primary button group" style={{ flex: 1 }}>
+              <EmailIcon className={classes.emailIcon} fontSize="small" />
+              <Typography
+                component="h8"
+                variant="body2"
+                color="inherit"
+                className={classes.toolbarTitle}
+              >
+                yusufalti1997@gmail.com
+               </Typography>
+            </Box>
+          </Grid>
+          
+          <Grid alignItems="flex-start"
+> 
+            <ButtonGroup variant="text" color="black">
               <Button><TwitterIcon fontSize="small" /></Button>
               <Button><FacebookIcon fontSize="small" /></Button>
               <Button><InstagramIcon fontSize="small" /></Button>
             </ButtonGroup>
-          </div>
+          </Grid>
+
         </Grid>
 
       </Toolbar>
@@ -193,13 +182,13 @@ export default function Header(props) {
                       key={"Klubumuz"}
                       variant="body2"
                       className={classes.menuButton}
-                      onClick={handlePopoverCloseKlubumuz}
+                      onClick={handlePopoverClose}
                     >
                       {subsection.title}
                     </Button>
 
                   ))}
-                    </ButtonGroup>              
+                </ButtonGroup>
               </Popover>
             </div>
               :
@@ -210,7 +199,7 @@ export default function Header(props) {
                 key={section.title}
                 variant="body2"
                 className={classes.menuButton}
-                onClick={() => handleClick(section.title)}
+
               >
                 {section.title}
               </Button>
@@ -226,6 +215,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-        sections: PropTypes.array,
+  sections: PropTypes.array,
   title: PropTypes.string,
 };

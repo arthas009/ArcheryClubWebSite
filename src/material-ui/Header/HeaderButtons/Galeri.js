@@ -10,15 +10,13 @@ import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
-
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import PhotoGalleryComponent from '../../Components/PhotoGalleryComponent';
-
 
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
   },
   heaederGrid:
   {
@@ -37,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
   yatayCizgi: {
     width: '50%',
   },
-  kategoriButonları:{
-    margin:theme.spacing(.2),
+  kategoriButonları: {
+    margin: theme.spacing(.2),
   },
 }));
 
@@ -51,7 +49,17 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-
+const themeTypography = createMuiTheme({
+  typography: {
+    overline: {
+      fontSize: 25,
+      //textDecorationLine: 'underline'
+    },
+    body1: {
+      fontWeight: 500,
+    },
+  },
+});
 const KlübümüzImageList = [
   {
     id: 1,
@@ -244,18 +252,22 @@ const MadalyalarVideoList = [
 
 const SporcularVideoList = [
   {
-      id: 1,
-      src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-      title: "",
-      description: "bar",
-      author: "Gazi Okçuluk"
-    },
+    id: 1,
+    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
+    title: "",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
 ];
 
-export default function Klübümüz(props) {
+export default function Galeri(props) {
   const classes = useStyles();
+  // Count of elements to display in per row
   const [view, setView] = React.useState(3);
+
+  // Category to show, images or videos
   const [category, setCategory] = React.useState("Fotoğraflar");
+
   const handleChange = (nextViewCount) => {
     setView(nextViewCount);
   };
@@ -263,6 +275,8 @@ export default function Klübümüz(props) {
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
   }
+
+
   const { section } = props;
   let name = "";
   let objectToView = {};
@@ -295,26 +309,29 @@ export default function Klübümüz(props) {
       <Container>
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
-            <Typography variant="h3" color="textPrimary">{name}</Typography>
+            <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">{name}</Typography>
+            </ThemeProvider>
           </Box>
+
           <hr className={classes.yatayCizgi} />
         </Grid>
-        <Grid 
-        container
-        direction="row"
-        justify="space-between"
-        alignItems="center">
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center">
           <Grid >
-            <Button onClick = {() => changeCategory('Fotoğraflar')} className = {classes.kategoriButonları} variant="contained" color="primary">
+            <Button onClick={() => changeCategory('Fotoğraflar')} className={classes.kategoriButonları} variant="contained" color="primary">
               Fotoğraflar
             </Button>
-            <Button onClick = {() => changeCategory('Videolar')} className = {classes.kategoriButonları} variant="contained" color="primary">
+            <Button onClick={() => changeCategory('Videolar')} className={classes.kategoriButonları} variant="contained" color="primary">
               Videolar
             </Button>
           </Grid>
           <Grid>
-          
-            <ButtonGroup variant="text" color="inherit" aria-label="text primary button group">    
+
+            <ButtonGroup variant="text" color="inherit" aria-label="text primary button group">
               <ToggleButton value="list" aria-label="list" onClick={() => handleChange(1)}>
                 <ViewListIcon />
               </ToggleButton>
@@ -323,14 +340,14 @@ export default function Klübümüz(props) {
               </ToggleButton>
             </ButtonGroup>
           </Grid>
-          </Grid>
-          <Grid className={classes.mainGrid} container spacing={3}>
+        </Grid>
+        <Grid className={classes.mainGrid} container>
 
           <Grid>
-            
-              <PhotoGalleryComponent category={category} cols={view} ImageList={objectToView} VideoList = {videosToView} />
-            
-            
+
+            <PhotoGalleryComponent category={category} cols={view} ImageList={objectToView} VideoList={videosToView} />
+
+
           </Grid>
 
         </Grid>
