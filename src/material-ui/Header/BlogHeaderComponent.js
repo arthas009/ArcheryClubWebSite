@@ -7,13 +7,12 @@ import { Container } from '@material-ui/core';
 import { Route } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
-import Sporcularımız from './HeaderButtons/Sporcularımız';
-import Madalyalar from './HeaderButtons/Madalyalar';
 import Hakkında from './HeaderButtons/Hakkında';
 import FarklıBilgiler from './HeaderButtons/FarklıBilgiler';
 import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
-import Klübümüz from './HeaderButtons/Klübümüz';
+import Galeri from './HeaderButtons/Galeri';
+import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
 /*
 * BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
 * Üzerinde oluşan menü butonları (Header.js dosyasında oluşmaktadır), sahip oldukları tıklama eventi
@@ -31,7 +30,7 @@ import Klübümüz from './HeaderButtons/Klübümüz';
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { whichPage: "Ana Sayfa", NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
+    this.state = {NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
     this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
     this.useStyles = makeStyles((theme) => ({
@@ -140,11 +139,7 @@ class BlogHeaderComponent extends Component {
 
     /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
         onClick event handler function inside <Header> */
-    const changePage = (newPage) => {
-      //setState()  
-      this.clickedName = newPage;
-      this.setState({ whichPage: newPage });
-    }
+    
 
     /* In this section, root element, which is the symbolic body of the body will be changed accordingly */
 
@@ -155,7 +150,7 @@ class BlogHeaderComponent extends Component {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="lg">
-          <Header title="" clickedName={this.clickedName} sections={this.sections} handleClick={changePage} />
+          <Header title="" clickedName={this.clickedName} sections={this.sections} />
         </Container>
         <Container maxWidth="lg">
           <Route
@@ -182,17 +177,17 @@ class BlogHeaderComponent extends Component {
             <Route
               exact
               path='/Galeri/Klubumuz'
-              render={() => (<Klübümüz section={"Klubumuz"}></Klübümüz>)}
+              render={() => (<Galeri section={"Klubumuz"}></Galeri>)}
             />
             <Route
               exact
               path='/Galeri/Madalyalar'
-              render={() => (<Klübümüz section={"Madalyalar"}></Klübümüz>)}
+              render={() => (<Galeri section={"Madalyalar"}></Galeri>)}
             />
             <Route
               exact
               path='/Galeri/Sporcularimiz'
-              render={() => (<Klübümüz section={"Sporcularimiz"}></Klübümüz>)}
+              render={() => (<Galeri section={"Sporcularimiz"}></Galeri>)}
             />
 
         
@@ -205,7 +200,7 @@ class BlogHeaderComponent extends Component {
           <Route
             exact
             path='/OkculukHakkinda'
-            render={() => (<FarklıBilgiler></FarklıBilgiler>)}
+            render={() => (<OkçulukHakkında></OkçulukHakkında>)}
           />
           <Route
             exact

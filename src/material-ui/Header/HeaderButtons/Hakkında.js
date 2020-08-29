@@ -51,7 +51,6 @@ const themeTypography = createMuiTheme({
   typography: {
     overline: {
       fontSize: 25,
-      fontStyle: 'underline',
       //textDecorationLine: 'underline'
     },
     body1: {
@@ -70,7 +69,8 @@ export default function Hakkında() {
         mainFeaturedPost.map((item, i) =>
           <MainFeaturedPost key={i} post={item} />
         )
-      }      <Container>
+      }      
+      <Container>
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
@@ -91,13 +91,11 @@ export default function Hakkında() {
             <Grid>
 
               <Typography
-                variant="overline" color="textPrimary"
-              >
+                variant="overline" color="textPrimary">
                 BİZ KİMİZ ?
        </Typography>
 
               <Typography
-                className={classes.bodyClass}
               >
                 Gazi Okçuluk Klübü, kurulduğu günden bu yana işine ilk gün sahip olduğu hevesle ve azime devam etmiştir ve devam etmektedir.
        </Typography>

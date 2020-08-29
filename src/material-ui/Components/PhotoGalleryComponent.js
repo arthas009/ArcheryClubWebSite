@@ -4,19 +4,8 @@ import PropTypes from 'prop-types';
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import IconButton from "@material-ui/core/IconButton";
-import InfoIcon from "@material-ui/icons/Info";
 
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import { Container, Paper } from "@material-ui/core";
+import { Container, Paper,Dialog,Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
@@ -35,23 +24,24 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    border: "1px solid #000000",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper
+
   },
   gridList: {
     width: "auto",
     height: "auto"
   },
+  gridListTile:
+  {
+    [theme.breakpoints.up('md')]: {
+    },
+    [theme.breakpoints.down('md')]: {
 
+    },
+  },
   PhotoDialog:
   {
     maxHeight: '120px',
     maxWidth: '120px'
-
   },
 
 }));
@@ -79,12 +69,12 @@ export default function PhotoGalleryComponent(props) {
 
   if (category === "Fotoğraflar") {
     return (
-      <div className={classes.root}>
+      <Container>
         <GridList cols={cols}>
           className={classes.gridList}
 
           {ImageList.map(tile => (
-            <GridListTile key={tile.id}>
+            <GridListTile className={classes.gridListTile} key={tile.id}>
               <img onClick={() => handleClickOpen(tile)} src={tile.src} alt={tile.title} />
               <GridListTileBar
                 title={tile.title}
@@ -93,6 +83,7 @@ export default function PhotoGalleryComponent(props) {
             </GridListTile>
           ))}
         </GridList>
+        <Grid>
         <Dialog
           fullScreen
           open={selectedTile !== null}
@@ -108,14 +99,14 @@ export default function PhotoGalleryComponent(props) {
           )}
 
         </Dialog>
-      </div>
-
-
+        </Grid>
+        </Container>
     );
   }
   else if (category === "Videolar") {
     return (
-      <div className={classes.root}>
+      <Container>
+
         <GridList cols={cols}>
           className={classes.gridList}
 
@@ -137,15 +128,17 @@ export default function PhotoGalleryComponent(props) {
         >
 
           {selectedTile && (
+            <Container>
+              <Grid>
             <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${selectedTile.src})` }}>
               {/* Increase the priority of the hero background image */}
             </Paper >
-
+            </Grid>
+            </Container>
           )}
 
         </Dialog>
-      </div>
-
+        </Container>
 
     );
   }

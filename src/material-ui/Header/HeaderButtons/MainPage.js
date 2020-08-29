@@ -63,12 +63,11 @@ export default function MainPage(props) {
           </Grid>
          
           <Grid container className={classes.mainGrid}>
-          </Grid>
-          <Grid container spacing={6}>
-            {featuredPosts.map((post) => (
+          {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+         
         </Container>
 
     </React.Fragment>
