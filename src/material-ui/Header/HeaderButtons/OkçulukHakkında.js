@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -6,9 +6,8 @@ import Container from '@material-ui/core/Container';
 import { Typography, Box,ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 
-
 const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Kulubü / İletişim',
+  title: 'Gazi Okçuluk Klübü / OkçulukHakkında',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -16,7 +15,6 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -29,11 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bodyClass:
   {
-    marginTop: theme.spacing(2),
-  },
-  marginTopDiv:
-  {
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(3),
   },
   pageHeader: {
     display: 'flex',
@@ -45,8 +39,6 @@ const useStyles = makeStyles((theme) => ({
     width: '50%',
   },
 }));
-
- 
 const themeTypography = createMuiTheme({
   typography: {
     overline: {
@@ -58,69 +50,31 @@ const themeTypography = createMuiTheme({
     },
   },
 });
-
-
-export default function Iletisim() {
+export default function OkçulukHakkında() {
   const classes = useStyles();
- 
 
   return (
     <React.Fragment>
-    <CssBaseline />
-    {
+      <CssBaseline />
+      {
         mainFeaturedPost.map((item, i) =>
           <MainFeaturedPost key={i} post={item} />
         )
-      }      
-    <Container>
-    <Grid className={classes.heaederGrid}>
-          <Box className={classes.pageHeader}>
+      }   
+        <Container>
+          <Grid className={classes.heaederGrid}>
+            <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">İLETİŞİM</Typography>
+              <Typography variant="overline" color="textPrimary">Hakkında</Typography>
             </ThemeProvider>
+            </Box>
+            <hr className={classes.yatayCizgi} />
 
-          </Box>
-          <hr className={classes.yatayCizgi} />
         </Grid>
-      <Grid className={classes.mainGrid}>
-
-        <div>
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h4"
-            className={classes.bodyClass}
-          >
-            Gazi Okçuluk Kulubü
-   
-     </Typography>
-          
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h6"
-            className={classes.bodyClass}
-          >
-            +90 546 457 72 59
-   
-     </Typography>
-        </div>
-        
-
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h6"
-            className={classes.bodyClass}
-          >
-            A Mah. B Bul. No: C/D. Ankara.
-            
-     </Typography>
-        
-      </Grid>
+       <Grid container spacing={3}>
       
-    </Container>
-    
-  </React.Fragment>
+       </Grid>
+       </Container>
+    </React.Fragment>
   );
-  }
+}

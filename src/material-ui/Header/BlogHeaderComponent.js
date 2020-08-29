@@ -4,19 +4,33 @@ import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container } from '@material-ui/core';
+import { Route } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
-import Sporcularımız from './HeaderButtons/Sporcularımız';
-import Madalyalar from './HeaderButtons/Madalyalar';
 import Hakkında from './HeaderButtons/Hakkında';
 import FarklıBilgiler from './HeaderButtons/FarklıBilgiler';
 import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
+import Galeri from './HeaderButtons/Galeri';
+import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
+/*
+* BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
+* Üzerinde oluşan menü butonları (Header.js dosyasında oluşmaktadır), sahip oldukları tıklama eventi
+* ile tüm sayfanın kontrolünü saglamaktadır. Tıklanan butona göre root isimli <div> ögesinin içerisin-
+* de ki componenti kaldırıp ilgili yeni componenti koyarak sayfanın bedenini düzenler.
+* Ayrıca sunucu ile iletişim de şu an burada yapılmaktadır
+
+* Yapılacaklar:
+* component kaldırıp yenisini ekleme işleminden vazgeçip Router kullanılarak yeni html sayfalarına zıplama yapılacaktır.
+*/
+
+
+
 
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = { whichPage: "Ana Sayfa", NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
+    this.state = {NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
     this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
     this.useStyles = makeStyles((theme) => ({
@@ -24,16 +38,48 @@ class BlogHeaderComponent extends Component {
         marginTop: theme.spacing(3),
       },
     }));
-    this.sections = [
-      { title: 'Ana Sayfa', url: '#' },
-      { title: 'Hakkında', url: '#' },
-      { title: 'Haberler', url: '#' },
-      { title: 'Galeri', url: '#' },
-      { title: 'Farklı Bilgiler', url: '#' },
-      { title: 'Okçuluk Hakkında', url: '#' },
-      { title: 'İletisim', url: '#' },
-    ];
 
+    /* These are the names to be placed on menu buttons. Props of <Header> component*/
+    this.sections = [
+      { title: 'AnaSayfa', url: 'AnaSayfa' },
+      { title: 'Hakkında', url: 'Hakkinda' },
+      { title: 'Haberler', url: 'Haberler' },
+
+      {
+        title: 'Galeri',
+        subtitles: [
+          { title: 'KLÜBÜMÜZ', url: 'Klubumuz' },
+          { title: 'Madalyalar', url: 'Madalyalar' },
+          { title: 'Sporcularımız', url: 'Sporcularimiz' },
+        ],
+        url: 'Galeri'
+      },
+
+      { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
+      { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
+      { title: 'İLETİŞİM', url: 'Iletisim' },
+    ];
+    /*this.featuredPost = [
+      {
+        title: 'PhotowithPost',
+        date: 'Nov 12',
+        description:
+          'This is a wider card with supporting text below as a natural lead-in to additional content.',
+        image: 'https://source.unsplash.com/random',
+        imageText: 'Image Text',
+      },
+      {
+        title: 'Post title',
+        date: 'Nov 11',
+        description:
+          'This is a wider card with supporting text below as a natural lead-in to additional content.',
+        image: 'https://source.unsplash.com/random',
+        imageText: 'Image Text',
+      },
+    ];*/
+
+
+    /* This is sample object for MainFeaturedPost component. Going to be removed later. */
     this.mainFeaturedPost = [{
       title: '',
       description:
@@ -55,6 +101,7 @@ class BlogHeaderComponent extends Component {
 
   }
 
+  /* Fetching News(Haberler) data from a local server program. */
   async componentDidMount() {
     console.log(this.NewsList);
     try {
@@ -79,99 +126,87 @@ class BlogHeaderComponent extends Component {
   componentWillUnmount() {
 
   }
+
+
   handleSelect(selectedIndex, e) {
     this.setState({
       index: selectedIndex,
       direction: e.direction,
     });
   }
+
   render() {
 
-    const changePage = (newPage) => {
-      //setState()
-      //This will trigger a refresh
-      this.clickedName = newPage;
-      this.setState({ whichPage: newPage });
-    }
+    /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
+        onClick event handler function inside <Header> */
+    
 
-    if (this.state.whichPage === "Ana Sayfa") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <MainPage />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Hakkında") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <Hakkında />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Haberler") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          -          <Haberler news={this.state.NewsList} />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Madalyalar") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          -          <Madalyalar />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Sporcularımız") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <Sporcularımız></Sporcularımız>
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Farklı Bilgiler") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <FarklıBilgiler />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "Okçuluk Hakkında") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
+    /* In this section, root element, which is the symbolic body of the body will be changed accordingly */
 
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
-    else if (this.state.whichPage === "İletisim") {
-      ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-      ReactDOM.render(
-        <React.StrictMode>
-          <Iletisim />
-        </React.StrictMode>,
-        document.getElementById('root')
-      );
-    }
+
+
 
     return (
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="lg">
-          <Header title="" clickedName = {this.clickedName} sections={this.sections} handleClick={changePage} />
+          <Header title="" clickedName={this.clickedName} sections={this.sections} />
+        </Container>
+        <Container maxWidth="lg">
+          <Route
+            exact
+            path='/'
+            render={() => (<MainPage></MainPage>)}
+          />
+          <Route
+            exact
+            path='/AnaSayfa'
+            render={() => (<MainPage></MainPage>)}
+          />
+          <Route
+            exact
+            path='/Hakkinda'
+            render={() => (<Hakkında></Hakkında>)}
+          />
+          <Route
+            exact
+            path='/Haberler'
+            render={() => (<Haberler news={this.state.NewsList}></Haberler>)}
+          />
+         
+            <Route
+              exact
+              path='/Galeri/Klubumuz'
+              render={() => (<Galeri section={"Klubumuz"}></Galeri>)}
+            />
+            <Route
+              exact
+              path='/Galeri/Madalyalar'
+              render={() => (<Galeri section={"Madalyalar"}></Galeri>)}
+            />
+            <Route
+              exact
+              path='/Galeri/Sporcularimiz'
+              render={() => (<Galeri section={"Sporcularimiz"}></Galeri>)}
+            />
+
+        
+
+          <Route
+            exact
+            path='/FarkliBilgiler'
+            render={() => (<FarklıBilgiler></FarklıBilgiler>)}
+          />
+          <Route
+            exact
+            path='/OkculukHakkinda'
+            render={() => (<OkçulukHakkında></OkçulukHakkında>)}
+          />
+          <Route
+            exact
+            path='/Iletisim'
+            render={() => (<Iletisim></Iletisim>)}
+          />
         </Container>
       </React.Fragment>
     );

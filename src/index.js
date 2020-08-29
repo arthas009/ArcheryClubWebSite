@@ -3,28 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
-import SwipeableContent from './material-ui/Components/SwipeableContent';
+import {BrowserRouter,HashRouter} from 'react-router-dom';
 import Footer from './material-ui/Components/Footer';
-import { Grid } from '@material-ui/core';
-import { Container } from '@material-ui/core';
 
+/*
 ReactDOM.render(
   <React.StrictMode>
   <SwipeableContent></SwipeableContent> 
   </React.StrictMode>,
   document.getElementById('carousel_section')
 );
+*/
+
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
   <Footer description ="" title= ""></Footer>   
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('footer')
 );
 
 ReactDOM.render(
-  <React.StrictMode>
+  <HashRouter>
     <BlogHeaderComponent />
-  </React.StrictMode>,
+  </HashRouter>,
   document.getElementById('toolbar_section')
 );
 
