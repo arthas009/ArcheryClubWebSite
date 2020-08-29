@@ -33,9 +33,10 @@ const useStyles = makeStyles(theme => ({
   gridListTile:
   {
     [theme.breakpoints.up('md')]: {
+      height:'450px !important',
     },
     [theme.breakpoints.down('md')]: {
-
+      height:'150px !important',
     },
   },
   PhotoDialog:
@@ -55,22 +56,18 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function PhotoGalleryComponent(props) {
   const classes = useStyles();
   const [selectedTile, setSelectedTile] = React.useState(null);
-  const [value, setValue] = React.useState([]);
-  const { category, cols, ImageList, VideoList } = props;
-  const handleClickOpen = tile => {
+  const { ImageList } = props;
+  const handleClickOpen = tile => { 
     setSelectedTile(tile);
-    console.log("clicked");
-    console.log(tile);
   };
 
   const handleClose = () => {
     setSelectedTile(null);
   };
 
-  if (category === "Fotoğraflar") {
     return (
       <Container>
-        <GridList cols={cols}>
+        <GridList cols={1}>
           className={classes.gridList}
 
           {ImageList.map(tile => (
@@ -102,46 +99,7 @@ export default function PhotoGalleryComponent(props) {
         </Grid>
         </Container>
     );
-  }
-  else if (category === "Videolar") {
-    return (
-      <Container>
-
-        <GridList cols={cols}>
-          className={classes.gridList}
-
-          {VideoList.map(tile => (
-            <GridListTile key={tile.id}>
-              <VideoPlayer playing = {true} url={tile.src} />
-              <GridListTileBar
-                title={tile.title}
-                subtitle={<span>Ekleyen: {tile.author}</span>}
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-        <Dialog
-          fullScreen
-          open={selectedTile !== null}
-          onClose={handleClose}
-          TransitionComponent={Transition}
-        >
-
-          {selectedTile && (
-            <Container>
-              <Grid>
-            <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${selectedTile.src})` }}>
-              {/* Increase the priority of the hero background image */}
-            </Paper >
-            </Grid>
-            </Container>
-          )}
-
-        </Dialog>
-        </Container>
-
-    );
-  }
+  
 }
 
 PhotoGalleryComponent.propTypes = {

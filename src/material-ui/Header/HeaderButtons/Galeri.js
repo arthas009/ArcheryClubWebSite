@@ -12,6 +12,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import PhotoGalleryComponent from '../../Components/PhotoGalleryComponent';
+import VideoGalleryComponent from '../../Components/VideoGalleryComponent';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -238,10 +239,23 @@ const KlübümüzVideoList = [
     description: "bar",
     author: "Gazi Okçuluk"
   },
+  {
+    id: 2,
+    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
+    title: "",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
 ];
 
 const MadalyalarVideoList = [
   {
+    id: 1,
+    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
+    title: "",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },{
     id: 1,
     src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
     title: "",
@@ -319,37 +333,20 @@ export default function Galeri(props) {
         <Grid
           container
           direction="row"
-          justify="space-between"
+          justify="center"
           alignItems="center">
-          <Grid >
             <Button onClick={() => changeCategory('Fotoğraflar')} className={classes.kategoriButonları} variant="contained" color="primary">
               Fotoğraflar
             </Button>
             <Button onClick={() => changeCategory('Videolar')} className={classes.kategoriButonları} variant="contained" color="primary">
               Videolar
             </Button>
-          </Grid>
-          <Grid>
-
-            <ButtonGroup variant="text" color="inherit" aria-label="text primary button group">
-              <ToggleButton value="list" aria-label="list" onClick={() => handleChange(1)}>
-                <ViewListIcon />
-              </ToggleButton>
-              <ToggleButton value="module" aria-label="module" onClick={() => handleChange(3)}>
-                <ViewModuleIcon />
-              </ToggleButton>
-            </ButtonGroup>
-          </Grid>
         </Grid>
-        <Grid className={classes.mainGrid} container>
+        <Grid className={classes.mainGrid}>
+            {category === "Fotoğraflar" ? 
+            <PhotoGalleryComponent ImageList={objectToView} /> : 
 
-          <Grid>
-
-            <PhotoGalleryComponent category={category} cols={view} ImageList={objectToView} VideoList={videosToView} />
-
-
-          </Grid>
-
+            <VideoGalleryComponent VideoList={videosToView}/> }    
         </Grid>
       </Container>
     </React.Fragment>

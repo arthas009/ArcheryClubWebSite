@@ -65,10 +65,13 @@ export default function MainPage(props) {
 
         <Container>
         <Grid className={classes.heaederGrid}>
-            <Box className={classes.pageHeader}>
-              <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulubü</Typography>
-            </Box>
-            <hr/>
+          <Box className={classes.pageHeader}>
+            <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">Gazi Okçuluk</Typography>
+            </ThemeProvider>
+
+          </Box>
+          <hr/>
 
           </Grid>
          
