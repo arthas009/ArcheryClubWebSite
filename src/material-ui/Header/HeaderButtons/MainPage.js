@@ -56,7 +56,7 @@ export default function MainPage(props) {
         <Container>
         <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
-              <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulübü</Typography>
+              <Typography variant="h3" color="textPrimary">Gazi Okçuluk Kulubü</Typography>
             </Box>
             <hr/>
 
@@ -69,6 +69,12 @@ export default function MainPage(props) {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+<Grid>
+  <Typography>
+    Burası ana sayfadır Dİkkat dikkat
+  </Typography>
+</Grid>
+        
         </Container>
 
     </React.Fragment>

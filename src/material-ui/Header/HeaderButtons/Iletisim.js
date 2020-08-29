@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography, Box } from '@material-ui/core';
+import CustomGoogleMapWithMarker from "../../Components/CustomGoogleMapWithMarker";
+
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +35,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+ 
 
 
 export default function Iletisim() {
   const classes = useStyles();
+ 
 
   return (
     <React.Fragment>
@@ -44,6 +50,7 @@ export default function Iletisim() {
         <Box className={classes.pageHeader}>
           <Typography variant="h3" color="textPrimary">İletişim</Typography>
         </Box>
+        <hr className={classes.yatayCizgi} />
       </Grid>
       <Grid className={classes.mainGrid}>
 
@@ -54,76 +61,37 @@ export default function Iletisim() {
             variant="h4"
             className={classes.bodyClass}
           >
-            Biz Kimiz ?
+            Gazi Okçuluk Kulubü
+   
      </Typography>
+          
           <Typography
             noWrap
             key="TechnologyPageMainBody"
-            variant="h7"
+            variant="h6"
             className={classes.bodyClass}
           >
-            Gazi Okçuluk Klübü, kurulduğu günden bu yana işine ilk gün sahip olduğu hevesle ve azime devam etmiştir ve devam etmektedir.
+            +90 546 457 72 59
+   
      </Typography>
         </div>
-        <div className={classes.marginTopDiv}>
+        
 
           <Typography
             noWrap
             key="TechnologyPageMainBody"
-            variant="h4"
+            variant="h6"
             className={classes.bodyClass}
           >
-            Misyonumuz
+            A Mah. B Bul. No: C/D. Ankara.
+            
      </Typography>
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h7"
-            className={classes.bodyClass}
-          >
-            Gazi Okçuluk Klübü, misyon olarak kendine her zaman enerjik ve dinamik kalmayı, işini en iyi yapmayı edinmiştir.
-     </Typography>
-        </div>
-
-        <div className={classes.marginTopDiv}>
-          <Typography
-            noWrap
-            key="VizyonTypography"
-            variant="h4"
-            className={classes.bodyClass}
-          >
-            Vizyonumuz
-     </Typography>
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h7"
-            className={classes.bodyClass}
-          >
-            Gazi Okçuluk Klübü, vizyon olarak yenilikçi ve üretken olmayı, spor bilimine katkıda bulunmayı hedeflemiştir.
-     </Typography>
-        </div>
-        <div className={classes.marginTopDiv}>
-          <Typography
-            noWrap
-            key="VizyonTypography"
-            variant="h4"
-            className={classes.bodyClass}
-          >
-            Tarihçe
-     </Typography>
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h7"
-            className={classes.bodyClass}
-          >
-            Gazi Okçuluk Klübü, ../../.... tarihinde ...... ve ....... tarafından kurulmuştur.
-     </Typography>
-        </div>
-
+        
+     
       </Grid>
+      
     </Container>
+    <div><CustomGoogleMapWithMarker /> </div>
   </React.Fragment>
   );
-}
+  }

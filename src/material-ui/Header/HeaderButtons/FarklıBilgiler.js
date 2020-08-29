@@ -4,8 +4,19 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography, Box } from '@material-ui/core';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import MainFeaturedPost from '../../Components/MainFeaturedPost';
 
 
+const mainFeaturedPost = [{
+  title: 'Gazi Okçuluk Kulubü / Farklı Bilgiler',
+  description:
+    "",
+  image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
+  btnName: '',
+  btnUrl: '',
+}
+];
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -27,18 +38,38 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
 }));
-
+const themeTypography = createMuiTheme({
+  typography: {
+    overline: {
+      fontSize: 25,
+      fontStyle: 'underline',
+      //textDecorationLine: 'underline'
+    },
+    body1: {
+      fontWeight: 500,
+    },
+  },
+});
 export default function FarklıBilgiler() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
+      {
+        mainFeaturedPost.map((item, i) =>
+          <MainFeaturedPost key={i} post={item} />
+        )
+      }   
         <Container>
           <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
-              <Typography variant="h3" color="textPrimary">Farklı Bilgiler</Typography>
+            <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">Farklı Bilgiler</Typography>
+            </ThemeProvider>
+
             </Box>
+            <hr className={classes.yatayCizgi} />
         </Grid>
        <Grid container spacing={3}>
       

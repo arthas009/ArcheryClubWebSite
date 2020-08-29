@@ -8,7 +8,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 
 const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Klübü / Hakkında',
+  title: 'Gazi Okçuluk Kulubü / Hakkında',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',

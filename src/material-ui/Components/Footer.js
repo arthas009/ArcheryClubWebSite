@@ -51,38 +51,28 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     color: "#000000",
   },
-  card:
-  {
-    display: 'flex',
-    backgroundColor:'inherit',
-    [theme.breakpoints.up('lg')]: {
-      marginLeft:theme.spacing(2), //kartın soldan uzaklığı
-    },
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.primary,
+    backgroundColor: 'rgba(200,200,200,.9)',
+  },
     marginLeft:theme.spacing(15),
 
     [theme.breakpoints.down('md')]: {
       marginLeft:theme.spacing(20),
 
     },    
-  },
-  cardDetails: {
-    flex: 1,
-    backgroundColor:'inherit',
-  },
-  cardContent: {
-    overflow: "hidden", 
-    textOverflow: "ellipsis", 
-    [theme.breakpoints.up('md')]: {
-      width: '18rem',
-      marginLeft:theme.spacing(3),
-      overflow:'auto',
-    },
+  
   
     [theme.breakpoints.down('md')]: {
       width: '10rem',
       overflow:'auto',
     },    
-  }
+  
 }));
 
 export default function Footer(props) {
@@ -92,57 +82,40 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <hr></hr>
-        <Grid container spacing={2} xs="auto" xl= "auto">
-        <Card className={classes.card}>
-          <CardHeader
-            subheader="İletişim" />
-          <CardContent className={classes.cardContent}>
-          <Typography className ={classes.typho} variant="h6" align="left">Gazi Okçuluk Klübü</Typography>
-          <Typography className ={classes.typho} display="block" variant="h7" align="left"> +90 546 457 72 59</Typography>
-          <Typography className ={classes.typho} display="block" variant="h7" align="left">A Mah. B Bul. No: C/D. Ankara. </Typography>
-          </CardContent>
-        </Card>
-
-        <Card className={classes.card}>
-        <CardHeader
-            subheader="Hakkında" />
-        <CardContent className={classes.cardContent}>
-          <Typography className ={classes.typho} variant="h6" align="left">Biz Kimiz ?</Typography>
-          <Typography className ={classes.typho} display="block" variant="h7" align="left">Misyonumuz & Vizyonumuz</Typography>
-          <Typography className ={classes.typho} display="block" variant="h7" align="left">Tarihçe</Typography>
-        </CardContent>
-        </Card>
-
-        <Card className={classes.card}>
-        <CardHeader
-            subheader="Harita" />
-        <CardContent className={classes.cardContent}>
-          <Typography className ={classes.typho} variant="h6" align="left"> Google Maps</Typography>
-          <Typography className ={classes.typho} display="block" variant="h7" align="left"></Typography>
-          <Typography className ={classes.typho} display="block" variant="h7" align="left"></Typography>
-        </CardContent>
-        </Card>
-
-        <Card className={classes.card}>
-        <CardHeader
-            subheader="Sosyal Medya Hesaplarımız" />
-        <CardContent className={classes.cardContent}>
-          <Typography className ={classes.typho} variant="h6" align="left">Takip Ediyor Musunuz ?</Typography>
-
-          <ButtonGroup variant="text" color="black" aria-label="text primary button group">
-        <Button><TwitterIcon fontSize="small" /></Button>
-        <Button><FacebookIcon fontSize="small" /></Button>
-        <Button><InstagramIcon fontSize="small" /></Button>
-      </ButtonGroup>
-        </CardContent>
-        </Card>
+      <Grid container spacing={3}>
+      <Grid item xs={3} xl={3}>
+          <Paper className={classes.paper}><h4>İletişim</h4>
+          <hr className={classes.yatayCizgi} />
+          <h5>Gazi Okçuluk Klübü</h5>
+          <h5>+90 546 457 72 59</h5>
+          <h5>A Mah. B Bul. No: C/D. Ankara.</h5></Paper>
+          
         </Grid>
-        <Typography variant="h6" align="center" gutterBottom>
-          {title}
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          {description}
-        </Typography>
+        <Grid item xs={3} xl={3}>
+          <Paper className={classes.paper}><h4>Hakkında</h4>
+          <hr className={classes.yatayCizgi} />
+          <h5>Biz Kimiz ?</h5>
+          <h5>Misyonumuz & Vizyonumuz</h5>
+          <h5>Tarihçe</h5></Paper>
+        </Grid>
+        <Grid item xs={3} xl={3}>
+          <Paper className={classes.paper}><h4>Harita</h4>
+          <hr className={classes.yatayCizgi} />
+          <h5>Google Maps</h5>
+          <h5>+90 546 457 72 59</h5>
+          <h5>A Mah. B Bul. No: C/D. Ankara.</h5></Paper>
+        </Grid>
+        <Grid item xs={3} xl={3}>
+          <Paper className={classes.paper}><h4>Takip Ediyor Musunuz ?</h4>
+          <hr className={classes.yatayCizgi} />
+          <Button><TwitterIcon fontSize="small" /></Button>
+        <Button><FacebookIcon fontSize="small" /></Button>
+        <Button><InstagramIcon fontSize="small" /></Button><h5>.</h5>
+          <h5>.</h5>
+        </Paper>
+        
+        </Grid>
+      </Grid>
         <Copyright />
     </footer>
   );
