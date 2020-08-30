@@ -142,9 +142,18 @@ export default function Footer(props) {
                 {footer.description.map((item) => (
                   <grid align="left">
                   <li key={item} align="left">
-                    <Link href="#" variant="subtitle1" color="textSecondary">
+                    {footer.title === "İletişim" ?
+                    <Link href="/#/Iletisim" variant="subtitle1" color="textSecondary">
                       {item}
-                    </Link>
+                    </Link>:
+                    footer.title ==="Hakkında" ? 
+                    <Link href="/#/Hakkinda" variant="subtitle1" color="textSecondary">
+                      {item}
+                    </Link>:
+                    <Link href="#" variant="subtitle1" color="textSecondary">
+                    {item}
+                  </Link>
+                     }
                   </li>
                   </grid>
                 ))}
