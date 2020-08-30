@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
@@ -21,7 +21,23 @@ import StarIcon from '@material-ui/icons/StarBorder';
 import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
 
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Typography);
 
+const WhiteTextLink = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Link);
+
+const WhiteTextButton = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Button);
 
 function Copyright() {
   const classes = useStyles();
@@ -54,7 +70,7 @@ const footers = [
   },
   {
     title: 'Sosyal Medya Hesaplarımız',
-    description: [<Button><InstagramIcon fontSize="small" /> Instagram</Button>, <Button><FacebookIcon fontSize="small" />Facebook</Button>,<Button><TwitterIcon fontSize="small" />Twitter</Button>],
+    description: [<WhiteTextButton ><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>, <WhiteTextButton><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,<WhiteTextButton><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
   },
 ];
 const useStyles = makeStyles((theme) => ({
@@ -120,7 +136,10 @@ const useStyles = makeStyles((theme) => ({
      },
      footerGrid:
      {
-      backgroundColor: 'rgba(210,210,210,1)',
+      backgroundColor: 'rgba(0,0,0,.90)',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
      }
 }));
 
@@ -134,25 +153,25 @@ export default function Footer(props) {
         <Grid className={classes.footerGrid} container spacing={4} justify='center' align='center'>
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
+              <WhiteTextTypography variant="h6" gutterBottom>
                 {footer.title}
-              </Typography>
+              </WhiteTextTypography>
               <hr className={classes.yatayCizgi}></hr>
               <ul align="left" type='none'> 
                 {footer.description.map((item) => (
                   <grid align="left">
                   <li key={item} align="left">
                     {footer.title === "İletişim" ?
-                    <Link href="/#/Iletisim" variant="subtitle1" color="textSecondary">
+                    <WhiteTextLink href="/#/Iletisim" variant="subtitle1">
                       {item}
-                    </Link>:
+                    </WhiteTextLink>:
                     footer.title ==="Hakkında" ? 
-                    <Link href="/#/Hakkinda" variant="subtitle1" color="textSecondary">
+                    <WhiteTextLink href="/#/Hakkinda" variant="subtitle1">
                       {item}
-                    </Link>:
-                    <Link href="#" variant="subtitle1" color="textSecondary">
+                    </WhiteTextLink>:
+                    <WhiteTextLink href="#" variant="subtitle1">
                     {item}
-                  </Link>
+                  </WhiteTextLink>
                      }
                   </li>
                   </grid>

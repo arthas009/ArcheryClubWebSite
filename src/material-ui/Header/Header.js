@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTitle: {
     marginLeft: theme.spacing(1),
+    color:'blue',
 
   },
   toolbarSecondary: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton:
   {
-
+    border: '1px solid gray',
   },
   flexGrid: {
   },
@@ -103,26 +104,24 @@ export default function Header(props) {
             <Box display={{ xs: 'none', md: 'inline' }}>
               <PhoneIcon fontSize="small" />
               
-              <Typography 
-                component="h8"
-                variant="body2"
+              <Link 
+                
                 color="inherit"
                 className={classes.toolbarTitle}
               >
                 +90 546 457 72 59
-               </Typography>
+               </Link>
                </Box>
                <Box display={{ xs: 'none', md: 'inline' }}>
 
               <EmailIcon className={classes.emailIcon} fontSize="small" />
-              <Typography
-                component="h8"
-                variant="body2"
+              <Link
+               
                 color="inherit"
                 className={classes.toolbarTitle}
               >
                 yusufalti1997@gmail.com
-               </Typography>
+               </Link>
             </Box>
           </Grid>
           

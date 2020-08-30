@@ -103,46 +103,36 @@ export default function Iletisim() {
           <MainFeaturedPost key={i} post={item} />
         )
       }      
-    <Container>
     <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
               <Typography variant="overline" color="textPrimary">İLETİŞİM</Typography>
             </ThemeProvider>
-
           </Box>
           <hr className={classes.yatayCizgi} />
         </Grid>
-      <Grid className={classes.mainGrid}>
-
-      
-      <bosluk className={classes.bosluk}>
-        <Grid container spacing={2} justify='center' align='center'>
+         <Grid container spacing={2} justify='center' align='center'>
           {iletisim_itemleri.map((iletisim_item) => (
             <Grid item xs={6} sm={3} key={iletisim_item.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
+              <Typography variant="h5" color="textPrimary" gutterBottom>
                 {iletisim_item.title}
               </Typography>
-              <ul align="center" type='none'>
+              <span>
+              <ul align="left" type='none'>
                 {iletisim_item.description.map((item) => (
-                  <grid align="center">
+                  <grid align="left">
                   <li key={item} align="left" >
                     <Typography variant="subtitle1"  color="textSecondary"> {item}</Typography>
-                     
-                   
+                                 
                   </li>
                   </grid>
                 ))}
               </ul>
+              </span>
             </Grid>
           ))}
         </Grid>
-        
-        </bosluk>
-        
-      </Grid>
-      
-    </Container>
+
     
   </React.Fragment>
   );
