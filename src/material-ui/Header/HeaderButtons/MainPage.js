@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Grid, Box, Typography,ThemeProvider } from '@material-ui/core';
+import { Grid, Box, Typography,ThemeProvider, Paper } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
@@ -25,7 +25,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     overflowX: 'auto',
   },
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
 }));
+
 const themeTypography = createMuiTheme({
   typography: {
     overline: {
@@ -80,12 +89,22 @@ export default function MainPage(props) {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
-<Grid>
-  <Typography>
-    Burası ana sayfadır Dİkkat dikkat
-  </Typography>
-</Grid>
+         
+          <div className={classes.root}></div>
+      <Grid container spacing={0}>
+  
+    <Grid item xs={6}>
+          <Paper className={classes.paper}>Deneme</Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>deneme</Paper>
+        </Grid>
         
+     
+      
+    
+</Grid>
+
         </Container>
 
     </React.Fragment>

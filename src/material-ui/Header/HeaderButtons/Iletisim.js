@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Typography, Box,ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
+import Link from '@material-ui/core/Link';
 
 
 const mainFeaturedPost = [{
@@ -16,8 +17,20 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-
-
+const iletisim_itemleri = [
+  {
+    title: 'Adres',
+    description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .','Etimesgut/Ankara'],
+  },
+  {
+    title: 'Telefon & Fax',
+    description: ['+90 546 457 72 59', '+90 312 999 99 99'],
+  },
+  {
+    title: 'Mail',
+    description: ['Gazi Okçuluk Kulubü.com'],
+  },
+]
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -44,6 +57,24 @@ const useStyles = makeStyles((theme) => ({
   yatayCizgi: {
     width: '50%',
   },
+  iletisim_item: {
+    borderTop: `5px solid ${theme.palette.divider}`,
+    borderBottom: `5px solid ${theme.palette.divider}`,
+    marginTop: theme.spacing(8),
+    marginLeft:theme.spacing(0),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    backgroundColor: 'rgba(200,200,200,.9)',
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
+    },
+  },
+    bosluk: {
+      marginLeft:theme.spacing(2),
+
+    },
+  
 }));
 
  
@@ -84,38 +115,30 @@ export default function Iletisim() {
         </Grid>
       <Grid className={classes.mainGrid}>
 
-        <div>
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h4"
-            className={classes.bodyClass}
-          >
-            Gazi Okçuluk Kulubü
-   
-     </Typography>
-          
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h6"
-            className={classes.bodyClass}
-          >
-            +90 546 457 72 59
-   
-     </Typography>
-        </div>
+      
+      <bosluk className={classes.bosluk}>
+        <Grid container spacing={2} justify='center' align='center'>
+          {iletisim_itemleri.map((iletisim_item) => (
+            <Grid item xs={6} sm={3} key={iletisim_item.title}>
+              <Typography variant="h6" color="textPrimary" gutterBottom>
+                {iletisim_item.title}
+              </Typography>
+              <ul align="center" type='none'>
+                {iletisim_item.description.map((item) => (
+                  <grid align="center">
+                  <li key={item} align="center">
+                    <Link href="#" variant="subtitle1" color="textSecondary">
+                      {item}
+                    </Link>
+                  </li>
+                  </grid>
+                ))}
+              </ul>
+            </Grid>
+          ))}
+        </Grid>
         
-
-          <Typography
-            noWrap
-            key="TechnologyPageMainBody"
-            variant="h6"
-            className={classes.bodyClass}
-          >
-            A Mah. B Bul. No: C/D. Ankara.
-            
-     </Typography>
+        </bosluk>
         
       </Grid>
       
