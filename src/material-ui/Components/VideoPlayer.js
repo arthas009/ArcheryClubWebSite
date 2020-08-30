@@ -6,11 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { Grid, Button}from '@material-ui/core/';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Hidden from '@material-ui/core/Hidden';
+
 
 const useStyles = makeStyles((theme) => ({
   videoGrid:

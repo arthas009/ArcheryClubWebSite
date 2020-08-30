@@ -28,7 +28,7 @@ function Copyright() {
 
   return (
     <Typography className ={classes.typhoDown} variant="body2" color="textSecondary" align="center">
-          <hr />
+          <hr className={classes.yatayCizgi} />
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Gazi Okçuluk Kulübü. Tüm Hakları Saklıdır.
@@ -42,19 +42,19 @@ function Copyright() {
 const footers = [
   {
     title: 'İletişim',
-    description: ['Gazi Okçuluk Kulubü', '+90 546 457 72 59', 'A Mah. B Bul. No: C/D. Ankara.', 'Locations'],
+    description: ['Gazi Okçuluk Kulubü', '+90 546 457 72 59', 'A Mah. B Bul. No: C/D. Ankara.'],
   },
   {
     title: 'Hakkında',
-    description: ['Biz Kimiz ?', 'Misyonumuz & Vizyonumuz', 'Tarihçe', 'Developer stuff', 'Another one'],
+    description: ['Biz Kimiz ?', 'Misyonumuz & Vizyonumuz', 'Tarihçe'],
   },
   {
     title: 'Harita',
-    description: ['Google Maps', 'Resource name', 'Another resource', 'Final resource'],
+    description: [],
   },
   {
     title: 'Sosyal Medya Hesaplarımız',
-    description: [<Button><InstagramIcon fontSize="small" /></Button>, <Button><FacebookIcon fontSize="small" /></Button>,<Button><TwitterIcon fontSize="small" /></Button>],
+    description: [<Button><InstagramIcon fontSize="small" /> Instagram</Button>, <Button><FacebookIcon fontSize="small" />Facebook</Button>,<Button><TwitterIcon fontSize="small" />Twitter</Button>],
   },
 ];
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     backgroundColor: 'rgba(200,200,200,.9)',
   },*/
-    marginLeft:theme.spacing(300),
 
     [theme.breakpoints.down('md')]: {
       marginLeft:theme.spacing(2),
@@ -96,13 +95,13 @@ const useStyles = makeStyles((theme) => ({
       overflow:'auto',
     },   
     footer: {
-      borderTop: `5px solid ${theme.palette.divider}`,
+      //borderTop: `5px solid ${theme.palette.divider}`,
       borderBottom: `5px solid ${theme.palette.divider}`,
       marginTop: theme.spacing(8),
       marginLeft:theme.spacing(0),
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
-      backgroundColor: 'rgba(200,200,200,.9)',
+      backgroundColor: 'rgba(0,0,0,.8)',
       [theme.breakpoints.up('sm')]: {
         paddingTop: theme.spacing(6),
         paddingBottom: theme.spacing(6),
@@ -110,9 +109,19 @@ const useStyles = makeStyles((theme) => ({
     }, 
     bosluk: {
       marginLeft:theme.spacing(2),
-
     },
-  
+     yatayCizgi:
+     {
+       width: '50%',
+     },
+     yukarıBosluk:
+     {
+      marginTop:theme.spacing(25),
+     },
+     footerGrid:
+     {
+      backgroundColor: 'rgba(210,210,210,1)',
+     }
 }));
 
 export default function Footer(props) {
@@ -121,18 +130,18 @@ export default function Footer(props) {
 
   return (
     <React.Fragment>
-      <hr></hr>
-      <bosluk className={classes.bosluk}>
-        <Grid container spacing={4} justify='center' align='center'>
+       <hr className={classes.yukarıBosluk}></hr>
+        <Grid className={classes.footerGrid} container spacing={4} justify='center' align='center'>
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title}>
               <Typography variant="h6" color="textPrimary" gutterBottom>
                 {footer.title}
               </Typography>
-              <ul align="center" type='none'>
+              <hr className={classes.yatayCizgi}></hr>
+              <ul align="left" type='none'> 
                 {footer.description.map((item) => (
-                  <grid align="center">
-                  <li key={item} align="center">
+                  <grid align="left">
+                  <li key={item} align="left">
                     <Link href="#" variant="subtitle1" color="textSecondary">
                       {item}
                     </Link>
@@ -146,7 +155,6 @@ export default function Footer(props) {
         <Box mt={5}>
           <Copyright />
         </Box>
-        </bosluk>
         </React.Fragment>
   );
 }

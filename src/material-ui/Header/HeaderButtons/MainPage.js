@@ -67,7 +67,7 @@ export default function MainPage(props) {
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">Gazi Okçuluk</Typography>
+              <Typography variant="overline" color="textPrimary">GAZİ Okçuluk</Typography>
             </ThemeProvider>
 
           </Box>

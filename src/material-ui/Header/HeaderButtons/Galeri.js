@@ -116,33 +116,53 @@ const MadalyalarImageList = [
   },
   {
     id: 2,
-    src: "https://miro.medium.com/max/3000/1*bHf1bqIQEJmtRDnuxVPdfg.jpeg",
-    title: "Saplanmış Ok",
+    src: "./Images/Yarisma1.jpg",
+    title: "1. Yarışma",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 2,
+    src: "./Images/Yarisma2.jpg",
+    title: "2. Yarışma",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 3,
-    src: "https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg",
-    title: "Ok atan adam",
+    src: "./Images/Yarisma3.jpg",
+    title: "3. Yarışma",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 4,
-    src: "https://n11scdn.akamaized.net/a1/450/ev-yasam/hediyelik-esya/toplu-madalya-toren-madalyalari-basari-madalyasi-odul-madalya__1257335020123086.jpg",
-    title: "2. yarışma madalyası",
+    src: "./Images/Yarisma4.jpg",
+    title: "4. Yarışma",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
-    id: 4,
-    src: "https://www.denizpostasi.com/images/stories/2019/Eyl%C3%BCl/AW795159_01.jpg",
-    title: "3. Yarışma madalya sahipleri",
+    id: 5,
+    src: "./Images/Yarisma5.jpg",
+    title: "5. Yarışma",
     description: "bar",
     author: "Gazi Okçuluk"
   },
-
+  {
+    id: 6,
+    src: "./Images/Yarisma6.jpg",
+    title: "6. Yarışma",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 7,
+    src: "./Images/Yarisma7.jpg",
+    title: "7. Yarışma",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
 ];
 
 const SporcularImageList = [
@@ -169,46 +189,95 @@ const SporcularImageList = [
   },
   {
     id: 4,
-    src: "https://n11scdn.akamaized.net/a1/450/ev-yasam/hediyelik-esya/toplu-madalya-toren-madalyalari-basari-madalyasi-odul-madalya__1257335020123086.jpg",
-    title: "2. yarışma madalyası",
+    src: "./Images/Sporcularimiz1.jpg",
+    title: "",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
-    id: 4,
-    src: "https://www.denizpostasi.com/images/stories/2019/Eyl%C3%BCl/AW795159_01.jpg",
-    title: "3. Yarışma madalya sahipleri",
+    id: 5,
+    src: "./Images/Sporcularimiz2.jpg",
+    title: "",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 6,
-    src: "images/sunset_road.jpg",
-    title: "Sunset_Road",
+    src: "./Images/Sporcularimiz3.jpg",
+    title: "",
     description: "bar",
-    author: "Sudhanshu"
+    author: "Gazi Okçuluk"
   },
   {
-    id: 5,
-    src: "images/bridge.jpg",
-    title: "Sunset on the Bridge",
+    id: 7,
+    src: "./Images/Sporcularimiz4.jpg",
+    title: "",
     description: "bar",
-    author: "Dabang"
+    author: "Gazi Okçuluk"
   },
   {
-    id: 5,
-    src: "images/fire.jpg",
-    title: "Fire",
+    id: 8,
+    src: "./Images/Sporcularimiz5.jpg",
+    title: "",
     description: "bar",
-    author: "Komali"
+    author: "Gazi Okçuluk"
   },
   {
-    id: 5,
-    src: "images/set.jpg",
-    title: "Set",
+    id: 9,
+    src: "./Images/Sporcularimiz6.jpg",
+    title: "",
     description: "bar",
-    author: "CCV"
-  }
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 10,
+    src: "./Images/Sporcularimiz7.jpg",
+    title: "",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 11,
+    src: "./Images/Sporcularimiz8.jpg",
+    title: "",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 12,
+    src: "./Images/OguzhanPolat3.jpg",
+    title: "Oğuzhan Polat",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 13,
+    src: "./Images/OguzhanPolat4.jpg",
+    title: "Oğuzhan Polat",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 14,
+    src: "./Images/OguzhanPolat5.jpg",
+    title: "Oğuzhan Polat",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 15,
+    src: "./Images/OguzhanPolat6.jpg",
+    title: "Oğuzhan Polat",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 16,
+    src: "./Images/OguzhanPolat7.jpg",
+    title: "Oğuzhan Polat",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
 ];
 
 const KlübümüzVideoList = [
