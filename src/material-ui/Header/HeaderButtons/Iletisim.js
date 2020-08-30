@@ -126,10 +126,10 @@ export default function Iletisim() {
               <ul align="center" type='none'>
                 {iletisim_item.description.map((item) => (
                   <grid align="center">
-                  <li key={item} align="center">
-                    <Link href="#" variant="subtitle1" color="textSecondary">
-                      {item}
-                    </Link>
+                  <li key={item} align="left" >
+                    <Typography variant="subtitle1"  color="textSecondary"> {item}</Typography>
+                     
+                   
                   </li>
                   </grid>
                 ))}
