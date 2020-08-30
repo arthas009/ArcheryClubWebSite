@@ -1,10 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles,createMuiTheme } from "@material-ui/core/styles";
 import PropTypes from 'prop-types';
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import { Container, Paper, Dialog, Grid } from "@material-ui/core";
+import { Box, Typography, Dialog, Grid } from "@material-ui/core";
 import Slide from "@material-ui/core/Slide";
 import VideoPlayer from "./VideoPlayer";
 const useStyles = makeStyles(theme => ({
@@ -17,8 +17,22 @@ const useStyles = makeStyles(theme => ({
             height: '150px !important',
         },
     },
+    typography:
+    {
+      margin:theme.spacing(2),
+    }
 }));
-
+const themeTypography = createMuiTheme({
+    typography: {
+      overline: {
+        fontSize: 25,
+        //textDecorationLine: 'underline'
+      },
+      body1: {
+        fontWeight: 500,
+      },
+    },
+  });
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -36,8 +50,13 @@ export default function VideoGalleryComponent(props) {
                             direction="column"
                             alignItems="center"
                             justify="center">
+                            <Box>
                             <VideoPlayer playing={true} url={tile.src} />
+                            </Box>
+                            <Typography theme={themeTypography} variant='overline'> {tile.author} </Typography>
+                            
                         </Grid>
+<hr></hr>
                     </GridListTile>
                 ))}
             </GridList>

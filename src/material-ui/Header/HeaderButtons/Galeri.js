@@ -14,7 +14,6 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import PhotoGalleryComponent from '../../Components/PhotoGalleryComponent';
 import VideoGalleryComponent from '../../Components/VideoGalleryComponent';
 
-
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -97,12 +96,19 @@ const KlübümüzImageList = [
     description: "bar",
     author: "Gazi Okçuluk"
   },
+  {
+    id: 5,
+    src: "./Images/Klubumuz1.jpg",
+    title: "Yarışma afişi",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
 ];
 
 const MadalyalarImageList = [
   {
     id: 1,
-    src: "https://n11scdn.akamaized.net/a1/450/spor-outdoor/kupa-ve-madalya/madalya-1-adet-altin-gumus-bronz-renk__1427895175396524.jpeg",
+    src: "./Images/Madalya1.jpg",
     title: "1. yarışma madalyası",
     description: "bar",
     author: "Gazi Okçuluk"
@@ -135,55 +141,28 @@ const MadalyalarImageList = [
     description: "bar",
     author: "Gazi Okçuluk"
   },
-  {
-    id: 6,
-    src: "images/sunset_road.jpg",
-    title: "Sunset_Road",
-    description: "bar",
-    author: "Sudhanshu"
-  },
-  {
-    id: 5,
-    src: "images/bridge.jpg",
-    title: "Sunset on the Bridge",
-    description: "bar",
-    author: "Dabang"
-  },
-  {
-    id: 5,
-    src: "images/fire.jpg",
-    title: "Fire",
-    description: "bar",
-    author: "Komali"
-  },
-  {
-    id: 5,
-    src: "images/set.jpg",
-    title: "Set",
-    description: "bar",
-    author: "CCV"
-  }
+
 ];
 
 const SporcularImageList = [
   {
     id: 1,
-    src: "https://worldarchery.org/sites/default/files/styles/manual_crop_16_9/public/page/image/archery_web.jpg?itok=EP-1kTyE&c=42aab2c8019a0badf60dfe63e9e50f7f",
-    title: "Ahmet Mehmet",
+    src: "./Images/OguzhanPolat.jpg",
+    title: "Oğuzhan Polat",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 2,
-    src: "https://lh3.googleusercontent.com/proxy/TNscVndH7d8Yw0H_Rl3gLQIZ6ExrbsEeDhGHkJa586DD4FhnH4nW2-RyJUdpwRnKK0hT2SO4BxBSSES_upQ61f86DhOpz3k5wGOl8lVQjF12gb84lzPauY6N",
-    title: "Hasan Hüseyin",
+    src: "./Images/OguzhanPolat1.jpg",
+    title: "Oğuzhan Polat",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
     id: 3,
-    src: "https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg",
-    title: "Ok atan adam",
+    src: "./Images/OguzhanPolat2.jpg",
+    title: "Oğuzhan Polat",
     description: "bar",
     author: "Gazi Okçuluk"
   },

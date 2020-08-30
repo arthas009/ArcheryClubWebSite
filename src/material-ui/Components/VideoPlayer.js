@@ -12,10 +12,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  videoGrid:
+  {
+    marginTop:theme.spacing(2),
+  } 
 
-
-});
+}));
 
 export default function VideoPlayer(props) {
   const classes = useStyles();
@@ -28,7 +31,7 @@ export default function VideoPlayer(props) {
       <Grid>
         <ReactPlayer
 
-          width='550px'
+          width='950px'
           height='450px'
           url={url}
           controls={true}
@@ -40,9 +43,8 @@ export default function VideoPlayer(props) {
     return (
       <Grid>
         <ReactPlayer
-
-          width='250px'
-          height='150px'
+          width='15uv'
+          height='15uv'
           url={url}
           controls={true}
         />
