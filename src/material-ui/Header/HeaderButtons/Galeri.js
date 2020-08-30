@@ -63,8 +63,8 @@ const themeTypography = createMuiTheme({
 const KlübümüzImageList = [
   {
     id: 1,
-    src: "https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg",
-    title: "",
+    src: "./Images/Klubumuz1.jpg",
+    title: "Yarışma afişi",
     description: "bar",
     author: "Gazi Okçuluk"
   },
@@ -84,25 +84,26 @@ const KlübümüzImageList = [
   },
   {
     id: 4,
+    src: "https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg",
+    title: "",
+    description: "bar",
+    author: "Gazi Okçuluk"
+  },
+  {
+    id: 5,
     src: "https://n11scdn.akamaized.net/a1/450/ev-yasam/hediyelik-esya/toplu-madalya-toren-madalyalari-basari-madalyasi-odul-madalya__1257335020123086.jpg",
     title: "2. yarışma madalyası",
     description: "bar",
     author: "Gazi Okçuluk"
   },
   {
-    id: 4,
+    id: 6,
     src: "https://www.denizpostasi.com/images/stories/2019/Eyl%C3%BCl/AW795159_01.jpg",
     title: "3. Yarışma madalya sahipleri",
     description: "bar",
     author: "Gazi Okçuluk"
   },
-  {
-    id: 5,
-    src: "./Images/Klubumuz1.jpg",
-    title: "Yarışma afişi",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
+ 
 ];
 
 const MadalyalarImageList = [
