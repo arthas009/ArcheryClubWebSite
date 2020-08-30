@@ -7,7 +7,7 @@ import { Typography, Box,ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 
 const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Klübü / OkçulukHakkında',
+  title: 'Gazi Okçuluk Klübü / Okçuluk Hakkında',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -65,15 +65,71 @@ export default function OkçulukHakkında() {
           <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">Hakkında</Typography>
+              <Typography variant="overline" color="textPrimary">Okçuluk Hakkında</Typography>
             </ThemeProvider>
             </Box>
             <hr className={classes.yatayCizgi} />
 
         </Grid>
-       <Grid container spacing={3}>
-      
-       </Grid>
+        <ThemeProvider theme={themeTypography}>
+
+<Grid container
+    direction="column"
+    justify="flex-start"
+    alignItems="flex-start"
+    className={classes.mainGrid}>
+  <Grid>
+
+    <Typography
+      variant="overline" color="textPrimary">
+      OKÇULUK NEDİR ?
+</Typography>
+
+    <Typography
+    >
+      Okçuluk, kökeni ilkel tarihlerdeki savaşlara dayanan, temel çıkış amacı avlanmak ve savaşmak olan bir el silahı olarak nitelendirilir.
+</Typography>
+  </Grid>
+
+  <Grid>
+
+    <Typography
+      variant="overline" color="textPrimary" className={classes.bodyClass}
+    >
+      MİSYONUMUZ
+</Typography>
+
+    <Typography
+    >
+      Gazi Okçuluk Klübü, misyon olarak kendine her zaman enerjik ve dinamik kalmayı, işini en iyi yapmayı edinmiştir.
+</Typography>
+</Grid>
+<Grid>
+    <Typography
+      variant="overline" color="textPrimary" className={classes.bodyClass}
+    >
+      VİZYONUMUZ
+</Typography>
+    <Typography
+      className={classes.bodyClass}
+    >
+      Gazi Okçuluk Klübü, vizyon olarak yenilikçi ve üretken olmayı, spor bilimine katkıda bulunmayı hedeflemiştir.
+</Typography>
+</Grid>
+<Grid>
+    <Typography
+      variant="overline" color="textPrimary" className={classes.bodyClass}
+    >
+      TARİHÇE
+</Typography>
+    <Typography
+      className={classes.bodyClass}
+    >
+      Gazi Okçuluk Klübü, ../../.... tarihinde ...... ve ....... tarafından kurulmuştur.
+</Typography>
+  </Grid>
+</Grid>
+</ThemeProvider>
        </Container>
     </React.Fragment>
   );
