@@ -4,12 +4,9 @@ import PropTypes from 'prop-types';
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-
 import { Container, Paper,Dialog,Grid } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-import VideoPlayer from "./VideoPlayer";
+
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
     position: 'relative',

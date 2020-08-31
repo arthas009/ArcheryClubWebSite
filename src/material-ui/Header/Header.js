@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { useState } from 'react';
+//import { useState } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import { Popover } from '@material-ui/core';
-import { Grid, Avatar, ButtonGroup, AppBar, Container,Box } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
+import { Grid, ButtonGroup, Box } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -15,8 +13,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 //import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import PhotoAlbumIcon from '@material-ui/icons/PhotoAlbum';
-import CallIcon from '@material-ui/icons/Call';
 import { Link } from 'react-router-dom';
 
 
@@ -74,8 +70,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title, handleClick } = props;
+  const {sections} = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const CustomLink = props => <Link to={"/" + props.name} {...props}></Link>;
 
   const handlePopoverOpen = (event) => {
@@ -93,7 +90,6 @@ export default function Header(props) {
     <React.Fragment>
       <Toolbar className={classes.toolbar} >
         <Grid className={classes.flexGrid}
-        container
           container
           direction="row"
           justify="space-between"
@@ -142,7 +138,7 @@ export default function Header(props) {
         {sections.map((section) => (
           /* Galeriyse farklı bir buton, değilse farklı bir buton yapısı oluşacak */
           <div>
-            {section.title == "Galeri" ? <div><Button
+            {section.title === "Galeri" ? <div><Button
               color="inherit"
               key={section.title}
               variant="body2"

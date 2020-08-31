@@ -3,12 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { Button, Typography, Box, ButtonGroup, FormControlLabel, Switch } from '@material-ui/core';
-import ViewListIcon from '@material-ui/icons/ViewList';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import { Button, Typography, Box} from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import PhotoGalleryComponent from '../../Components/PhotoGalleryComponent';
@@ -325,16 +320,9 @@ const SporcularVideoList = [
 
 export default function Galeri(props) {
   const classes = useStyles();
-  // Count of elements to display in per row
-  const [view, setView] = React.useState(3);
-
+  
   // Category to show, images or videos
   const [category, setCategory] = React.useState("Fotoğraflar");
-
-  const handleChange = (nextViewCount) => {
-    setView(nextViewCount);
-  };
-
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
   }

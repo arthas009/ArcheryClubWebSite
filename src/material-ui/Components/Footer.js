@@ -1,24 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles,withStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import { Grid, Card, Paper, CardContent, CardHeader } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 //import TwitterIcon from '@material-ui/icons/Twitter';
 //import FacebookIcon from '@material-ui/icons/Facebook';
 //import InstagramIcon from '@material-ui/icons/Instagram';
-import Icon from '@material-ui/core/Icon';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import AppBar from '@material-ui/core/AppBar';
-import CardActions from '@material-ui/core/CardActions';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import StarIcon from '@material-ui/icons/StarBorder';
-import Toolbar from '@material-ui/core/Toolbar';
 import Box from '@material-ui/core/Box';
 
 const WhiteTextTypography = withStyles({

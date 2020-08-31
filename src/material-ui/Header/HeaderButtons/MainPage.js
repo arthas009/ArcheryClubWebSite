@@ -1,12 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Grid, Box, Typography,ThemeProvider, Paper } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
-import VideoPlayer from '../../Components/VideoPlayer';
 
 
 

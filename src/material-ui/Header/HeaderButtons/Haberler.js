@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -55,31 +55,11 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-const featuredPosts = [
-  {
-    haberBasligi: 'Haber 1',
-    haberTarihi: 'Ağustos 2020',
-    haberIcerigi:
-      'Yarışmada ilk 3\'e giren sporcularımız',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
-    linkTextt: 'Okumaya Devam Et..'
-  },
-  {
-    haberBasligi: 'Haber 2',
-    haberTarihi: 'Haziran 2020',
-    haberIcerigi:
-      'Türkiyenin en değerli klübü seçildik !',
-    image: 'https://source.unsplash.com/random',
-    imageText: 'Image Text',
-    linkTextt: 'Okumaya Devam Et..'
-  },
-];
 
 export default function Haberler(props) {
   const classes = useStyles();
   const { news } = props;
-  if (news == undefined) {
+  if (news === undefined) {
     return (
       <React.Fragment>
       <CssBaseline />

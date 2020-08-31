@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
-  const {fromContent, post } = props;
+  const { post } = props;
   const CustomLink = props => <Link to={"/Hakkinda"} {...props}></Link>;
 
    

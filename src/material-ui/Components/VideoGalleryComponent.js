@@ -3,12 +3,12 @@ import { makeStyles,createMuiTheme } from "@material-ui/core/styles";
 import PropTypes from 'prop-types';
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { Box, Typography, Dialog, Grid } from "@material-ui/core";
-import Slide from "@material-ui/core/Slide";
+import { Box, Typography, Grid } from "@material-ui/core";
+//import Slide from "@material-ui/core/Slide";
 import VideoPlayer from "./VideoPlayer";
+
 const useStyles = makeStyles(theme => ({
     gridListTile:
     {
@@ -37,9 +37,10 @@ const themeTypography = createMuiTheme({
       },
     },
   });
-const Transition = React.forwardRef(function Transition(props, ref) {
+
+/*  const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
-});
+});*/
 
 export default function VideoGalleryComponent(props) {
     const classes = useStyles();

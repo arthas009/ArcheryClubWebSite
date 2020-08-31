@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import ReactPlayer from 'react-player';
-import Typography from '@material-ui/core/Typography';
-import { Grid, Button}from '@material-ui/core/';
+import { Grid}from '@material-ui/core/';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
-const useStyles = makeStyles((theme) => ({
+/*const useStyles = makeStyles((theme) => ({
   videoGrid:
   {
     marginTop:theme.spacing(2),
   } 
 
-}));
+}));*/
 
 export default function VideoPlayer(props) {
-  const classes = useStyles();
-  const { playing, url } = props;
+  //const classes = useStyles();
+  const { url } = props;
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
 

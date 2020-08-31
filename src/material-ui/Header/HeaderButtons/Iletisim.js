@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import { Typography, Box, ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
-import Link from '@material-ui/core/Link';
 
 
 const mainFeaturedPost = [{

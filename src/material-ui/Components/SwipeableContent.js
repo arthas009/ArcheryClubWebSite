@@ -1,9 +1,6 @@
 import React from 'react';
-
 import Carousel from 'react-material-ui-carousel'
-import { Paper } from '@material-ui/core'
 import { Grid } from '@material-ui/core'
-import { Container } from '@material-ui/core'
 
 import MainFeaturedPost from './MainFeaturedPost';
 

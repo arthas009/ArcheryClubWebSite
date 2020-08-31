@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
-import {BrowserRouter,HashRouter} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import Footer from './material-ui/Components/Footer';
 
 /*
