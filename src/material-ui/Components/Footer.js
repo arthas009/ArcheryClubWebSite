@@ -12,6 +12,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import { indigo } from '@material-ui/core/colors';
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -109,7 +110,8 @@ const useStyles = makeStyles((theme) => ({
       marginLeft:theme.spacing(0),
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
-      backgroundColor: 'rgba(0,0,0,.8)',
+     backgroundColor: 'rgba(0,0,0,.8)', 
+     // backgroundColor:'#3d5afe',
       [theme.breakpoints.up('sm')]: {
         paddingTop: theme.spacing(6),
         paddingBottom: theme.spacing(6),
@@ -128,7 +130,8 @@ const useStyles = makeStyles((theme) => ({
      },
      footerGrid:
      {
-      backgroundColor: 'rgba(0,0,0,.90)',
+     // backgroundColor: 'rgba(0,0,0,.90)',
+      backgroundColor:'#1a237e',//footer arka fon rengi
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',

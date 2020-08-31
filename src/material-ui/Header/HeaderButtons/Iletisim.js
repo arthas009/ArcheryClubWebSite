@@ -4,6 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { Typography, Box, ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
+import PhoneIcon from '@material-ui/icons/Phone';
+import EmailIcon from '@material-ui/icons/Email';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 
 const mainFeaturedPost = [{
@@ -17,15 +20,15 @@ const mainFeaturedPost = [{
 ];
 const iletisim_itemleri = [
   {
-    title: 'Adres',
+    title: [<LocationOnIcon  fontSize="small" />,'Adres'],
     description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .', 'Etimesgut/Ankara'],
   },
   {
-    title: 'Telefon & Fax',
+    title: [<PhoneIcon  fontSize="small" />,'Telefon & Fax'],
     description: ['+90 546 457 72 59', '+90 312 999 99 99'],
   },
   {
-    title: 'Mail',
+    title: [<EmailIcon  fontSize="small" />,'Mail'],
     description: ['Gazi Okçuluk Kulubü.com'],
   },
 ]
@@ -72,7 +75,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
 
   },
+  phoneIcon: {
+    marginLeft: theme.spacing(0),
 
+  },
+  emailIcon: {
+    marginLeft: theme.spacing(1),
+    // marginRight:theme.spacing(50)
+  },
 }));
 
 
@@ -109,16 +119,18 @@ export default function Iletisim() {
         </Box>
         <hr className={classes.yatayCizgi} />
       </Grid>
+
+
       <Grid className={classes.bodyClass} container spacing={2} justify='center' align='center'>
           {iletisim_itemleri.map((iletisim_item) => (
                   
             <Grid item xs={6} sm={3} key={iletisim_item.title}>
-              <Box style={{padding:"10px"}}borderRadius="50%" border={1}>
+             
 
               <Typography variant="h5" color="textPrimary" gutterBottom>
                 {iletisim_item.title}
               </Typography>
-              <hr className={classes.yatayCizgi}></hr>
+             
               <ul align="left" type='none'>
                 {iletisim_item.description.map((item) => (
                   <grid align="left">
@@ -129,7 +141,7 @@ export default function Iletisim() {
                   </grid>
                 ))}
               </ul>
-              </Box>
+              
             </Grid>
             
           ))}

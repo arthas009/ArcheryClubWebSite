@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 //import { useState } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -16,27 +16,42 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Link } from 'react-router-dom';
 
 
-
+const WhiteTextButton = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Button);
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
     overflowX: 'auto',
     height: 'auto',
     borderBottom: `1px solid gray`,
+   // color: '#0d47a1',
+    color:"#FFFFFF",
+    backgroundColor:'#1a237e',
+   
   },
   toolbarTitle: {
     marginLeft: theme.spacing(1),
-    color:'blue',
+   // color:'#0d47a1', // sol üstteki tel mail rengi
+    color:"#FFFFFF",
+   // backgroundColor:'#1a237e',
+
 
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
     padding: theme.spacing(2),
     overflowX: 'auto',
-    color: 'black',
+    //color: '#0d47a1', //toolbar dakı menu yazı rengi
+    color:'#1a237e',
+   // backgroundColor:'#1a237e',
   },
   menuButton:
   {
     border: '1px solid gray',
+    color: '#212121',
+   // backgroundColor:'#1a237e',
   },
   flexGrid: {
   },
@@ -119,15 +134,14 @@ export default function Header(props) {
                 yusufalti1997@gmail.com
                </Link>
             </Box>
-          </Grid>
+         </Grid>
           
-          <Grid alignItems="flex-start"
-> 
-            <ButtonGroup variant="text" color="black">
-              <Button><TwitterIcon fontSize="small" /></Button>
-              <Button><FacebookIcon fontSize="small" /></Button>
-              <Button><InstagramIcon fontSize="small" /></Button>
-            </ButtonGroup>
+          <Grid alignItems="flex-start" 
+>
+  <WhiteTextButton ><InstagramIcon fontSize="small"/> </WhiteTextButton>
+   <WhiteTextButton><FacebookIcon fontSize="small" /></WhiteTextButton>
+   <WhiteTextButton><TwitterIcon fontSize="small" /></WhiteTextButton>
+         
           </Grid>
 
         </Grid>
