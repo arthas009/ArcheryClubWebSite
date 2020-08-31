@@ -11,7 +11,7 @@ const mainFeaturedPost = [{
     title: 'Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir',
     description:
         "Kendine bir hedef belirlemek istiyorsan",
-    image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
+    image: './Images/OguzhanPolat.jpg',
     btnName: "İletişim",
     btnUrl:"Iletisim"
 },
@@ -23,6 +23,14 @@ const mainFeaturedPost = [{
     btnName:"Okçuluk Hakkında",
     btnUrl:"OkculukHakkinda"
 },
+{
+    title: 'En son haberleri kaçırmayın!',
+    description:
+        "",
+    image: './Images/HaberFotografi1.jpg',
+    btnName:"Haberler",
+    btnUrl:"Haberler"
+},
 ];
 
 export default function SwipeableContent(props) {
@@ -32,7 +40,7 @@ export default function SwipeableContent(props) {
                     <Carousel autoPlay={true} navButtonsAlwaysInvisible={true}>
                         {
                             mainFeaturedPost.map((item, i) =>
-                                <MainFeaturedPost key={i} post={item} />
+                                <MainFeaturedPost fromContent={true} key={i} post={item} />
                             )
                         }
                     </Carousel>

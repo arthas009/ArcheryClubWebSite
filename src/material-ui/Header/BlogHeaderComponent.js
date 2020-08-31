@@ -80,24 +80,6 @@ class BlogHeaderComponent extends Component {
 
 
     /* This is sample object for MainFeaturedPost component. Going to be removed later. */
-    this.mainFeaturedPost = [{
-      title: '',
-      description:
-        "",
-      image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
-      imgText: '',
-      linkText: '',
-    },
-    {
-      title: '',
-      description:
-        "",
-      image: 'https://miro.medium.com/max/3000/1*bHf1bqIQEJmtRDnuxVPdfg.jpeg',
-      imgText: '',
-      linkText: '',
-    },
-    ];
-
 
   }
 

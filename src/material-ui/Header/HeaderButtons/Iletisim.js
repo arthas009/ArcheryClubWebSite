@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { Typography, Box,ThemeProvider } from '@material-ui/core';
+import { Typography, Box, ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import Link from '@material-ui/core/Link';
 
@@ -20,7 +20,7 @@ const mainFeaturedPost = [{
 const iletisim_itemleri = [
   {
     title: 'Adres',
-    description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .','Etimesgut/Ankara'],
+    description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .', 'Etimesgut/Ankara'],
   },
   {
     title: 'Telefon & Fax',
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bodyClass:
   {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(15),
   },
   marginTopDiv:
   {
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     borderTop: `5px solid ${theme.palette.divider}`,
     borderBottom: `5px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
-    marginLeft:theme.spacing(0),
+    marginLeft: theme.spacing(0),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
     backgroundColor: 'rgba(200,200,200,.9)',
@@ -70,14 +70,14 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(6),
     },
   },
-    bosluk: {
-      marginLeft:theme.spacing(2),
+  bosluk: {
+    marginLeft: theme.spacing(2),
 
-    },
-  
+  },
+
 }));
 
- 
+
 const themeTypography = createMuiTheme({
   typography: {
     overline: {
@@ -93,47 +93,52 @@ const themeTypography = createMuiTheme({
 
 export default function Iletisim() {
   const classes = useStyles();
- 
+
 
   return (
     <React.Fragment>
-    <CssBaseline />
-    {
+      <CssBaseline />
+      {
         mainFeaturedPost.map((item, i) =>
           <MainFeaturedPost key={i} post={item} />
         )
-      }      
-    <Grid className={classes.heaederGrid}>
-          <Box className={classes.pageHeader}>
-            <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">İLETİŞİM</Typography>
-            </ThemeProvider>
-          </Box>
-          <hr className={classes.yatayCizgi} />
-        </Grid>
-         <Grid container spacing={2} justify='center' align='center'>
+      }
+      <Grid className={classes.heaederGrid}>
+        <Box className={classes.pageHeader}>
+          <ThemeProvider theme={themeTypography}>
+            <Typography variant="overline" color="textPrimary">İLETİŞİM</Typography>
+          </ThemeProvider>
+        </Box>
+        <hr className={classes.yatayCizgi} />
+      </Grid>
+      <Grid className={classes.bodyClass} container spacing={2} justify='center' align='center'>
           {iletisim_itemleri.map((iletisim_item) => (
+                  
             <Grid item xs={6} sm={3} key={iletisim_item.title}>
+              <Box style={{padding:"10px"}}borderRadius="50%" border={1}>
+
               <Typography variant="h5" color="textPrimary" gutterBottom>
                 {iletisim_item.title}
               </Typography>
-              <span>
+              <hr className={classes.yatayCizgi}></hr>
               <ul align="left" type='none'>
                 {iletisim_item.description.map((item) => (
                   <grid align="left">
-                  <li key={item} align="left" >
-                    <Typography variant="subtitle1"  color="textSecondary"> {item}</Typography>
-                                 
-                  </li>
+                    <li key={item} align="left" >
+                      <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
+
+                    </li>
                   </grid>
                 ))}
               </ul>
-              </span>
+              </Box>
             </Grid>
+            
           ))}
-        </Grid>
+        
 
-    
-  </React.Fragment>
+      </Grid>
+
+    </React.Fragment>
   );
-  }
+}

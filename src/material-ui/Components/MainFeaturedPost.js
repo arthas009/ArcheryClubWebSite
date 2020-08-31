@@ -15,13 +15,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6),
-      height: 300,
+      height: '40vh',
+
     },
     [theme.breakpoints.down('md')]: {
       padding: theme.spacing(1),
-      height: 200,
+      height: '10vh',
     },
 
   },
@@ -47,9 +48,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
-  const { post } = props;
+  const {fromContent, post } = props;
   const CustomLink = props => <Link to={"/Hakkinda"} {...props}></Link>;
 
+   
   return (
     <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
       {/* Increase the priority of the hero background image */}
