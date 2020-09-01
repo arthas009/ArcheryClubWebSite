@@ -13,6 +13,8 @@ import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
 import Galeri from './HeaderButtons/Galeri';
 import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
+import Kurslarımız from './HeaderButtons/Kurslarimiz';
+
 /*
 * BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
 * Üzerinde oluşan menü butonları (Header.js dosyasında oluşmaktadır), sahip oldukları tıklama eventi
@@ -42,7 +44,15 @@ class BlogHeaderComponent extends Component {
     /* These are the names to be placed on menu buttons. Props of <Header> component*/
     this.sections = [
       { title: 'AnaSayfa', url: 'AnaSayfa' },
-      { title: 'Hakkında', url: 'Hakkinda' },
+      {
+        title: 'Hakkında',
+        subtitles: [
+          { title: 'Hakkımızda', url: 'Hakkimizda' },
+          { title: 'Kurslarımız', url: 'Kurslarimiz' },
+        ],
+        url: 'Hakkinda'
+      },
+
       { title: 'Haberler', url: 'Haberler' },
 
       {
@@ -147,8 +157,13 @@ class BlogHeaderComponent extends Component {
           />
           <Route
             exact
-            path='/Hakkinda'
+            path='/Hakkinda/Hakkimizda'
             render={() => (<Hakkında></Hakkında>)}
+          />
+          <Route
+            exact
+            path='/Hakkinda/Kurslarimiz'
+            render={() => (<Kurslarımız></Kurslarımız>)}
           />
           <Route
             exact

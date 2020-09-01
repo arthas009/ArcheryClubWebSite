@@ -99,12 +99,14 @@ export default function Haberler(props) {
           <hr className={classes.yatayCizgi} />
 
           </Grid>
-
+          {news === null ? null :
           <Grid className={classes.mainGrid} container spacing={4}>
             {news.News.New.map((post) => (
               <CollapseableCard key={post.haberBasligi} post={post} />
             ))}
+          
           </Grid>
+}
         </Container>
     </React.Fragment>
   );

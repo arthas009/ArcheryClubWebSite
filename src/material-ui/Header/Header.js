@@ -87,18 +87,28 @@ export default function Header(props) {
   const classes = useStyles();
   const {sections} = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl2, setAnchorEl2] = React.useState(null);
 
   const CustomLink = props => <Link to={"/" + props.name} {...props}></Link>;
 
-  const handlePopoverOpen = (event) => {
+  const handlePopover1Open = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handlePopoverClose = () => {
+  const handlePopover1Close = () => {
     setAnchorEl(null);
   };
 
+  const handlePopover2Open = (event) => {
+    setAnchorEl2(event.currentTarget);
+  };
+  const handlePopover2Close = () => {
+    setAnchorEl2(null);
+  };
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+
+  const open2 = Boolean(anchorEl2);
+  const id2 = open2 ? 'simple-popover2' : undefined;
 
   /* h1 is used to display data on top left side of page */
   return (
@@ -157,7 +167,7 @@ export default function Header(props) {
               key={section.title}
               variant="body2"
               className={classes.menuButton}
-              onClick={handlePopoverOpen}
+              onClick={handlePopover1Open}
               aria-owns={open ? 'mouse-over-popover' : undefined}
               aria-haspopup="true"
               endIcon={<ArrowDropDownIcon />}
@@ -168,7 +178,7 @@ export default function Header(props) {
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
-                onClose={handlePopoverClose}
+                onClose={handlePopover1Close}
                 anchorOrigin={{
                   vertical: 'bottom',
                   horizontal: 'center',
@@ -191,7 +201,7 @@ export default function Header(props) {
                       key={"Klubumuz"}
                       variant="body2"
                       className={classes.menuButton}
-                      onClick={handlePopoverClose}
+                      onClick={handlePopover1Close}
                     >
                       {subsection.title}
                     </Button>
@@ -201,6 +211,55 @@ export default function Header(props) {
               </Popover>
             </div>
               :
+              section.title === "Hakkında" ? <div><Button
+              color="inherit"
+              key={section.title}
+              variant="body2"
+              className={classes.menuButton}
+              onClick={handlePopover2Open}
+              aria-owns={open ? 'mouse-over-popover' : undefined}
+              aria-haspopup="true"
+              endIcon={<ArrowDropDownIcon />}
+            >
+              {section.title}
+            </Button>
+              <Popover
+                id={id2}
+                open={open2}
+                anchorEl={anchorEl2}
+                onClose={handlePopover2Close}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+              >
+                {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
+                <ButtonGroup orientation="vertical"
+                  color="primary"
+                  aria-label="vertical contained primary button group"
+                  variant="text">
+                  {section.subtitles.map((subsection) => (
+                    <Button
+                      component={CustomLink}
+                      color="inherit"
+                      name={"Hakkinda/" + subsection.url}
+                      key={"Hakkinda"}
+                      variant="body2"
+                      className={classes.menuButton}
+                      onClick={handlePopover2Close}
+                    >
+                      {subsection.title}
+                    </Button>
+
+                  ))}
+                </ButtonGroup>
+              </Popover>
+            </div>
+            :
               <Button
                 component={CustomLink}
                 name={section.url}
