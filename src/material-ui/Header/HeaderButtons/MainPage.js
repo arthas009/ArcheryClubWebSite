@@ -8,7 +8,6 @@ import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
 
 
-
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(8),
@@ -82,7 +81,6 @@ export default function MainPage(props) {
           <hr/>
 
           </Grid>
-         
           <Grid container className={classes.mainGrid}>
           {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />

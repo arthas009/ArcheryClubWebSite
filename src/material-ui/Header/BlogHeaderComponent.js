@@ -14,6 +14,7 @@ import Iletisim from './HeaderButtons/Iletisim';
 import Galeri from './HeaderButtons/Galeri';
 import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
 import Kurslarımız from './HeaderButtons/Kurslarimiz';
+import WaveBorder from '../Components/WaveBorder';
 
 /*
 * BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.

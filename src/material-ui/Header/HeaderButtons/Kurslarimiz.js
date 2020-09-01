@@ -99,7 +99,7 @@ const themeTypography = createMuiTheme({
 });
 
 
-export default function Iletisim() {
+export default function Kurslarımız() {
   const classes = useStyles();
 
 
