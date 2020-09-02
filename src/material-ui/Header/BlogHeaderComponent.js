@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container } from '@material-ui/core';
+import { Container, withStyles,Toolbar} from '@material-ui/core';
 import { Route } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
@@ -14,7 +14,7 @@ import Iletisim from './HeaderButtons/Iletisim';
 import Galeri from './HeaderButtons/Galeri';
 import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
 import Kurslarımız from './HeaderButtons/Kurslarimiz';
-import WaveBorder from '../Components/WaveBorder';
+import OkculukMalzemeleri from './HeaderButtons/OkculukMalzemeleri';
 
 /*
 * BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
@@ -36,10 +36,9 @@ class BlogHeaderComponent extends Component {
     this.state = {NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
     this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
-    this.useStyles = makeStyles((theme) => ({
-      mainGrid: {
-        marginTop: theme.spacing(3),
-      },
+    
+    this.useStyles = withStyles((theme) => ({
+      toolbar: theme.mixins.toolbar,
     }));
 
     /* These are the names to be placed on menu buttons. Props of <Header> component*/
@@ -68,6 +67,7 @@ class BlogHeaderComponent extends Component {
 
       { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
       { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
+      { title: 'OKÇULUK MALZEMELERİ', url: 'OkculukMalzemeleri' },
       { title: 'İLETİŞİM', url: 'Iletisim' },
     ];
     /*this.featuredPost = [
@@ -132,20 +132,15 @@ class BlogHeaderComponent extends Component {
 
     /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
         onClick event handler function inside <Header> */
-    
-
-    /* In this section, root element, which is the symbolic body of the body will be changed accordingly */
-
-
-
 
     return (
       <React.Fragment>
         <CssBaseline />
-        <Container maxWidth="lg">
           <Header title="" clickedName={this.clickedName} sections={this.sections} />
-        </Container>
-        <Container maxWidth="lg">
+          <Toolbar />
+          <Toolbar />
+
+        <Container className={this.useStyles.toolbar} maxWidth="lg">
           <Route
             exact
             path='/'
@@ -170,8 +165,7 @@ class BlogHeaderComponent extends Component {
             exact
             path='/Haberler'
             render={() => (<Haberler news={this.state.NewsList}></Haberler>)}
-          />
-         
+          />      
             <Route
               exact
               path='/Galeri/Klubumuz'
@@ -187,8 +181,12 @@ class BlogHeaderComponent extends Component {
               path='/Galeri/Sporcularimiz'
               render={() => (<Galeri section={"Sporcularimiz"}></Galeri>)}
             />
+            <Route
+              exact
+              path='/Galeri/OkculukMalzemeleri'
+              render={() => (<OkculukMalzemeleri></OkculukMalzemeleri>)}
+            />
 
-        
 
           <Route
             exact

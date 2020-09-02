@@ -12,7 +12,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import { indigo } from '@material-ui/core/colors';
 
 const WhiteTextTypography = withStyles({
   root: {

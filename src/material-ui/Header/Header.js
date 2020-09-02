@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles,createMuiTheme } from '@material-ui/core/styles';
 //import { useState } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import { Popover } from '@material-ui/core';
-import { Grid, ButtonGroup, Box } from '@material-ui/core';
+import { Popover, ThemeProvider } from '@material-ui/core';
+import { Grid, ButtonGroup, Box,Fab,AppBar } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -13,8 +13,10 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 //import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import HideOnScroll from '../Components/HideOnScroll';
 import { Link } from 'react-router-dom';
 
+/* https://material-ui.com/components/floating-action-button/ */
 
 const WhiteTextButton = withStyles({
   root: {
@@ -23,6 +25,7 @@ const WhiteTextButton = withStyles({
 })(Button);
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
+    minHeight: 0,
     overflowX: 'auto',
     height: 'auto',
     borderBottom: `1px solid gray`,
@@ -45,13 +48,16 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
     //color: '#0d47a1', //toolbar dakı menu yazı rengi
     color:'#1a237e',
-   // backgroundColor:'#1a237e',
+    backgroundColor:'#1a237e',
   },
   menuButton:
   {
     border: '1px solid gray',
     color: '#212121',
    // backgroundColor:'#1a237e',
+  },
+  appBar:
+  {
   },
   flexGrid: {
   },
@@ -81,7 +87,18 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+const theme = createMuiTheme({
+    button: {
 
+    oversized:{
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    fontSize: 14,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500
+    },
+  },
+});
 
 export default function Header(props) {
   const classes = useStyles();
@@ -113,6 +130,8 @@ export default function Header(props) {
   /* h1 is used to display data on top left side of page */
   return (
     <React.Fragment>
+      <HideOnScroll threshold={0} className={classes.appBar}>
+      <AppBar>
       <Toolbar className={classes.toolbar} >
         <Grid className={classes.flexGrid}
           container
@@ -157,23 +176,25 @@ export default function Header(props) {
         </Grid>
 
       </Toolbar>
-
+      
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+        <ThemeProvider theme={theme}>
         {sections.map((section) => (
           /* Galeriyse farklı bir buton, değilse farklı bir buton yapısı oluşacak */
           <div>
-            {section.title === "Galeri" ? <div><Button
+            {section.title === "Galeri" ? <div>
+              <Fab
               color="inherit"
               key={section.title}
-              variant="body2"
+              variant="oversized"
               className={classes.menuButton}
               onClick={handlePopover1Open}
               aria-owns={open ? 'mouse-over-popover' : undefined}
               aria-haspopup="true"
-              endIcon={<ArrowDropDownIcon />}
             >
               {section.title}
-            </Button>
+              <ArrowDropDownIcon />
+            </Fab>
               <Popover
                 id={id}
                 open={open}
@@ -199,7 +220,7 @@ export default function Header(props) {
                       color="inherit"
                       name={"Galeri/" + subsection.url}
                       key={"Klubumuz"}
-                      variant="body2"
+                      variant="oversized"
                       className={classes.menuButton}
                       onClick={handlePopover1Close}
                     >
@@ -211,18 +232,18 @@ export default function Header(props) {
               </Popover>
             </div>
               :
-              section.title === "Hakkında" ? <div><Button
+              section.title === "Hakkında" ? <div><Fab
               color="inherit"
               key={section.title}
-              variant="body2"
+              variant="oversized"
               className={classes.menuButton}
               onClick={handlePopover2Open}
               aria-owns={open ? 'mouse-over-popover' : undefined}
               aria-haspopup="true"
-              endIcon={<ArrowDropDownIcon />}
             >
               {section.title}
-            </Button>
+              <ArrowDropDownIcon />
+            </Fab>
               <Popover
                 id={id2}
                 open={open2}
@@ -248,7 +269,7 @@ export default function Header(props) {
                       color="inherit"
                       name={"Hakkinda/" + subsection.url}
                       key={"Hakkinda"}
-                      variant="body2"
+                      variant="oversized"
                       className={classes.menuButton}
                       onClick={handlePopover2Close}
                     >
@@ -260,24 +281,26 @@ export default function Header(props) {
               </Popover>
             </div>
             :
-              <Button
+              <Fab
                 component={CustomLink}
                 name={section.url}
                 color="inherit"
                 key={section.title}
-                variant="body2"
+                variant="oversized"
                 className={classes.menuButton}
 
               >
                 {section.title}
-              </Button>
+              </Fab>
 
             }
 
           </div>
         ))}
-
+         </ThemeProvider>
       </Toolbar>
+      </AppBar>
+      </HideOnScroll>
     </React.Fragment>
   );
 }
