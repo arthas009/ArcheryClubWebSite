@@ -6,16 +6,16 @@ import { Grid, Box, Typography,ThemeProvider, Paper } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
+import GaziLogo from '../../Components/Logo';
 
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
-    marginTop: theme.spacing(8),
+    marginTop:theme.spacing(10),
     justifyContent: "space-between",
   },
   heaederGrid:
   {
-    marginTop: theme.spacing(5),
   },
   pageHeader: {
     display: 'flex',
@@ -67,7 +67,6 @@ export default function MainPage(props) {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <SwipeableContent></SwipeableContent> 
 
         <Container>
@@ -79,9 +78,10 @@ export default function MainPage(props) {
 
           </Box>
           <hr/>
-
           </Grid>
+
           <Grid container className={classes.mainGrid}>
+
           {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}

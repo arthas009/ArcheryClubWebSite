@@ -10,7 +10,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 
 const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Kulubü / İletişim',
+  title: 'Gazi Okçuluk Kulubü / Okculuk Malzemeleri',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -112,7 +112,7 @@ export default function OkculukMalzemeleri() {
       <Grid className={classes.heaederGrid}>
         <Box className={classes.pageHeader}>
           <ThemeProvider theme={themeTypography}>
-            <Typography variant="overline" color="textPrimary">İLETİŞİM</Typography>
+            <Typography variant="overline" color="textPrimary">Okçuluk Malzemeleri</Typography>
           </ThemeProvider>
         </Box>
         <hr className={classes.yatayCizgi} />

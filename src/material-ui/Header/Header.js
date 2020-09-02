@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, withStyles,createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, withStyles, createMuiTheme } from '@material-ui/core/styles';
 //import { useState } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Popover, ThemeProvider } from '@material-ui/core';
-import { Grid, ButtonGroup, Box,Fab,AppBar } from '@material-ui/core';
+import { Grid, ButtonGroup, Box, Fab, AppBar } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -29,16 +29,16 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
     height: 'auto',
     borderBottom: `1px solid gray`,
-   // color: '#0d47a1',
-    color:"#FFFFFF",
-    backgroundColor:'#1a237e',
-   
+    // color: '#0d47a1',
+    color: "#FFFFFF",
+    backgroundColor: '#1a237e',
+
   },
   toolbarTitle: {
     marginLeft: theme.spacing(1),
-   // color:'#0d47a1', // sol üstteki tel mail rengi
-    color:"#FFFFFF",
-   // backgroundColor:'#1a237e',
+    // color:'#0d47a1', // sol üstteki tel mail rengi
+    color: "#FFFFFF",
+    // backgroundColor:'#1a237e',
 
 
   },
@@ -47,14 +47,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     overflowX: 'auto',
     //color: '#0d47a1', //toolbar dakı menu yazı rengi
-    color:'#1a237e',
-    backgroundColor:'#1a237e',
+    color: '#1a237e',
+    backgroundColor: '#1a237e',
   },
   menuButton:
   {
     border: '1px solid gray',
     color: '#212121',
-   // backgroundColor:'#1a237e',
+    // backgroundColor:'#1a237e',
   },
   appBar:
   {
@@ -88,21 +88,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const theme = createMuiTheme({
-    button: {
+  button: {
 
-    oversized:{
-    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
-    fontSize: 14,
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500
+    oversized: {
+      fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+      fontSize: 15,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500
     },
   },
 });
 
 export default function Header(props) {
   const classes = useStyles();
-  const {sections} = props;
+  const { sections } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEl2, setAnchorEl2] = React.useState(null);
 
@@ -131,175 +131,182 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <HideOnScroll threshold={0} className={classes.appBar}>
-      <AppBar>
-      <Toolbar className={classes.toolbar} >
-        <Grid className={classes.flexGrid}
-          container
-          direction="row"
-          justify="space-between"
-          alignItems="flex-start"
-          >
-          <Grid
-              alignItems="flex-start">
-            <Box display={{ xs: 'none', md: 'inline' }}>
-              <PhoneIcon fontSize="small" />
-              
-              <Link 
-                
-                color="inherit"
-                className={classes.toolbarTitle}
-              >
-                +90 546 457 72 59
-               </Link>
-               </Box>
-               <Box display={{ xs: 'none', md: 'inline' }}>
-
-              <EmailIcon className={classes.emailIcon} fontSize="small" />
-              <Link
-               
-                color="inherit"
-                className={classes.toolbarTitle}
-              >
-                yusufalti1997@gmail.com
-               </Link>
-            </Box>
-         </Grid>
-          
-          <Grid alignItems="flex-start" 
->
-  <WhiteTextButton ><InstagramIcon fontSize="small"/> </WhiteTextButton>
-   <WhiteTextButton><FacebookIcon fontSize="small" /></WhiteTextButton>
-   <WhiteTextButton><TwitterIcon fontSize="small" /></WhiteTextButton>
-         
-          </Grid>
-
-        </Grid>
-
-      </Toolbar>
-      
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
-        <ThemeProvider theme={theme}>
-        {sections.map((section) => (
-          /* Galeriyse farklı bir buton, değilse farklı bir buton yapısı oluşacak */
-          <div>
-            {section.title === "Galeri" ? <div>
-              <Fab
-              color="inherit"
-              key={section.title}
-              variant="oversized"
-              className={classes.menuButton}
-              onClick={handlePopover1Open}
-              aria-owns={open ? 'mouse-over-popover' : undefined}
-              aria-haspopup="true"
+        <AppBar>
+          <Toolbar className={classes.toolbar} >
+            <Grid className={classes.flexGrid}
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="flex-start"
             >
-              {section.title}
-              <ArrowDropDownIcon />
-            </Fab>
-              <Popover
-                id={id}
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handlePopover1Close}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'center',
-                }}
+              <Grid
+                alignItems="flex-start">
+                <Box display={{ xs: 'none', md: 'inline' }}>
+                  <PhoneIcon fontSize="small" />
+
+                  <Link
+
+                    color="inherit"
+                    className={classes.toolbarTitle}
+                  >
+                    +90 546 457 72 59
+               </Link>
+                </Box>
+                <Box display={{ xs: 'none', md: 'inline' }}>
+
+                  <EmailIcon className={classes.emailIcon} fontSize="small" />
+                  <Link
+
+                    color="inherit"
+                    className={classes.toolbarTitle}
+                  >
+                    yusufalti1997@gmail.com
+               </Link>
+                </Box>
+              </Grid>
+
+              <Grid alignItems="flex-start"
               >
-                {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
-                <ButtonGroup orientation="vertical"
-                  color="primary"
-                  aria-label="vertical contained primary button group"
-                  variant="text">
-                  {section.subtitles.map((subsection) => (
-                    <Button
-                      component={CustomLink}
+                <WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small" /> </WhiteTextButton>
+                <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" /></WhiteTextButton>
+                <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" /></WhiteTextButton>
+
+              </Grid>
+
+            </Grid>
+
+          </Toolbar>
+
+          <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+            <ThemeProvider theme={theme}>
+              {sections.map((section) => (
+                /* Galeriyse farklı bir buton, değilse farklı bir buton yapısı oluşacak */
+                <div>
+                  {section.title === "Galeri" ? <div>
+                    <Fab
+                      size="medium"
                       color="inherit"
-                      name={"Galeri/" + subsection.url}
-                      key={"Klubumuz"}
+                      key={section.title}
                       variant="oversized"
                       className={classes.menuButton}
-                      onClick={handlePopover1Close}
+                      onClick={handlePopover1Open}
+                      aria-owns={open ? 'mouse-over-popover' : undefined}
+                      aria-haspopup="true"
                     >
-                      {subsection.title}
-                    </Button>
-
-                  ))}
-                </ButtonGroup>
-              </Popover>
-            </div>
-              :
-              section.title === "Hakkında" ? <div><Fab
-              color="inherit"
-              key={section.title}
-              variant="oversized"
-              className={classes.menuButton}
-              onClick={handlePopover2Open}
-              aria-owns={open ? 'mouse-over-popover' : undefined}
-              aria-haspopup="true"
-            >
-              {section.title}
-              <ArrowDropDownIcon />
-            </Fab>
-              <Popover
-                id={id2}
-                open={open2}
-                anchorEl={anchorEl2}
-                onClose={handlePopover2Close}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'center',
-                }}
-              >
-                {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
-                <ButtonGroup orientation="vertical"
-                  color="primary"
-                  aria-label="vertical contained primary button group"
-                  variant="text">
-                  {section.subtitles.map((subsection) => (
-                    <Button
-                      component={CustomLink}
-                      color="inherit"
-                      name={"Hakkinda/" + subsection.url}
-                      key={"Hakkinda"}
-                      variant="oversized"
-                      className={classes.menuButton}
-                      onClick={handlePopover2Close}
+                      {section.title}
+                      <ArrowDropDownIcon />
+                    </Fab>
+                    <Popover
+                      id={id}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handlePopover1Close}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'center',
+                      }}
                     >
-                      {subsection.title}
-                    </Button>
+                      {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
+                      <ButtonGroup orientation="vertical"
+                        color="primary"
+                        aria-label="vertical contained primary button group"
+                        variant="text">
+                        {section.subtitles.map((subsection) => (
+                          <Button
+                            size="medium"
+                            component={CustomLink}
+                            color="inherit"
+                            name={"Galeri/" + subsection.url}
+                            key={"Klubumuz"}
+                            variant="oversized"
+                            className={classes.menuButton}
+                            onClick={handlePopover1Close}
+                          >
+                            {subsection.title}
+                          </Button>
 
-                  ))}
-                </ButtonGroup>
-              </Popover>
-            </div>
-            :
-              <Fab
-                component={CustomLink}
-                name={section.url}
-                color="inherit"
-                key={section.title}
-                variant="oversized"
-                className={classes.menuButton}
+                        ))}
+                      </ButtonGroup>
+                    </Popover>
+                  </div>
+                    :
+                    section.title === "Hakkında" ? <div>
+                      <Fab
+                        size="medium"
 
-              >
-                {section.title}
-              </Fab>
+                        color="inherit"
+                        key={section.title}
+                        variant="oversized"
+                        className={classes.menuButton}
+                        onClick={handlePopover2Open}
+                        aria-owns={open ? 'mouse-over-popover' : undefined}
+                        aria-haspopup="true"
+                      >
+                        {section.title}
+                        <ArrowDropDownIcon />
+                      </Fab>
+                      <Popover
+                        id={id2}
+                        open={open2}
+                        anchorEl={anchorEl2}
+                        onClose={handlePopover2Close}
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'center',
+                        }}
+                      >
+                        {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
+                        <ButtonGroup orientation="vertical"
+                          color="primary"
+                          aria-label="vertical contained primary button group"
+                          variant="text">
+                          {section.subtitles.map((subsection) => (
+                            <Button
+                              component={CustomLink}
+                              color="inherit"
+                              name={"Hakkinda/" + subsection.url}
+                              key={"Hakkinda"}
+                              variant="oversized"
+                              className={classes.menuButton}
+                              onClick={handlePopover2Close}
+                            >
+                              {subsection.title}
+                            </Button>
 
-            }
+                          ))}
+                        </ButtonGroup>
+                      </Popover>
+                    </div>
+                      :
+                      <Fab
+                        size="medium"
 
-          </div>
-        ))}
-         </ThemeProvider>
-      </Toolbar>
-      </AppBar>
+                        component={CustomLink}
+                        name={section.url}
+                        color="inherit"
+                        key={section.title}
+                        variant="oversized"
+                        className={classes.menuButton}
+
+                      >
+                        {section.title}
+                      </Fab>
+
+                  }
+
+                </div>
+              ))}
+            </ThemeProvider>
+          </Toolbar>
+        </AppBar>
       </HideOnScroll>
     </React.Fragment>
   );

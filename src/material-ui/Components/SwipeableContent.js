@@ -32,17 +32,15 @@ const mainFeaturedPost = [{
 
 export default function SwipeableContent(props) {
     return (
-        <React.Fragment>
                 <Grid spacing={4}>
                     <Carousel autoPlay={true} navButtonsAlwaysInvisible={true}>
                         {
                             mainFeaturedPost.map((item, i) =>
-                                <MainFeaturedPost fromContent={true} key={i} post={item} />
+                                <MainFeaturedPost key={i} post={item} isMainPage={true}  />
                             )
                         }
                     </Carousel>
                 </Grid>
-        </React.Fragment>
     )
 
     /*

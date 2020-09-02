@@ -62,7 +62,9 @@ const footers = [
   },
   {
     title: 'Sosyal Medya Hesaplarımız',
-    description: [<WhiteTextButton ><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>, <WhiteTextButton><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,<WhiteTextButton><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
+    description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
+     <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+     <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
   },
 ];
 const useStyles = makeStyles((theme) => ({

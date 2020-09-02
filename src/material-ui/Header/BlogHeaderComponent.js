@@ -140,7 +140,6 @@ class BlogHeaderComponent extends Component {
           <Toolbar />
           <Toolbar />
 
-        <Container className={this.useStyles.toolbar} maxWidth="lg">
           <Route
             exact
             path='/'
@@ -183,7 +182,7 @@ class BlogHeaderComponent extends Component {
             />
             <Route
               exact
-              path='/Galeri/OkculukMalzemeleri'
+              path='/OkculukMalzemeleri'
               render={() => (<OkculukMalzemeleri></OkculukMalzemeleri>)}
             />
 
@@ -203,7 +202,6 @@ class BlogHeaderComponent extends Component {
             path='/Iletisim'
             render={() => (<Iletisim></Iletisim>)}
           />
-        </Container>
       </React.Fragment>
     );
   }

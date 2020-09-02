@@ -1,18 +1,23 @@
-import React from "react";
-import Gazıok1 from './images/gazıok1.svg'; // Path to your icons.svg
-import PropTypes from 'prop-types';
+import React from 'react';
+import { SvgIcon, makeStyles } from '@material-ui/core';
+import { ReactComponent as MySvg } from './GaziOkculukLogo.svg';
+
+const useStyles = makeStyles((theme) => ({
+  
+    mySvgStyle:
+    {
+      fillColor: theme.palette.primary.main,
+  },
+}));
 
 
-const Gazıok1 = ({ name, color, size }) => (
-  <svg className={`icon icon-${name}`} fill={color} width={size} height={size}>
-    <use xlinkHref={`${Icons}#icon-${name}`} />
-  </svg>
-);
+export default function Logo() {
 
-Gazıok1.propTypes = {
-  name: PropTypes.string.isRequired,
-  color: PropTypes.string,
-  size: PropTypes.number
-};
+  const classes = useStyles();
 
-export default Gazıok1;
+  return (
+    <SvgIcon className={classes.mySvgStyle}>
+      <MySvg />
+    </SvgIcon>
+  )
+}
