@@ -7,10 +7,11 @@ import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import TableKurs from '../../Components/TableKurs';
 
 
 const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Kulubü / Kurslarımız',
+  title: 'Gazi Okçuluk Kulubü / İletişim',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -58,6 +59,10 @@ const useStyles = makeStyles((theme) => ({
   yatayCizgi: {
     width: '50%',
   },
+  dikeyCizgi: {
+    width: '1%',
+    height: '100%'
+  },
   iletisim_item: {
     borderTop: `5px solid ${theme.palette.divider}`,
     borderBottom: `5px solid ${theme.palette.divider}`,
@@ -99,7 +104,7 @@ const themeTypography = createMuiTheme({
 });
 
 
-export default function Kurslarımız() {
+export default function Iletisim() {
   const classes = useStyles();
 
 
@@ -114,41 +119,20 @@ export default function Kurslarımız() {
       <Grid className={classes.heaederGrid}>
         <Box className={classes.pageHeader}>
           <ThemeProvider theme={themeTypography}>
-            <Typography variant="overline" color="textPrimary">Kurslarımız</Typography>
+            <Typography variant="overline" color="textPrimary">KURSLARIMIZ</Typography>
           </ThemeProvider>
         </Box>
         <hr className={classes.yatayCizgi} />
       </Grid>
 
 
-      <Grid className={classes.bodyClass} container spacing={2} justify='center' align='center'>
-          {iletisim_itemleri.map((iletisim_item) => (
-                  
-            <Grid item xs={6} sm={3} key={iletisim_item.title}>
-             
-
-              <Typography variant="h5" color="textPrimary" gutterBottom>
-                {iletisim_item.title}
-              </Typography>
-             
-              <ul align="left" type='none'>
-                {iletisim_item.description.map((item) => (
-                  <grid align="left">
-                    <li key={item} align="left" >
-                      <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
-
-                    </li>
-                  </grid>
-                ))}
-              </ul>
-              
-            </Grid>
-            
-          ))}
-        
+      
+           <Grid>  
+         
+     <TableKurs></TableKurs>
 
       </Grid>
-
+      
     </React.Fragment>
   );
 }
