@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
   gridListTile:
   {
+    marginBottom: theme.spacing(5), //carddan sonraki boşluk
     [theme.breakpoints.up('md')]: {
       height:'450px !important',
     },
