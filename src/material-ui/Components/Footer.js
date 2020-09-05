@@ -35,10 +35,12 @@ function Copyright() {
   const classes = useStyles();
 
   return (
+
     <Typography className ={classes.typhoDown} variant="body2" color="textSecondary" align="center">
           <hr className={classes.yatayCizgi} />
+
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" to="https://material-ui.com/">
         Gazi Okçuluk Kulübü. Tüm Hakları Saklıdır.
       </Link>{' '}
       {new Date().getFullYear()}
@@ -148,31 +150,27 @@ export default function Footer(props) {
        <hr className={classes.yukarıBosluk}></hr>
         <Grid className={classes.footerGrid} container spacing={4} justify='center' align='center'>
           {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
+            <Grid item xs={6} sm={3} key={footer.title+"footerGrid"}>
               <WhiteTextTypography variant="h6" gutterBottom>
                 {footer.title}
               </WhiteTextTypography>
               <hr className={classes.yatayCizgi}></hr>
-              <ul align="left" type='none'> 
                 {footer.description.map((item) => (
-                  <grid align="left">
-                  <li key={item} align="left">
+                  <Grid key = {item+"item"} align="left">
                     {footer.title === "İletişim" ?
-                    <WhiteTextLink href="/#/Iletisim" variant="subtitle1">
+                    <WhiteTextButton href="/#/Iletisim">
                       {item}
-                    </WhiteTextLink>:
+                    </WhiteTextButton>:
                     footer.title ==="Hakkında" ? 
-                    <WhiteTextLink href="/#/Hakkinda/Hakkimizda" variant="subtitle1">
+                    <WhiteTextButton href="/#/Hakkinda/Hakkimizda" >
                       {item}
-                    </WhiteTextLink>:
-                    <WhiteTextLink href="#" variant="subtitle1">
+                    </WhiteTextButton>:
+                    <WhiteTextLink>
                     {item}
                   </WhiteTextLink>
                      }
-                  </li>
-                  </grid>
+                  </Grid>
                 ))}
-              </ul>
             </Grid>
           ))}
         </Grid>
