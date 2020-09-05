@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useEffect } from "react";
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -7,7 +7,8 @@ import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import SatınAl from '../../Components/SatınAl';
+import PricingSection from '../../Components/PricingSection';
+
 
 
 
@@ -58,13 +59,15 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
   yatayCizgi: {
-    width: '50%',
+    width: '75%',
   },
  
   bosluk: {
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(30),
+    marginRight: theme.spacing(30),
 
   },
+
 }));
 
 
@@ -94,15 +97,15 @@ export default function IkinciElMalzemeler() {
       <Grid className={classes.heaederGrid}>
         <Box className={classes.pageHeader}>
           <ThemeProvider theme={themeTypography}>
-            <Typography variant="overline" color="textPrimary">2. El Malzemeler</Typography>
+            <Typography variant="overline" color="textPrimary">İkinci El Malzemeler</Typography>
           </ThemeProvider>
         </Box>
         <hr className={classes.yatayCizgi} />
       </Grid>
 
-
-     
-        
+<Grid className={classes.bosluk}>
+      <PricingSection  />
+      </Grid>
       </Grid>
     
     </React.Fragment>
