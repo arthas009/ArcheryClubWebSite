@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
   },
   bodyClass:
   {
-    marginTop: theme.spacing(15),
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
   },
   marginTopDiv:
   {
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
   yatayCizgi: {
-    width: '50%',
+    width: '75%',
   },
   yatayyCizgi: {
     width: '20%',
@@ -112,7 +113,7 @@ const themeTypography = createMuiTheme({
     },
   },
 });
-
+// <hr align="left" className={classes.yatayyCizgi} />
 
 export default function Iletisim() {
   const classes = useStyles();
@@ -148,12 +149,15 @@ export default function Iletisim() {
                 <Typography className={classes.ustBosluk} variant="h5" color="textPrimary" gutterBottom>
                   {iletisim_item.icon}{iletisim_item.title}
                 </Typography>
-                <hr align="left" className={classes.yatayyCizgi} />
-                <ul>
+                
+               
+               <Box  borderLeft={1}>
+               
+                <ul >
                 {iletisim_item.description.map((item) => (
                   <Grid align="left">
                     
-                    <li key={item} align="left" >
+                    <li key={item} align="left" type = "none"  >
                       <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
                       
                     </li>
@@ -163,11 +167,11 @@ export default function Iletisim() {
                 ))}
                 
               </ul>
-              
+              </Box>
               </Grid>
             </Grid>
            
-
+            
           ))}
 </Grid>
 </Container>
