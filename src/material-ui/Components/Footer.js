@@ -162,7 +162,7 @@ export default function Footer(props) {
                       {item}
                     </WhiteTextLink>:
                     footer.title ==="Hakkında" ? 
-                    <WhiteTextLink href="/#/Hakkinda" variant="subtitle1">
+                    <WhiteTextLink href="/#/Hakkinda/Hakkimizda" variant="subtitle1">
                       {item}
                     </WhiteTextLink>:
                     <WhiteTextLink href="#" variant="subtitle1">
