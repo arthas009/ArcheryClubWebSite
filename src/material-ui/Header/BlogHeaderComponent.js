@@ -33,7 +33,7 @@ import OkculukMalzemeleri from './HeaderButtons/OkculukMalzemeleri';
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {NewsList: null, xmlfound: false, jsonstring: "", index: 0 };
+    this.state = {NewsList: null,ImagesList:null, xmlfound: false, jsonstring: "", index: 0 };
     this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
     
@@ -67,36 +67,14 @@ class BlogHeaderComponent extends Component {
 
       { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
       { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
-      { title: 'OKÇULUK MALZEMELERİ', url: 'OkculukMalzemeleri' },
+      { title: '2. el malzeme', url: 'OkculukMalzemeleri' },
       { title: 'İLETİŞİM', url: 'Iletisim' },
     ];
-    /*this.featuredPost = [
-      {
-        title: 'PhotowithPost',
-        date: 'Nov 12',
-        description:
-          'This is a wider card with supporting text below as a natural lead-in to additional content.',
-        image: 'https://source.unsplash.com/random',
-        imageText: 'Image Text',
-      },
-      {
-        title: 'Post title',
-        date: 'Nov 11',
-        description:
-          'This is a wider card with supporting text below as a natural lead-in to additional content.',
-        image: 'https://source.unsplash.com/random',
-        imageText: 'Image Text',
-      },
-    ];*/
-
-
-    /* This is sample object for MainFeaturedPost component. Going to be removed later. */
 
   }
 
   /* Fetching News(Haberler) data from a local server program. */
   async componentDidMount() {
-    console.log(this.NewsList);
     try {
       /*
       let [items, news] = await Promise.all([
@@ -104,12 +82,15 @@ class BlogHeaderComponent extends Component {
         fetch("http://localhost:4000/news")
       ]);      
       */
-      let [news] = await Promise.all([
-        fetch("http://192.168.1.21:4000/news")
+      let [images,news] = await Promise.all([
+        fetch("http://192.168.1.21:3005/Images/Sporcularimiz"),
+        //fetch("http://192.168.1.21:4000/news")     
       ]);
-      const a = await news.json();
-      this.setState({ NewsList: a });
+      const b = await images.json();
+      console.log(b);
 
+      this.setState({ImagesList:b});
+      
     }
     catch (err) {
       console.log(err);
@@ -178,7 +159,7 @@ class BlogHeaderComponent extends Component {
             <Route
               exact
               path='/Galeri/Sporcularimiz'
-              render={() => (<Galeri section={"Sporcularimiz"}></Galeri>)}
+              render={() => (<Galeri section={"Sporcularimiz"} ImagesList = {this.state.ImagesList}></Galeri>)}
             />
             <Route
               exact
