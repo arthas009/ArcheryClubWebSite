@@ -139,8 +139,7 @@ export default function Header(props) {
               justify="space-between"
               alignItems="flex-start"
             >
-              <Grid
-                alignItems="flex-start">
+              <Grid>
                 <Box display={{ xs: 'none', md: 'inline' }}>
                   <PhoneIcon fontSize="small" />
 
@@ -165,8 +164,7 @@ export default function Header(props) {
                 </Box>
               </Grid>
 
-              <Grid alignItems="flex-start"
-              >
+              <Grid>
                 <WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small" /> </WhiteTextButton>
                 <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" /></WhiteTextButton>
                 <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" /></WhiteTextButton>
@@ -200,6 +198,7 @@ export default function Header(props) {
                       id={id}
                       open={open}
                       anchorEl={anchorEl}
+                      key={section.title+"popover"}
                       onClose={handlePopover1Close}
                       anchorOrigin={{
                         vertical: 'bottom',

@@ -9,32 +9,56 @@ import { CardMedia,Button, Link } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   card: {
+    [theme.breakpoints.up('xs')]: {
+      width: "20em",
+    },  
+    [theme.breakpoints.up('sm')]: {
+      width: "40em",
+    },  
+    [theme.breakpoints.up('md')]: {
+      width: '60rem',
+    },
     [theme.breakpoints.up('lg')]: {
       width: '75rem',
     },
-    width: '25rem',
-    [theme.breakpoints.down('md')]: {
-      width: '20rem',
-    },
+   
     display: 'flex',
   },
   cardDetails: {
     flex: 1,
   },
   cardMedia: {
-    width: 600,
-    height: 400,
+    height: '%100',
+    [theme.breakpoints.up('xs')]: {
+      width: "10em",
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: "20em",
+    },   
+    [theme.breakpoints.up('md')]: {
+      width: '30rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '40rem',
+    },
+    display: 'flex',
   },
   cardContent:
   {
     overflow: "auto",
     textOverflow: "ellipsis",
-    [theme.breakpoints.up('lg')]: {
-      width: '35rem',
+   
+    [theme.breakpoints.up('xs')]: {
+      width: "10em",
     },
-    width: '35rem',
-    [theme.breakpoints.down('md')]: {
-      width: '10rem',
+    [theme.breakpoints.up('sm')]: {
+      width: "20em",
+    },   
+    [theme.breakpoints.up('md')]: {
+      width: '30rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '40rem',
     },
     height: "100%"
 
