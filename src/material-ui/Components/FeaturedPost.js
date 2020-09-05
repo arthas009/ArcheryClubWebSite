@@ -6,11 +6,14 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+//import GaziLogoPng from './public/Images/GaziLogoPng.png';
 
 const useStyles = makeStyles((theme) => ({
   card: {
     [theme.breakpoints.up('lg')]: {
       width: '75rem',
+      marginBottom: theme.spacing(5), //carddan sonraki boşluk
+      
     },
     width: '25rem',
     [theme.breakpoints.down('md')]: {
@@ -58,6 +61,7 @@ export default function FeaturedPost(props) {
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent className={classes.cardContent}>
+           
               <Typography component="h2" variant="h5">
                 Okçuluğun Kökeni
               </Typography>

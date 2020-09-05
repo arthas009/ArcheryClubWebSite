@@ -7,10 +7,12 @@ import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import SatınAl from '../../Components/SatınAl';
+
 
 
 const mainFeaturedPost = [{
-  title: 'Gazi Okçuluk Kulubü / Okculuk Malzemeleri',
+  title: 'Gazi Okçuluk Kulubü / 2. El Malzemeler',
   description:
     "",
   image: 'https://www.colinglen.org/content/uploads/2020/02/Colin-Glen-987.jpg',
@@ -58,30 +60,10 @@ const useStyles = makeStyles((theme) => ({
   yatayCizgi: {
     width: '50%',
   },
-  iletisim_item: {
-    borderTop: `5px solid ${theme.palette.divider}`,
-    borderBottom: `5px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    marginLeft: theme.spacing(0),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    backgroundColor: 'rgba(200,200,200,.9)',
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-  },
+ 
   bosluk: {
     marginLeft: theme.spacing(2),
 
-  },
-  phoneIcon: {
-    marginLeft: theme.spacing(0),
-
-  },
-  emailIcon: {
-    marginLeft: theme.spacing(1),
-    // marginRight:theme.spacing(50)
   },
 }));
 
@@ -99,7 +81,7 @@ const themeTypography = createMuiTheme({
 });
 
 
-export default function OkculukMalzemeleri() {
+export default function IkinciElMalzemeler() {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -108,45 +90,21 @@ export default function OkculukMalzemeleri() {
         mainFeaturedPost.map((item, i) =>
           <MainFeaturedPost key={i} post={item} />
         )
-      }
+      }<Grid>
       <Grid className={classes.heaederGrid}>
         <Box className={classes.pageHeader}>
           <ThemeProvider theme={themeTypography}>
-            <Typography variant="overline" color="textPrimary">Okçuluk Malzemeleri</Typography>
+            <Typography variant="overline" color="textPrimary">2. El Malzemeler</Typography>
           </ThemeProvider>
         </Box>
         <hr className={classes.yatayCizgi} />
       </Grid>
 
 
-      <Grid className={classes.bodyClass} container spacing={2} justify='center' align='center'>
-          {iletisim_itemleri.map((iletisim_item) => (
-                  
-            <Grid item xs={6} sm={3} key={iletisim_item.title}>
-             
-
-              <Typography variant="h5" color="textPrimary" gutterBottom>
-                {iletisim_item.title}
-              </Typography>
-             
-              <ul align="left" type='none'>
-                {iletisim_item.description.map((item) => (
-                  <grid align="left">
-                    <li key={item} align="left" >
-                      <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
-
-                    </li>
-                  </grid>
-                ))}
-              </ul>
-              
-            </Grid>
-            
-          ))}
+     
         
-
       </Grid>
-
+    
     </React.Fragment>
   );
 }

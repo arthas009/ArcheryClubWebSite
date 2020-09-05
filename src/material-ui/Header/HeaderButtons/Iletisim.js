@@ -58,6 +58,10 @@ const useStyles = makeStyles((theme) => ({
   yatayCizgi: {
     width: '50%',
   },
+  dikeyCizgi: {
+    width: '1%',
+    height: '100%'
+  },
   iletisim_item: {
     borderTop: `5px solid ${theme.palette.divider}`,
     borderBottom: `5px solid ${theme.palette.divider}`,
@@ -134,21 +138,26 @@ export default function Iletisim() {
               <ul align="left" type='none'>
                 {iletisim_item.description.map((item) => (
                   <grid align="left">
+                    
                     <li key={item} align="left" >
                       <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
-
+                      
                     </li>
+                    
                   </grid>
+                  
                 ))}
+                
               </ul>
               
+              
             </Grid>
-            
+             
           ))}
         
 
       </Grid>
-
+      
     </React.Fragment>
   );
 }
