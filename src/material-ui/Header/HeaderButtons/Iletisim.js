@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
   },
   bodyClass:
   {
-    marginTop: theme.spacing(15),
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
   },
   marginTopDiv:
   {
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
   yatayCizgi: {
-    width: '50%',
+    width: '75%',
   },
   yatayyCizgi: {
     width: '20%',
