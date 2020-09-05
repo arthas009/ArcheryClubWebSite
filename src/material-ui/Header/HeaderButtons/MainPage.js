@@ -88,19 +88,7 @@ export default function MainPage(props) {
           </Grid>
          
           <div className={classes.root}></div>
-      <Grid container spacing={0}>
-   
-    <Grid item xs={6}>
-          <Paper className={classes.paper}>Deneme</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>deneme</Paper>
-        </Grid>
-        
-     
-      
     
-</Grid>
 
         </Container>
 
