@@ -14,7 +14,9 @@ import Iletisim from './HeaderButtons/Iletisim';
 import Galeri from './HeaderButtons/Galeri';
 import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
 import Kurslarımız from './HeaderButtons/Kurslarimiz';
-import OkculukMalzemeleri from './HeaderButtons/OkculukMalzemeleri';
+import IkinciElMalzemeler from './HeaderButtons/IkinciElMalzemeler';
+
+
 
 /*
 * BlogHeaderComponent, index.js dosyası içerisinde toolbar_section isimli <div> ogesine eklenir.
@@ -67,7 +69,7 @@ class BlogHeaderComponent extends Component {
 
       { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
       { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
-      { title: '2. el malzeme', url: 'OkculukMalzemeleri' },
+      { title: '2. El Malzemeler', url: '2. El Malzemeler' },
       { title: 'İLETİŞİM', url: 'Iletisim' },
     ];
 
@@ -163,8 +165,8 @@ class BlogHeaderComponent extends Component {
             />
             <Route
               exact
-              path='/OkculukMalzemeleri'
-              render={() => (<OkculukMalzemeleri></OkculukMalzemeleri>)}
+              path='/2. El Malzemeler'  //OkculukMalzemeleri
+              render={() => (<IkinciElMalzemeler></IkinciElMalzemeler>)}
             />
           <Route
             exact

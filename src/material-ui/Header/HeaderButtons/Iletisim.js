@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import { Typography, Box, ThemeProvider, Container } from '@material-ui/core';
+import { Typography, Box, ThemeProvider } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
@@ -20,18 +20,15 @@ const mainFeaturedPost = [{
 ];
 const iletisim_itemleri = [
   {
-    title: ['Adres'],
-    icon: [<LocationOnIcon fontSize="small" />],
+    title: [<LocationOnIcon  fontSize="small" />,'Adres'],
     description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .', 'Etimesgut/Ankara'],
   },
   {
-    title: ['Telefon & Fax'],
-    icon: [<PhoneIcon fontSize="small" />],
+    title: [<PhoneIcon  fontSize="small" />,'Telefon & Fax'],
     description: ['+90 546 457 72 59', '+90 312 999 99 99'],
   },
   {
-    title: ['Mail'],
-    icon: [<EmailIcon fontSize="small" />],
+    title: [<EmailIcon  fontSize="small" />,'Mail'],
     description: ['Gazi Okçuluk Kulubü.com'],
   },
 ]
@@ -61,6 +58,10 @@ const useStyles = makeStyles((theme) => ({
   yatayCizgi: {
     width: '50%',
   },
+  dikeyCizgi: {
+    width: '1%',
+    height: '100%'
+  },
   iletisim_item: {
     borderTop: `5px solid ${theme.palette.divider}`,
     borderBottom: `5px solid ${theme.palette.divider}`,
@@ -77,10 +78,6 @@ const useStyles = makeStyles((theme) => ({
   bosluk: {
     marginLeft: theme.spacing(2),
 
-  },
-  ustBosluk:
-  {
-    marginTop: theme.spacing(5),
   },
   phoneIcon: {
     marginLeft: theme.spacing(0),
@@ -127,36 +124,40 @@ export default function Iletisim() {
         <hr className={classes.yatayCizgi} />
       </Grid>
 
-      <Container>
-        <Grid className={classes.bodyClass} container spacing={2} direction="column" justify='flex-start' align='flex-start'>
+
+      <Grid className={classes.bodyClass} container spacing={2} justify='center' align='center'>
           {iletisim_itemleri.map((iletisim_item) => (
+                  
+            <Grid item xs={6} sm={3} key={iletisim_item.title}>
+             
 
-            <Grid container direction="column" justify="flex-start"
-              alignItems="flex-start" key={iletisim_item.title}>
-
-              <Grid container direction="column"
-                justify="flex-start"
-                alignItems="flex-start" key={iletisim_item.title}>
-                <Typography className={classes.ustBosluk} variant="h5" color="textPrimary" gutterBottom>
-                  {iletisim_item.icon}{iletisim_item.title}
-                </Typography>
-                <hr className={classes.yatayCizgi} />
+              <Typography variant="h5" color="textPrimary" gutterBottom>
+                {iletisim_item.title}
+              </Typography>
+             
+              <ul align="left" type='none'>
                 {iletisim_item.description.map((item) => (
-                  <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
-
-
+                  <grid align="left">
+                    
+                    <li key={item} align="left" >
+                      <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
+                      
+                    </li>
+                    
+                  </grid>
+                  
                 ))}
-            
-              </Grid>
-
-
+                
+              </ul>
+              
+              
             </Grid>
-
+             
           ))}
+        
 
-
-        </Grid></Container>
-
+      </Grid>
+      
     </React.Fragment>
   );
 }
