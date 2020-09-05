@@ -101,7 +101,7 @@ export default function FeaturedPost(props) {
                         name={"OkculukHakkinda"}
                         color="inherit"
                         key={"RouteOkculukHakkinda"}
-                        variant="oversized" color="primary"> Devamını Okumak için ...
+                       color="primary"> Devamını Okumak için ...
               </Button>
             </CardContent>
           </div>
