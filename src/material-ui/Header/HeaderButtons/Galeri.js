@@ -320,7 +320,6 @@ const SporcularVideoList = [
 
 export default function Galeri(props) {
   const classes = useStyles();
-  
   // Category to show, images or videos
   const [category, setCategory] = React.useState("Fotoğraflar");
   const changeCategory = (newCategory) => {
@@ -328,7 +327,12 @@ export default function Galeri(props) {
   }
 
 
-  const { section } = props;
+  const { section, ImagesList } = props;
+
+  ImagesList.Image.map((post) => (
+     console.log(post)
+  ))
+ 
   let name = "";
   let objectToView = {};
   let videosToView = {};
