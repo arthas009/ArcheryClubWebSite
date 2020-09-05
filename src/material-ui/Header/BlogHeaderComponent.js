@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container, withStyles,Toolbar} from '@material-ui/core';
-import { Route } from 'react-router-dom';
+import { Route,Switch } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
 import Hakkında from './HeaderButtons/Hakkında';
@@ -122,7 +122,7 @@ class BlogHeaderComponent extends Component {
           <Header title="" clickedName={this.clickedName} sections={this.sections} />
           <Toolbar />
           <Toolbar />
-
+<Switch>
           <Route
             exact
             path='/'
@@ -168,8 +168,6 @@ class BlogHeaderComponent extends Component {
               path='/2. El Malzemeler'  //OkculukMalzemeleri
               render={() => (<IkinciElMalzemeler></IkinciElMalzemeler>)}
             />
-
-
           <Route
             exact
             path='/FarkliBilgiler'
@@ -185,6 +183,7 @@ class BlogHeaderComponent extends Component {
             path='/Iletisim'
             render={() => (<Iletisim></Iletisim>)}
           />
+          </Switch>
       </React.Fragment>
     );
   }

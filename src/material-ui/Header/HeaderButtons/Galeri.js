@@ -328,18 +328,16 @@ export default function Galeri(props) {
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
   }
-
-
   const {section} = props;
  
   let name = "";
   let objectToView = {};
   let videosToView = {};
-  
+
+  let b = {};
   async function getImageNames()
   {
-    let b = {};
-    try {  
+    try {    
     if (section === "Klubumuz") {
       let [images] = await Promise.all([
         fetch("http://192.168.1.21:3005/Images/Klubumuz"),

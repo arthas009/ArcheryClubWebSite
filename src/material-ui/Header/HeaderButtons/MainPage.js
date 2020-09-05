@@ -61,7 +61,7 @@ const featuredPosts = [
     imageText: 'Image Text',
   },*/
 ];
-export default function MainPage(props) {
+export default function MainPage({ match }) {
   const classes = useStyles();
 
   return (
