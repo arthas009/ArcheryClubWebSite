@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -322,37 +323,64 @@ export default function Galeri(props) {
   const classes = useStyles();
   // Category to show, images or videos
   const [category, setCategory] = React.useState("Fotoğraflar");
+  const [images, setImages] = React.useState(null);
+
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
   }
 
 
-  const { section, ImagesList } = props;
-
-  ImagesList.Image.map((post) => (
-     console.log(post)
-  ))
+  const {section} = props;
  
   let name = "";
   let objectToView = {};
   let videosToView = {};
-  if (section === "Klubumuz") {
-    name = "Klübümüz";
-    objectToView = KlübümüzImageList;
-    videosToView = KlübümüzVideoList;
-  }
-  else if (section === "Madalyalar") {
-    name = "Madalyalar";
-    objectToView = MadalyalarImageList;
-    videosToView = MadalyalarVideoList;
+  
+  async function getImageNames()
+  {
+    let b = {};
+    try {  
+    if (section === "Klubumuz") {
+      let [images] = await Promise.all([
+        fetch("http://192.168.1.21:3005/Images/Klubumuz"),
+      ]);
+      name = "Klübümüz";
+      b = await images.json();
 
-  }
-  else if (section === "Sporcularimiz") {
-    name = "Sporcularimiz";
-    objectToView = SporcularImageList;
-    videosToView = SporcularVideoList;
+    }
+    else if (section === "Madalyalar") {
+      let [images] = await Promise.all([
+        fetch("http://192.168.1.21:3005/Images/Madalyalar"),
+      ]);
+      name = "Madalyalar";
+      b = await images.json();
 
+  
+    }
+    else if (section === "Sporcularimiz") {
+      let [images] = await Promise.all([
+        fetch("http://192.168.1.21:3005/Images/Sporcularimiz"),
+      ]);
+      name = "Sporcularimiz";
+      b = await images.json();
+    }
+    setImages(b);
+    }
+    catch (err) {
+      console.log(err);
+    };
   }
+  
+  useEffect(() => {
+    getImageNames();
+  }, []);
+
+  objectToView = images;
+  videosToView = SporcularVideoList; 
+
+  console.log("HELLO"+images);
+
+
   return (
     <React.Fragment>
       <CssBaseline />

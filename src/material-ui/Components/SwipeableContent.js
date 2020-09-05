@@ -8,7 +8,7 @@ const mainFeaturedPost = [{
     title: 'Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir',
     description:
         "Kendine bir hedef belirlemek istiyorsan",
-    image: './Images/OguzhanPolat.jpg',
+    image: './Images/Sporcularimiz/OguzhanPolat.jpg',
     btnName: "İletişim",
     btnUrl:"Iletisim"
 },
@@ -24,7 +24,7 @@ const mainFeaturedPost = [{
     title: 'En son haberleri kaçırmayın!',
     description:
         "",
-    image: './Images/HaberFotografi1.jpg',
+    image: './Images/Sporcularimiz/HaberFotografi1.jpg',
     btnName:"Haberler",
     btnUrl:"Haberler"
 },

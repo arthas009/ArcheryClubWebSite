@@ -62,18 +62,22 @@ export default function PhotoGalleryComponent(props) {
   const handleClose = () => {
     setSelectedTile(null);
   };
-
+ 
+  console.log(ImageList);
+  if(ImageList !==null)
     return (
       <Container>
-        <GridList cols={1}>
-          className={classes.gridList}
-
-          {ImageList.map(tile => (
+        <GridList cols={1}
+          className={classes.gridList}>
+              
+          {
+             ImageList.Images.map(tile => (
+    
             <GridListTile className={classes.gridListTile} key={tile.id}>
-              <img onClick={() => handleClickOpen(tile)} src={tile.src} alt={tile.title} />
+              <img onClick={() => handleClickOpen(tile)} src={tile.imageName} alt={tile.title} />
               <GridListTileBar
                 title={tile.title}
-                subtitle={<span>Ekleyen: {tile.author}</span>}
+                subtitle={<span>Ekleyen: Gazi Okculuk</span>}
               />
             </GridListTile>
           ))}
@@ -97,7 +101,10 @@ export default function PhotoGalleryComponent(props) {
         </Grid>
         </Container>
     );
-  
+  else
+  {
+    return <div></div>
+  }
 }
 
 PhotoGalleryComponent.propTypes = {

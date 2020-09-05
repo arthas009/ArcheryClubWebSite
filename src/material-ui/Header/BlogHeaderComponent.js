@@ -83,13 +83,13 @@ class BlogHeaderComponent extends Component {
       ]);      
       */
       let [images,news] = await Promise.all([
-        fetch("http://192.168.1.21:3005/Images/Sporcularimiz"),
+        //fetch("http://192.168.1.21:3005/Images/Sporcularimiz"),
         //fetch("http://192.168.1.21:4000/news")     
       ]);
-      const b = await images.json();
-      console.log(b);
+      //const b = await images.json();
+      //console.log(b);
 
-      this.setState({ImagesList:b});
+      //this.setState({ImagesList:b});
       
     }
     catch (err) {
