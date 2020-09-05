@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { Button } from '@material-ui/core';
+
+
+const WhiteTextButton = withStyles({
+  root: {
+    color: "#FFFFFF",
+    borderColor: "#ffffff"
+  }
+})(Button);
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
@@ -65,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post, isMainPage } = props;
-  const CustomLink = props => <Link to={"/Hakkinda"} {...props}></Link>;
+  const CustomLink = props => <Link href={"/#/" + props.name} {...props}></Link>;
 
   if (isMainPage === true) {
     return (
@@ -83,9 +91,8 @@ export default function MainFeaturedPost(props) {
             {
               post.btnName === '' ? null :
                 <Typography align="center">
-                  <Button
-                    component={CustomLink}
-                    color="inherit"
+                  <WhiteTextButton
+                    component={CustomLink}                  
                     name={post.btnUrl}
                     key={"Klubumuz"}
                     variant="outlined"
@@ -93,7 +100,7 @@ export default function MainFeaturedPost(props) {
 
                   >
                     {post.btnName}
-                  </Button>
+                  </WhiteTextButton>
                 </Typography>
             }
           </div>
