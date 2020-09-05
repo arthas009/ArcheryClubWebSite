@@ -52,6 +52,8 @@ export default function FeaturedPost(props) {
   const classes = useStyles();
   const { post, fromWhere } = props;
 
+  const CustomLink = props => <Link to={"/OkculukHakkinda"} {...props}></Link>;
+
   if (fromWhere === "mainPage")
     return (
 
@@ -71,8 +73,7 @@ export default function FeaturedPost(props) {
               <Typography className={classes.overflowEnabled} style={{ maxHeight: 300, overflow: "auto" }} variant="subtitle1" paragraph color="inherit">
                 {post.description.substring(0, 550)}
               </Typography>
-              <Button component="h2" variant="h5"> Devamını Okumak için ...
-                <Link>Okçuluk Hakkında</Link>
+              <Button component={CustomLink} color="primary"> Devamını Okumak için ...
               </Button>
             </CardContent>
           </div>
