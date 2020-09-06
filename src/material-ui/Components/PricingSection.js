@@ -13,6 +13,7 @@ import calculateSpacing from "./calculateSpacing";
 
 const styles = theme => ({
   containerFix: {
+    backgroundColor: '#fafafa',
     [theme.breakpoints.down("md")]: {
       paddingLeft: theme.spacing(6),
       paddingRight: theme.spacing(6)
@@ -65,7 +66,9 @@ function PricingSection(props) {
             data-aos="zoom-in-up"
           >
             <PriceCard
+            
               title="Starter"
+              image="https://mind4survival.com/wp-content/uploads/2018/08/Traditional-Archery-Mind4Survival.jpg"
               pricing={
                 <span>
                   $14.99

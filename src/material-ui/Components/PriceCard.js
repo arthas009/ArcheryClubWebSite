@@ -33,7 +33,7 @@ const styles = theme => ({
 });
 
 function PriceCard(props) {
-  const { classes, theme, title, pricing, features, highlighted } = props;
+  const { classes, theme, title, pricing, features, highlighted, image } = props;
   return (
     <div align='center' className={highlighted ? classes.cardHightlighted : classes.card}>
       <Box mb={2}>
@@ -79,6 +79,7 @@ PriceCard.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool
 };
