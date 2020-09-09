@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Typography, Box, withStyles } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   card: {
@@ -29,13 +34,23 @@ const styles = theme => ({
   },
   title: {
     color: theme.palette.primary.main
-  }
+  },
+  cardMedia: {
+    width: 20,
+    height:20,
+  },
 });
 
 function PriceCard(props) {
   const { classes, theme, title, pricing, features, highlighted, image } = props;
   return (
+    <Card>
     <div align='center' className={highlighted ? classes.cardHightlighted : classes.card}>
+        
+        
+    
+      
+      
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h5" : "h6"}
@@ -44,6 +59,7 @@ function PriceCard(props) {
           {title}
         </Typography>
       </Box>
+
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h3" : "h4"}
@@ -69,9 +85,22 @@ function PriceCard(props) {
               {feature}
             </Typography>
           </Box>
-        </Box>
+        </Box> 
       ))}
+
+
+      
+   
     </div>
+    
+    <CardMedia className={classes.cardMedia}> 
+       
+       {image}
+       
+       </CardMedia>
+       
+     
+    </Card>
   );
 }
 
@@ -80,6 +109,7 @@ PriceCard.propTypes = {
   theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+ // image: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool
 };

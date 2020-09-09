@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import PriceCard from "./PriceCard";
 import calculateSpacing from "./calculateSpacing";
+import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = theme => ({
   containerFix: {
@@ -43,7 +44,10 @@ const styles = theme => ({
       marginRight: "auto",
       maxWidth: 360
     }
-  }
+  },
+  cardMedia: {
+    width: 20,
+  },
 });
 
 function PricingSection(props) {
@@ -68,7 +72,7 @@ function PricingSection(props) {
             <PriceCard
             
               title="Starter"
-              image="https://mind4survival.com/wp-content/uploads/2018/08/Traditional-Archery-Mind4Survival.jpg"
+            
               pricing={
                 <span>
                   $14.99
@@ -78,6 +82,8 @@ function PricingSection(props) {
               features={["Feature 1", "Feature 2", "Feature 3"]}
             />
           </Grid>
+
+          
           <Grid
             item
             className={classes.cardWrapperHighlighted}
@@ -87,8 +93,11 @@ function PricingSection(props) {
             data-aos="zoom-in-up"
             data-aos-delay="200"
           >
-            <PriceCard
-              
+             
+            <PriceCard className={classes.media}
+                     
+                   //buraya bak
+                     image="/public/Images/Klubumuz/Klubumuz1.jpg" 
               title="Premium"
               pricing={
                 <span>
@@ -98,6 +107,7 @@ function PricingSection(props) {
               }
               features={["Feature 1", "Feature 2", "Feature 3"]}
             />
+              
           </Grid>
           <Grid
             item
