@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme,withStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { Typography, Box, ThemeProvider, Container } from '@material-ui/core';
@@ -7,7 +7,18 @@ import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import ThumbsUpDownIcon from '@material-ui/icons/ThumbsUpDown';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import Button from '@material-ui/core/Button';
 
+
+const WhiteTextButton = withStyles({
+  root: {
+    color: "black"
+  }
+})(Button);
 
 const mainFeaturedPost = [{
   title: 'Gazi Okçuluk Kulubü / İletişim',
@@ -22,17 +33,24 @@ const iletisim_itemleri = [
   {
     title: ['Adres'],
     icon: [<LocationOnIcon fontSize="small" />],
-    description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .', 'Etimesgut/Ankara'],
+    description: ['Gazi Okçuluk Kulübü', 'Piyade Mahallesi Atilla Eşer Caddesi', 'No:47/A ETİMESGUT/ANKARA .'],
   },
   {
     title: ['Telefon & Fax'],
     icon: [<PhoneIcon fontSize="small" />],
-    description: ['+90 546 457 72 59', '+90 312 999 99 99'],
+    description: ['Oguzhan POLAT: 0507 489 7520 ', 'Ümit SARIOK: 0535 080 3254','Kulüp: 0530 233 5075'],
   },
   {
     title: ['Mail'],
     icon: [<EmailIcon fontSize="small" />],
     description: ['Gazi Okçuluk Kulubü.com'],
+  },
+  {
+    title: ['Sosyal Medya Hesaplarımız'],
+    icon: [<ThumbsUpDownIcon fontSize="small" />],
+    description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
+    <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+    <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
   },
 ]
 const useStyles = makeStyles((theme) => ({

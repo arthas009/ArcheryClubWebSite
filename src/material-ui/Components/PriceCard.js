@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Typography, Box, withStyles } from "@material-ui/core";
+import { Typography, Box, withStyles, Paper } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -44,13 +44,10 @@ const styles = theme => ({
 function PriceCard(props) {
   const { classes, theme, title, pricing, features, highlighted, image } = props;
   return (
+    <Grid>
     <Card>
     <div align='center' className={highlighted ? classes.cardHightlighted : classes.card}>
-        
-        
-    
-      
-      
+
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h5" : "h6"}
@@ -89,18 +86,19 @@ function PriceCard(props) {
       ))}
 
 
-      
+<Grid>
+    <CardMedia className={classes.cardMedia}> 
+       <Paper>
+       {image}
+       </Paper>
+       </CardMedia>
+       </Grid>
    
     </div>
     
-    <CardMedia className={classes.cardMedia}> 
-       
-       {image}
-       
-       </CardMedia>
-       
      
     </Card>
+    </Grid>
   );
 }
 

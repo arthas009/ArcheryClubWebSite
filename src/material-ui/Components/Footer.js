@@ -52,7 +52,7 @@ function Copyright() {
 const footers = [
   {
     title: 'İletişim',
-    description: ['Gazi Okçuluk Kulubü', '+90 546 457 72 59', 'A Mah. B Bul. No: C/D. Ankara.'],
+    description: ['Piyade Mahallesi Atilla Eşer Caddesi', 'No:47/A ETİMESGUT/ANKARA .', 'Oguzhan POLAT: 0507 489 7520 ', 'Ümit SARIOK: 0535 080 3254','Kulüp: 0530 233 5075'],
   },
   {
     title: 'Hakkında',
@@ -100,7 +100,11 @@ const useStyles = makeStyles((theme) => ({
       marginLeft:theme.spacing(2),
 
     },    
-  
+    typhoDown:
+    {
+      marginTop: theme.spacing(2),
+      color: "#000000",
+    },
   
     [theme.breakpoints.down('md')]: {
       width: '10rem',
@@ -148,15 +152,17 @@ export default function Footer(props) {
   return (
     <React.Fragment>
        <hr className={classes.yukarıBosluk}></hr>
-        <Grid className={classes.footerGrid} container spacing={4} justify='center' align='center'>
+        <Grid className={classes.footerGrid} container spacing={4} justify='center' align='center' >
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title+"footerGrid"}>
               <WhiteTextTypography variant="h6" gutterBottom>
                 {footer.title}
               </WhiteTextTypography>
               <hr className={classes.yatayCizgi}></hr>
+
+
                 {footer.description.map((item) => (
-                  <Grid key = {item+"item"} align="left">
+                  <Grid key = {item+"item"} align="left" variant="subtitle1" type="none"  >
                     {footer.title === "İletişim" ?
                     <WhiteTextButton href="/#/Iletisim">
                       {item}
