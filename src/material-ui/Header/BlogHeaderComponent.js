@@ -122,6 +122,8 @@ class BlogHeaderComponent extends Component {
           <Header title="" clickedName={this.clickedName} sections={this.sections} />
           <Toolbar />
           <Toolbar />
+         
+          
 <Switch>
           <Route
             exact

@@ -6,6 +6,12 @@ import { Grid, Box, Typography,ThemeProvider, Paper } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import FeaturedPost from '../../Components/FeaturedPost';
 import SwipeableContent from '../../Components/SwipeableContent';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +35,17 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  },
+
+  media: {
+    height: 100,
+    width: 1920,
+  },
+  root1: {
+    maxWidth: 1920,
+    backgroundColor:'#fafafa',
+    marginBottom:theme.spacing(2),
+    align:'left',
   },
 }));
 
@@ -66,6 +83,22 @@ export default function MainPage({ match }) {
 
   return (
     <React.Fragment>
+      <Grid  >
+          <Grid className={classes.root1}
+            >
+              <Card className={classes.root1}>
+      <CardActionArea >
+        <CardMedia
+          className={classes.media} align='center'
+          image="./Images/GaziTeaser.jpg"
+          
+        />
+        
+      </CardActionArea>
+      </Card>
+              </Grid>
+
+          </Grid>
       <SwipeableContent></SwipeableContent> 
 
         <Container>

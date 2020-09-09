@@ -5,7 +5,7 @@ import { makeStyles, withStyles, createMuiTheme } from '@material-ui/core/styles
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { Popover, ThemeProvider } from '@material-ui/core';
-import { Grid, ButtonGroup, Box, Fab, AppBar } from '@material-ui/core';
+import { Grid, ButtonGroup, Box, Fab, AppBar, Paper } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -15,6 +15,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import HideOnScroll from '../Components/HideOnScroll';
 import { Link } from 'react-router-dom';
+
 
 /* https://material-ui.com/components/floating-action-button/ */
 
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#1a237e',
     backgroundColor: '#1a237e',
   },
+ 
   menuButton:
   {
     border: '1px solid gray',
@@ -79,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     // marginRight:theme.spacing(50)
   },
+
   /*ButtonGroup: {
     marginLeft:theme.spacing(50),
     marginLeft: theme.spacing(3),
@@ -132,6 +135,7 @@ export default function Header(props) {
     <React.Fragment>
       <HideOnScroll threshold={0} className={classes.appBar}>
         <AppBar>
+        
           <Toolbar className={classes.toolbar} >
             <Grid className={classes.flexGrid}
               container
@@ -305,8 +309,12 @@ export default function Header(props) {
               ))}
             </ThemeProvider>
           </Toolbar>
+         
+          
         </AppBar>
+
       </HideOnScroll>
+
     </React.Fragment>
   );
 }
