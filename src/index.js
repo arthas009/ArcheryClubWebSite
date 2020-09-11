@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
-import {HashRouter} from 'react-router-dom';
+import {HashRouter, BrowserRouter} from 'react-router-dom';
 import Footer from './material-ui/Components/Footer';
 
 /*
@@ -23,9 +23,9 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <BlogHeaderComponent />
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById('toolbar_section')
 );
 
