@@ -39,10 +39,10 @@ const useStyles = makeStyles((theme) => ({
 
   media: {
     height: 100,
-    width: 1920,
+    width: '100%',
   },
   root1: {
-    maxWidth: 1920,
+    maxWidth: '100%',
     backgroundColor:'#fafafa',
     marginBottom:theme.spacing(2),
     align:'left',

@@ -52,7 +52,7 @@ function Copyright() {
 const footers = [
   {
     title: 'İletişim',
-    description: ['Piyade Mahallesi Atilla Eşer Caddesi', 'No:47/A ETİMESGUT/ANKARA .', 'Oguzhan POLAT: 0507 489 7520 ', 'Ümit SARIOK: 0535 080 3254','Kulüp: 0530 233 5075'],
+    description: ['PİYADE MAHALLESİ, ATİLLA EŞER CADDESİ No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
   },
   {
     title: 'Hakkında',
@@ -63,7 +63,7 @@ const footers = [
     description: [],
   },
   {
-    title: 'Sosyal Medya Hesaplarımız',
+    title: 'Sosyal Medya',
     description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
      <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
      <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
