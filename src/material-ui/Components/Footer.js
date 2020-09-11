@@ -164,11 +164,11 @@ export default function Footer(props) {
                 {footer.description.map((item) => (
                   <Grid key = {item+"item"} align="left" variant="subtitle1" type="none"  >
                     {footer.title === "İletişim" ?
-                    <WhiteTextButton href="/#/Iletisim">
+                    <WhiteTextButton href="/Iletisim">
                       {item}
                     </WhiteTextButton>:
                     footer.title ==="Hakkında" ? 
-                    <WhiteTextButton href="/#/Hakkinda/Hakkimizda" >
+                    <WhiteTextButton href="/Hakkinda/Hakkimizda" >
                       {item}
                     </WhiteTextButton>:
                     <WhiteTextLink>

@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post, isMainPage } = props;
-  const CustomLink = props => <Link href={"/#/" + props.name} {...props}></Link>;
+  const CustomLink = props => <Link href={"/" + props.name} {...props}></Link>;
 
   if (isMainPage === true) {
     return (

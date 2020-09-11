@@ -76,7 +76,7 @@ export default function FeaturedPost(props) {
   const classes = useStyles();
   const { post, fromWhere } = props;
 
-  const CustomLink = props => <Link href={"/#/" + props.name} {...props}></Link>;
+  const CustomLink = props => <Link href={"/" + props.name} {...props}></Link>;
 
   if (fromWhere === "mainPage")
     return (
