@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 //import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -57,17 +58,33 @@ const mainFeaturedPost = [{
 ];
 
 export default function Haberler(props) {
+  const [haberler, setHaberler] = React.useState(null);
+
+  async function getNews()
+  {
+    try {    
+
+      let [images] = await Promise.all([
+        fetch("http://localhost:3005/haberlerigetir"),
+      ]);
+      const b = await images.json();
+      console.log(b);
+      setHaberler(b);
+    }
+    catch (err) {
+      console.log(err);
+    };
+  }
+  
+  useEffect(() => {
+    getNews();
+  }, []);
+
   const classes = useStyles();
-  const { news } = props;
-  if (news === undefined) {
+  if (haberler === null) {
     return (
       <React.Fragment>
       <CssBaseline />
-      {
-        mainFeaturedPost.map((item, i) =>
-          <MainFeaturedPost key={i} post={item} />
-        )
-      }   
         <Container>
           <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
@@ -76,6 +93,8 @@ export default function Haberler(props) {
             </ThemeProvider>
             </Box>
             <hr className={classes.yatayCizgi} />
+
+            Haberler sunucudan alınırken bir hata meydana geldi.
           </Grid>
         </Container>
         </React.Fragment>
@@ -99,14 +118,13 @@ export default function Haberler(props) {
           <hr className={classes.yatayCizgi} />
 
           </Grid>
-          {news === null ? null :
           <Grid className={classes.mainGrid} container spacing={4}>
-            {news.News.New.map((post) => (
+            {
+               haberler.map((post) => 
               <CollapseableCard key={post.haberBasligi} post={post} />
-            ))}
-          
+               )}
           </Grid>
-}
+
         </Container>
     </React.Fragment>
   );
