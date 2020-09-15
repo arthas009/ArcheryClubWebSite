@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
+      padding: theme.spacing(1),
       height: '10vh',
   
     },
