@@ -47,6 +47,27 @@ const useStyles = makeStyles((theme) => ({
     marginBottom:theme.spacing(2),
     align:'left',
   },
+  teaserPost: {
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(4),
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(6),
+      height: '10vh',
+  
+    },
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(1),
+      height: '5vh',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: theme.spacing(6),
+      height: '15vh',
+  },
+
+}
 }));
 
 const themeTypography = createMuiTheme({
@@ -89,7 +110,7 @@ export default function MainPage({ match }) {
               <Card className={classes.root1}>
       <CardActionArea >
         <CardMedia
-          className={classes.media} align='center'
+          className={classes.teaserPost} align='center'
           image="./Images/GaziTeaser.jpg"
           
         />
