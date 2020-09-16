@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
       height: '5vh',
+      align: 'left',
     },
     //laptoplar için
     [theme.breakpoints.up('md')]: {
@@ -67,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(6),
-      height: '15vh',
+      height: '12vh',
   },
 
 }

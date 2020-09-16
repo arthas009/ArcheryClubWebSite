@@ -27,18 +27,37 @@ const WhiteTextButton = withStyles({
 const useStyles = makeStyles((theme) => ({
   toolbar: { //üst çizgi
     minHeight: 0,
-    overflowX: 'auto',
-    height: 'auto',
-    borderBottom: `1px solid gray`,
+   // borderBottom: `1px solid ${theme.palette.divider}`,
+   // overflowX: 'auto',
+    //height: 'auto',
+   borderBottom: `1px solid gray`,
     // color: '#0d47a1',
     color: "#FFFFFF",
     backgroundColor: '#1a237e',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2),
+      align: 'left',
+     height: '2vh',
+      width: '55vh',
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(2),
+      height: '2vh',
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      padding: theme.spacing(2),
+     // height: '3vh',
+  },
 
   },
   toolbarTitle: {
     marginLeft: theme.spacing(1),
     // color:'#0d47a1', // sol üstteki tel mail rengi
     color: "#FFFFFF",
+    //flex: 1,
+
     // backgroundColor:'#1a237e',
 
 
@@ -50,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     //color: '#0d47a1', //toolbar dakı menu yazı rengi
     color: '#1a237e',
     backgroundColor: '#1a237e',
+    
   },
  
   menuButton:
@@ -137,11 +157,12 @@ export default function Header(props) {
         <AppBar>
         
           <Toolbar className={classes.toolbar} >
-            <Grid className={classes.flexGrid}
+            <Grid 
               container
               direction="row"
               justify="space-between"
               alignItems="flex-start"
+              noWrap
             >
               <Grid>
                 <Box display={{ xs: 'none', md: 'inline' }}>
@@ -194,6 +215,7 @@ export default function Header(props) {
                       onClick={handlePopover1Open}
                       aria-owns={open ? 'mouse-over-popover' : undefined}
                       aria-haspopup="true"
+                      noWrap
                     >
                       {section.title}
                       <ArrowDropDownIcon />
