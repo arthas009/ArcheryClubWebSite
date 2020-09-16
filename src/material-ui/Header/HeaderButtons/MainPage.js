@@ -49,19 +49,22 @@ const useStyles = makeStyles((theme) => ({
   },
   teaserPost: {
     color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(1),
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(1),
-      height: '10vh',
-  
-    },
-    [theme.breakpoints.up('sm')]: {
+   
+    //telefonlar için
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
       height: '5vh',
     },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(1),
+      height: '10vh',
+    },
+    //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(6),
       height: '15vh',
@@ -104,7 +107,8 @@ export default function MainPage({ match }) {
 
   return (
     <React.Fragment>
-      <Grid  >
+      <Grid>
+      
           <Grid className={classes.root1}
             >
               <Card className={classes.root1}>
@@ -119,7 +123,8 @@ export default function MainPage({ match }) {
       </Card>
               </Grid>
 
-          </Grid>
+          
+
       <SwipeableContent></SwipeableContent> 
 
         <Container>
@@ -144,7 +149,7 @@ export default function MainPage({ match }) {
     
 
         </Container>
-
+        </Grid>
     </React.Fragment>
   );
 
