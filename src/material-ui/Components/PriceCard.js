@@ -65,8 +65,8 @@ function PriceCard(props) {
           {pricing}
         </Typography>
       </Box>
-      {features.map((feature, index) => (
-        <Box display="flex" alignItems="center" mb={1} key={index}>
+      
+        <Box display="flex" alignItems="center" mb={1}>
           <CheckIcon
             style={{
               color: highlighted
@@ -79,11 +79,11 @@ function PriceCard(props) {
               className={highlighted ? "text-white" : null}
               variant={highlighted ? "h6" : "body1"}
             >
-              {feature}
+              {features}
             </Typography>
           </Box>
         </Box> 
-      ))}
+     
 
 
 <Grid>

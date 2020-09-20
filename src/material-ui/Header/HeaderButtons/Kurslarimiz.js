@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -8,6 +9,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TableKurs from '../../Components/TableKurs';
+import Container from '@material-ui/core/Container';
 
 
 const mainFeaturedPost = [{
@@ -19,20 +21,7 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-const iletisim_itemleri = [
-  {
-    title: [<LocationOnIcon  fontSize="small" />,'Adres'],
-    description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .', 'Etimesgut/Ankara'],
-  },
-  {
-    title: [<PhoneIcon  fontSize="small" />,'Telefon & Fax'],
-    description: ['+90 546 457 72 59', '+90 312 999 99 99'],
-  },
-  {
-    title: [<EmailIcon  fontSize="small" />,'Mail'],
-    description: ['Gazi Okçuluk Kulubü.com'],
-  },
-]
+
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -106,10 +95,51 @@ const themeTypography = createMuiTheme({
 
 export default function Iletisim() {
   const classes = useStyles();
+  const [kurslar, setKurslar] = React.useState(null);
 
+  async function getKurslar()
+  {
+    try {    
+
+      let [images] = await Promise.all([
+        fetch("http://gaziokculukresmi.com/kurslarigetir"),
+      ]);
+      const b = await images.json();
+      console.log(b);
+      setKurslar(b);
+    }
+    catch (err) {
+      console.log(err);
+    };
+  }
+  
+  useEffect(() => {
+    getKurslar();
+  }, []);
+
+  if (kurslar === null) {
+    return (
+      <React.Fragment>
+      <CssBaseline />
+        <Container>
+          <Grid className={classes.heaederGrid}>
+            <Box className={classes.pageHeader}>
+            <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">KURSLARIMIZ</Typography>
+            </ThemeProvider>
+            </Box>
+            <hr className={classes.yatayCizgi} />
+
+            Kurslar sunucudan alınırken bir hata meydana geldi.
+          </Grid>
+        </Container>
+        </React.Fragment>
+    );
+  }
 
   return (
     <React.Fragment>
+   
       <CssBaseline />
       {
         mainFeaturedPost.map((item, i) =>
@@ -123,13 +153,10 @@ export default function Iletisim() {
           </ThemeProvider>
         </Box>
         <hr className={classes.yatayCizgi} />
-      </Grid>
-
-
-      
-           <Grid>  
+      </Grid>   
+    <Grid>  
          
-     <TableKurs></TableKurs>
+     <TableKurs objectKurslar={kurslar}></TableKurs>
 
       </Grid>
       

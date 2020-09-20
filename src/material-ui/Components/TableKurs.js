@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -9,6 +10,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import Container from '@material-ui/core/Container';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -64,30 +66,29 @@ function Row(props) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
               <Typography variant="h6" gutterBottom component="div">
-                History
+                
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
+                    <TableCell>Kurs Adı</TableCell>
+                    <TableCell>Kurs Saatleri</TableCell>
+                    <TableCell>Kurs Günleri</TableCell>
+                    <TableCell>Eğitmen</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
+                 
+                    <TableRow key={row.kurs_adi}>
                       <TableCell component="th" scope="row">
-                        {historyRow.date}
+                        {row.kurs_adi}
                       </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
-                      </TableCell>
+                      <TableCell>{row.kurs_baslangic_saati} - {row.kurs_bitis_saati}</TableCell>
+                      <TableCell>{row.kurs_gunleri}</TableCell>              
+                      <TableCell></TableCell>              
+
                     </TableRow>
-                  ))}
+               
                 </TableBody>
               </Table>
             </Box>
@@ -116,31 +117,25 @@ Row.propTypes = {
   }).isRequired,
 };
 
-const rows = [
-  createData('A', 159, 6.0, 24, 4.0, 3.99),
-  createData('B', 237, 9.0, 37, 4.3, 4.99),
-  createData('C', 262, 16.0, 24, 6.0, 3.79),
-  createData('D', 305, 3.7, 67, 4.3, 2.5),
-  createData('E', 356, 16.0, 49, 3.9, 1.5),
-];
+export default function CollapsibleTable(props) {
 
-export default function CollapsibleTable() {
+  const { objectKurslar } = props;
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell>Kurslar</TableCell>
-            <TableCell align="right">Saat</TableCell>
-            <TableCell align="right">Gün</TableCell>
-            <TableCell align="right">Cinsiyet</TableCell>
-            <TableCell align="right">Fiyat</TableCell>
+            <TableCell/>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
+           
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <Row key={row.KursAdı} row={row} />
+          {objectKurslar.map((row) => (
+            <Row key={objectKurslar.kurs_adi} row={row} />
           ))}
         </TableBody>
       </Table>

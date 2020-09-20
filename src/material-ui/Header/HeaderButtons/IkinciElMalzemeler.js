@@ -2,10 +2,11 @@ import React, { Fragment, useEffect } from "react";
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import { Typography, Box, ThemeProvider } from '@material-ui/core';
+import { Typography, Box, ThemeProvider,Container } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
+
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PricingSection from '../../Components/PricingSection';
 
@@ -86,6 +87,48 @@ const themeTypography = createMuiTheme({
 
 export default function IkinciElMalzemeler() {
   const classes = useStyles();
+  const [malzemeler, setMalzemeler] = React.useState(null);
+
+  async function getMalzemeler()
+  {
+    try {    
+
+      let [images] = await Promise.all([
+        fetch("http://gaziokculukresmi.com/malzemelerigetir"),
+      ]);
+      const b = await images.json();
+      console.log(b);
+      setMalzemeler(b);
+    }
+    catch (err) {
+      console.log(err);
+    };
+  }
+  
+  useEffect(() => {
+    getMalzemeler();
+  }, []);
+
+  if (malzemeler === null) {
+    return (
+      <React.Fragment>
+      <CssBaseline />
+        <Container>
+          <Grid className={classes.heaederGrid}>
+            <Box className={classes.pageHeader}>
+            <ThemeProvider theme={themeTypography}>
+              <Typography variant="overline" color="textPrimary">İkinci El Malzemeler</Typography>
+            </ThemeProvider>
+            </Box>
+            <hr className={classes.yatayCizgi} />
+
+            MALZEMELER sunucudan alınırken bir hata meydana geldi.
+          </Grid>
+        </Container>
+        </React.Fragment>
+    );
+  }
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -93,7 +136,7 @@ export default function IkinciElMalzemeler() {
         mainFeaturedPost.map((item, i) =>
           <MainFeaturedPost key={i} post={item} />
         )
-      }<Grid>
+      }
       <Grid className={classes.heaederGrid}>
         <Box className={classes.pageHeader}>
           <ThemeProvider theme={themeTypography}>
@@ -104,8 +147,7 @@ export default function IkinciElMalzemeler() {
       </Grid>
 
 <Grid className={classes.bosluk}>
-      <PricingSection  />
-      </Grid>
+      <PricingSection malzemelerObject = {malzemeler}/>
       </Grid>
     
     </React.Fragment>
