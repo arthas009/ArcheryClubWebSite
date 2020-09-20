@@ -65,7 +65,7 @@ export default function Haberler(props) {
     try {    
 
       let [images] = await Promise.all([
-        fetch("http://localhost:3005/haberlerigetir"),
+        fetch("http://gaziokculukresmi.com/haberlerigetir"),
       ]);
       const b = await images.json();
       console.log(b);
