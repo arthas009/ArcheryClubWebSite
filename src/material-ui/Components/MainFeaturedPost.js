@@ -57,16 +57,46 @@ const useStyles = makeStyles((theme) => ({
   },
   primaryTyphography:
   {
-    padding: theme.spacing(2),
-
+  
+    [theme.breakpoints.down('sm')]: {
+    fontSize: 10,
+    padding: theme.spacing(0),
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+     fontSize: 20,
+     padding: theme.spacing(1),
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      fontSize: 30,
+      padding: theme.spacing(2),
   },
+  },
+ 
   mainFeaturedPostContent: {
     justifyContent: 'center',
   },
-  button:
-  {
-    marginBottom: theme.spacing(2),
-  }
+  button:{
+    
+    [theme.breakpoints.down('sm')]: {
+    fontSize: 10,
+    
+    padding: theme.spacing(0),
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+     fontSize: 20,
+     
+    padding: theme.spacing(1),
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      fontSize: 30,
+      
+    padding: theme.spacing(2),
+  },
+  },
 
 }));
 
@@ -85,7 +115,7 @@ export default function MainFeaturedPost(props) {
             <Typography className={classes.primaryTyphography} align="center" color="inherit" gutterBottom>
               {post.title}
             </Typography>
-            <Typography className={classes.secondaryTyphography} align="center" color="inherit" paragraph>
+            <Typography className={classes.primaryTyphography} align="center" color="inherit" paragraph>
               {post.description}
             </Typography>
             {
@@ -118,7 +148,7 @@ export default function MainFeaturedPost(props) {
             <Typography className={classes.primaryTyphography} align="center" color="inherit" gutterBottom>
               {post.title}
             </Typography>
-            <Typography className={classes.secondaryTyphography} align="center" color="inherit" paragraph>
+            <Typography className={classes.primaryTyphography} align="center" color="inherit" paragraph>
               {post.description}
             </Typography>
             {

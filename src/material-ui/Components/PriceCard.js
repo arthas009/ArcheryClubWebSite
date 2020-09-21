@@ -23,7 +23,7 @@ const styles = theme => ({
   cardHightlighted: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(4),
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(4),
     border: `3px solid ${theme.palette.primary.dark}`,
     borderRadius: theme.shape.borderRadius * 2,
@@ -36,6 +36,8 @@ const styles = theme => ({
     color: theme.palette.primary.main
   },
   cardMedia: {
+    align:'left',
+    borderLeft: theme.spacing(0),
     width: 20,
     height:20,
   },
@@ -45,7 +47,7 @@ function PriceCard(props) {
   const { classes, theme, title, pricing, features, highlighted, image } = props;
   return (
     <Grid>
-    <Card>
+    <Box>
     <div align='center' className={highlighted ? classes.cardHightlighted : classes.card}>
 
       <Box mb={2}>
@@ -56,7 +58,9 @@ function PriceCard(props) {
           {title}
         </Typography>
       </Box>
-
+      <CardMedia className={classes.cardMedia} align="left">    
+       {image}
+       </CardMedia>
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h3" : "h4"}
@@ -66,7 +70,7 @@ function PriceCard(props) {
         </Typography>
       </Box>
       
-        <Box display="flex" alignItems="center" mb={1}>
+        <Box display="flex" alignItems="left" mb={1}>
           <CheckIcon
             style={{
               color: highlighted
@@ -83,21 +87,8 @@ function PriceCard(props) {
             </Typography>
           </Box>
         </Box> 
-     
-
-
-<Grid>
-    <CardMedia className={classes.cardMedia}> 
-       <Paper>
-       {image}
-       </Paper>
-       </CardMedia>
-       </Grid>
-   
-    </div>
-    
-     
-    </Card>
+    </div> 
+    </Box>
     </Grid>
   );
 }
@@ -106,8 +97,8 @@ PriceCard.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
- // image: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  //image: PropTypes.string.isRequired,
+ image: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool
 };

@@ -15,6 +15,7 @@ import Galeri from './HeaderButtons/Galeri';
 import OkçulukHakkında from './HeaderButtons/OkçulukHakkında';
 import Kurslarımız from './HeaderButtons/Kurslarimiz';
 import IkinciElMalzemeler from './HeaderButtons/IkinciElMalzemeler';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 
 
 
@@ -29,7 +30,29 @@ import IkinciElMalzemeler from './HeaderButtons/IkinciElMalzemeler';
 * component kaldırıp yenisini ekleme işleminden vazgeçip Router kullanılarak yeni html sayfalarına zıplama yapılacaktır.
 */
 
+const useStyles = makeStyles((theme) => ({
+  
+ 
+  bosluk: {
+    align:'center',
+   
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(7),
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(15),
+      marginRight: theme.spacing(15),
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: theme.spacing(30),
+      marginRight: theme.spacing(30),
+  },
+  },
 
+}));
 
 
 class BlogHeaderComponent extends Component {
@@ -117,6 +140,7 @@ class BlogHeaderComponent extends Component {
         onClick event handler function inside <Header> */
 
     return (
+      
       <React.Fragment>
         <CssBaseline />
           <Header title="" clickedName={this.clickedName} sections={this.sections} />
@@ -128,7 +152,7 @@ class BlogHeaderComponent extends Component {
           <Route
             exact
             path='/'
-            render={() => (<MainPage></MainPage>)}
+            render={() => (<MainPage ></MainPage>)}
           />
           <Route
             exact

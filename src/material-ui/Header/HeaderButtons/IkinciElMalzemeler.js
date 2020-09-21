@@ -64,9 +64,22 @@ const useStyles = makeStyles((theme) => ({
   },
  
   bosluk: {
-    marginLeft: theme.spacing(30),
-    marginRight: theme.spacing(30),
-
+    align:'center',
+   
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(7),
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(15),
+      marginRight: theme.spacing(15),
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: theme.spacing(30),
+      marginRight: theme.spacing(30),
+  },
   },
 
 }));

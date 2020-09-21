@@ -70,7 +70,23 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(6),
       height: '12vh',
   },
+  bosluk: {
 
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(7),
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(15),
+      marginRight: theme.spacing(15),
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: theme.spacing(30),
+      marginRight: theme.spacing(30),
+  },
+  },
 }
 }));
 
@@ -107,8 +123,8 @@ export default function MainPage({ match }) {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <Grid>
+    <React.Fragment >
+      <Grid className={classes.bosluk}>
       
           <Grid className={classes.root1}
             >

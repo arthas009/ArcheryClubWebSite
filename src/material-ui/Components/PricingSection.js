@@ -12,16 +12,21 @@ import PriceCard from "./PriceCard";
 import calculateSpacing from "./calculateSpacing";
 import CardMedia from '@material-ui/core/CardMedia';
 
+
 const styles = theme => ({
   containerFix: {
     backgroundColor: '#fafafa',
     [theme.breakpoints.down("md")]: {
-      paddingLeft: theme.spacing(6),
-      paddingRight: theme.spacing(6)
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2)
     },
     [theme.breakpoints.down("sm")]: {
       paddingLeft: theme.spacing(4),
       paddingRight: theme.spacing(4)
+    },
+    [theme.breakpoints.down("lg")]: {
+      paddingLeft: theme.spacing(8),
+      paddingRight: theme.spacing(8)
     },
     [theme.breakpoints.down("xs")]: {
       paddingLeft: theme.spacing(2),
@@ -55,7 +60,7 @@ function PricingSection(props) {
  
 
   return (
-    <div className="lg-p-top" style={{ backgroundColor: "#FFFFFF" }}>  
+    <div className="lg-p-top" style={{ backgroundColor: "#fafafa" }}>  
       <div className={classNames("container-fluid")}>
         <Grid container spacing={2} >
           {
@@ -69,6 +74,7 @@ function PricingSection(props) {
           >
             <PriceCard           
               title={item.malzeme_adi}    
+              image= {item.malzeme_foto_yolu}
               pricing={
                 <span>
                   {item.malzeme_fiyati}
@@ -80,8 +86,6 @@ function PricingSection(props) {
           </Grid>
            )
           }
-          
-
         </Grid>
       </div>
     </div>

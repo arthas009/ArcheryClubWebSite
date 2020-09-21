@@ -6,6 +6,11 @@ import BlogHeaderComponent from './material-ui/Header/BlogHeaderComponent';
 import {HashRouter, BrowserRouter} from 'react-router-dom';
 import Footer from './material-ui/Components/Footer';
 
+
+ 
+ 
+
+
 /*
 ReactDOM.render(
   <React.StrictMode>
@@ -24,7 +29,7 @@ ReactDOM.render(
 
 ReactDOM.render(
   <BrowserRouter>
-    <BlogHeaderComponent />
+    <BlogHeaderComponent  />
   </BrowserRouter>,
   document.getElementById('toolbar_section')
 );
