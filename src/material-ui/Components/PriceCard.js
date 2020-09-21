@@ -40,18 +40,22 @@ const styles = theme => ({
     borderLeft: theme.spacing(0),
    
     [theme.breakpoints.down('sm')]: {
-      width: 30,
-    height:30,
+      width:150,
+    height:150,
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
+
+    align:'center',
     },
     //laptoplar için
     [theme.breakpoints.up('md')]: {
-      width: 50,
-    height:50,
+      width: 200,
+    height:200,
     },
     //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
-      width:70,
-      height:70,
+      width:250,
+      height:250,
   
   },
   },
