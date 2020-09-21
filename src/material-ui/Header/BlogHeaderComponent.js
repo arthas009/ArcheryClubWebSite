@@ -187,7 +187,7 @@ class BlogHeaderComponent extends Component {
             <Route
               exact
               path='/Galeri/Sporcularimiz'
-              render={() => (<Galeri section={"Sporcularimiz"} ImagesList = {this.state.ImagesList}></Galeri>)}
+              render={() => (<Galeri section={"Sporcularimiz"}></Galeri>)}
             />
             <Route
               exact

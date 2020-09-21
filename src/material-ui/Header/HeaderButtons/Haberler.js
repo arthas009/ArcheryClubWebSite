@@ -11,11 +11,7 @@ import { Container } from '@material-ui/core'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CollapseableCard from '../../Components/CollapseableCard';
 
-
-
-
-
-
+const HaberYolu = './Images/Haberler/';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -121,7 +117,7 @@ export default function Haberler(props) {
           <Grid className={classes.mainGrid} container spacing={4}>
             {
                haberler.map((post) => 
-              <CollapseableCard key={post.haberBasligi} post={post} />
+              <CollapseableCard key={post.haberBasligi} post={post} haberYolu = {HaberYolu} />
                )}
           </Grid>
 

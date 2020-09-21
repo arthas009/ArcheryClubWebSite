@@ -338,26 +338,23 @@ export default function Galeri(props) {
   async function getImageNames()
   {
     try {    
-    if (section === "Klubumuz") {
+    if (section==="Klubumuz") {
       let [images] = await Promise.all([
-        fetch("http://192.168.1.21:3005/Images/Klubumuz"),
+        fetch("http://gaziokculukresmi.com/Images/Klubumuz/"),
       ]);
       name = "Klübümüz";
       b = await images.json();
-
     }
-    else if (section === "Madalyalar") {
+    else if (section==="Madalyalar") {
       let [images] = await Promise.all([
-        fetch("http://192.168.1.21:3005/Images/Madalyalar"),
+        fetch("http://gaziokculukresmi.com/Images/Madalyalar/"),
       ]);
       name = "Madalyalar";
       b = await images.json();
-
-  
     }
-    else if (section === "Sporcularimiz") {
+    else if (section==="Sporcularimiz") {
       let [images] = await Promise.all([
-        fetch("http://192.168.1.21:3005/Images/Sporcularimiz"),
+        fetch("http://gaziokculukresmi.com/Images/Sporcularimiz/"),
       ]);
       name = "Sporcularimiz";
       b = await images.json();
@@ -371,12 +368,12 @@ export default function Galeri(props) {
   
   useEffect(() => {
     getImageNames();
-  }, []);
+  }, [section]);
 
   objectToView = images;
   videosToView = SporcularVideoList; 
 
-  console.log("HELLO"+images);
+  console.log("HELLO "+images);
 
 
   return (

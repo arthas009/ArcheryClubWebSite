@@ -56,7 +56,7 @@ const styles = theme => ({
 });
 
 function PricingSection(props) {
-  const { malzemelerObject } = props;
+  const { malzemelerObject,haberYolu} = props;
  
 
   return (
@@ -82,6 +82,7 @@ function PricingSection(props) {
                 </span>
               }
               features={item.malzeme_ozellikleri}
+              haberYolu={haberYolu+item.malzeme_foto_yolu+".jpg"}
             />
           </Grid>
            )

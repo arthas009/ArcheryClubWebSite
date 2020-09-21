@@ -44,7 +44,7 @@ const styles = theme => ({
 });
 
 function PriceCard(props) {
-  const { classes, theme, title, pricing, features, highlighted, image } = props;
+  const { classes, theme, title, pricing, features, highlighted, image,haberYolu } = props;
   return (
     <Grid>
     <Box>
@@ -58,9 +58,9 @@ function PriceCard(props) {
           {title}
         </Typography>
       </Box>
-      <CardMedia className={classes.cardMedia} align="left">    
-       {image}
-       </CardMedia>
+      <img className={classes.cardMedia} align="left" src={haberYolu}>    
+       
+       </img>
       <Box mb={2}>
         <Typography
           variant={highlighted ? "h3" : "h4"}
@@ -98,7 +98,7 @@ PriceCard.propTypes = {
   theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   //image: PropTypes.string.isRequired,
- image: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  //image: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool
 };

@@ -11,6 +11,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import PricingSection from '../../Components/PricingSection';
 
 
+const HaberYolu = './Images/Malzemeler/';
 
 
 const mainFeaturedPost = [{
@@ -160,7 +161,7 @@ export default function IkinciElMalzemeler() {
       </Grid>
 
 <Grid className={classes.bosluk}>
-      <PricingSection malzemelerObject = {malzemeler}/>
+      <PricingSection malzemelerObject = {malzemeler} haberYolu = {HaberYolu}/>
       </Grid>
     
     </React.Fragment>

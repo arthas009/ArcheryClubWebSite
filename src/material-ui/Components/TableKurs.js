@@ -25,20 +25,6 @@ const useRowStyles = makeStyles({
   },
 });
 
-function createData(KursAdı, calories, fat, carbs, protein, price) {
-  return {
-    KursAdı,
-    calories,
-    fat,
-    carbs,
-    protein,
-    price,
-    history: [
-      { date: '2020-01-05', customerId: '11091700', amount: 3 },
-      { date: '2020-01-02', customerId: 'Anonymous', amount: 1 },
-    ],
-  };
-}
 
 function Row(props) {
   const { row } = props;
@@ -54,12 +40,12 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.KursAdı}
+        {row.kurs_adi}
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
-        <TableCell align="right">{row.protein}</TableCell>
+        <TableCell></TableCell>
+        <TableCell></TableCell>
+        <TableCell></TableCell>
+        <TableCell></TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -85,7 +71,7 @@ function Row(props) {
                       </TableCell>
                       <TableCell>{row.kurs_baslangic_saati} - {row.kurs_bitis_saati}</TableCell>
                       <TableCell>{row.kurs_gunleri}</TableCell>              
-                      <TableCell></TableCell>              
+                      <TableCell>{row.egitmen_adi}</TableCell>              
 
                     </TableRow>
                

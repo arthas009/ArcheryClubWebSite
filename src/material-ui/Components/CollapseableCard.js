@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CollapseableCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const { post } = props;
+  const { post,haberYolu } = props;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -68,7 +68,7 @@ export default function CollapseableCard(props) {
       />
       <CardMedia
         className={classes.media}
-        image="./Images/Sporcularimiz/OguzhanPolat1.jpg"
+        image= {haberYolu+post.haber_foto_yolu+".jpg"}
         title=""
       />
       <CardContent>
