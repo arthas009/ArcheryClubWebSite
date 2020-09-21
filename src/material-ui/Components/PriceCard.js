@@ -38,8 +38,22 @@ const styles = theme => ({
   cardMedia: {
     align:'left',
     borderLeft: theme.spacing(0),
-    width: 20,
-    height:20,
+   
+    [theme.breakpoints.down('sm')]: {
+      width: 30,
+    height:30,
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      width: 50,
+    height:50,
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      width:70,
+      height:70,
+  
+  },
   },
 });
 
