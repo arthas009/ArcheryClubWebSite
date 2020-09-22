@@ -12,7 +12,15 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Button from '@material-ui/core/Button';
+import RoomIcon from '@material-ui/icons/Room';
+import GoogleMap from '../../Components/GoogleMap';
 
+import { Fragment } from 'react';
+
+const mapStyles = {
+  width: '50%',
+  height: '50%'
+};
 
 const WhiteTextButton = withStyles({
   root: {
@@ -52,6 +60,12 @@ const iletisim_itemleri = [
     <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
     <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
   },
+  {
+  title: ['Harita'],
+  icon: [<RoomIcon fontSize="small" />],
+  description: [<GoogleMap ></GoogleMap>],
+  },
+  
 ]
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -193,6 +207,9 @@ export default function Iletisim() {
           ))}
 </Grid>
 </Container>
+
+  
+
 
     </React.Fragment>
   );

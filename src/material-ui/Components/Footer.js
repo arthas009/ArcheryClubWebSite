@@ -12,6 +12,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import GoogleMap from './GoogleMap';
+
 
 const WhiteTextTypography = withStyles({
   root: {
@@ -52,7 +54,7 @@ function Copyright() {
 const footers = [
   {
     title: 'İletişim',
-    description: ['PİYADE MAHALLESİ, ATİLLA EŞER CADDESİ No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
+    description: ['PİYADE MAHALLESİ', 'ATİLLA EŞER CADDESİ', 'No:47/A', 'ETİMESGUT/ANKARA','+90 530 233 5075'],
   },
   {
     title: 'Hakkında',
@@ -60,7 +62,7 @@ const footers = [
   },
   {
     title: 'Harita',
-    description: [],
+    description: [<GoogleMap></GoogleMap>],
   },
   {
     title: 'Sosyal Medya',
@@ -70,31 +72,7 @@ const footers = [
   },
 ];
 const useStyles = makeStyles((theme) => ({
- /* footer: {
-    marginTop: theme.spacing(20),
-    padding: theme.spacing(2, 2),
-    backgroundColor: 'rgba(200,200,200,.9)',
-    bottom: 0,
-  },*/
- /* typho:
-  {
-    marginTop: theme.spacing(2),
-    color: "#000000",
-  },
-  typhoDown:
-  {
-    marginTop: theme.spacing(2),
-    color: "#000000",
-  },
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.primary,
-    backgroundColor: 'rgba(200,200,200,.9)',
-  },*/
+ 
 
     [theme.breakpoints.down('md')]: {
       marginLeft:theme.spacing(2),
@@ -108,8 +86,10 @@ const useStyles = makeStyles((theme) => ({
   
     [theme.breakpoints.down('md')]: {
       width: '10rem',
+     // height: '10vh'
       overflow:'auto',
     },   
+       
     footer: {
       //borderTop: `5px solid ${theme.palette.divider}`,
       borderBottom: `5px solid ${theme.palette.divider}`,
