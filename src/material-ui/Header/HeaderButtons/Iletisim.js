@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, createMuiTheme,withStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import { Typography, Box, ThemeProvider, Container } from '@material-ui/core';
+import { Typography, Box, ThemeProvider, Container, Paper } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
@@ -60,13 +60,17 @@ const iletisim_itemleri = [
     <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
     <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
   },
-  {
-  title: ['Harita'],
-  icon: [<RoomIcon fontSize="small" />],
-  description: [<GoogleMap ></GoogleMap>],
-  },
+
   
 ]
+const iletisim_itemleri2 = [
+  {
+    title: ['Harita'],
+    icon: [<RoomIcon fontSize="small" />],
+    description: [<GoogleMap ></GoogleMap>],
+    },
+  ]
+
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -119,9 +123,16 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
 
   },
+  bosluk2: {
+    marginLeft: theme.spacing(10),
+    paddingLeft: theme.spacing(100),
+    paddingBottom: theme.spacing(0),
+    paddingTop: theme.spacing(0),
+
+  },
   ustBosluk:
   {
-    marginTop: theme.spacing(5),
+    paddingTop: theme.spacing(5),
   },
   phoneIcon: {
     marginLeft: theme.spacing(0),
@@ -130,6 +141,9 @@ const useStyles = makeStyles((theme) => ({
   emailIcon: {
     marginLeft: theme.spacing(1),
     // marginRight:theme.spacing(50)
+  },
+  root: {
+    flexGrow: 1,
   },
 }));
 
@@ -168,8 +182,50 @@ export default function Iletisim() {
         <hr className={classes.yatayCizgi} />
       </Grid>
 
-      <Container>
-        <Grid className={classes.bodyClass} container spacing={2} direction="column" justify='flex-start' align='flex-start'>
+      <div className={classes.root}>
+
+     <Grid item xs={6} direction="row"  justify="center"  alignItems="stretch" className={classes.bosluk2}>
+    
+{iletisim_itemleri2.map((iletisim_item) => (
+
+<Grid 
+  alignItems="flex-start" key={iletisim_item.title}>
+
+  <Grid 
+    
+    align='right' key={iletisim_item.title}>
+    <Typography className={classes.ustBosluk} variant="h5" color="textPrimary" gutterBottom>
+      {iletisim_item.icon}{iletisim_item.title}
+    </Typography>
+    
+   
+   <Box  borderLeft={1}>
+   
+    <ul >
+    {iletisim_item.description.map((item) => (
+      <Grid align="right">
+        
+        <li key={item} align="left" type = "none"  >
+          <Typography variant="subtitle1" color="textSecondary"> {item}</Typography>
+          
+        </li>
+        
+      </Grid>
+      
+    ))}
+    
+  </ul>
+  </Box>
+  </Grid>
+</Grid>
+
+
+))}
+
+        </Grid>
+        <Container>
+        <Grid item xs={6} className={classes.bodyClass} container spacing={2} direction="column" justify='flex-start' align='flex-start'>
+         
           {iletisim_itemleri.map((iletisim_item) => (
 
             <Grid container direction="column" justify="flex-start"
@@ -178,7 +234,7 @@ export default function Iletisim() {
               <Grid container direction="column"
                 justify="flex-start"
                 alignItems="flex-start" key={iletisim_item.title}>
-                <Typography className={classes.ustBosluk} variant="h5" color="textPrimary" gutterBottom>
+                <Typography  variant="h5" color="textPrimary" gutterBottom>
                   {iletisim_item.icon}{iletisim_item.title}
                 </Typography>
                 
@@ -205,12 +261,14 @@ export default function Iletisim() {
            
             
           ))}
+        
 </Grid>
 </Container>
 
-  
 
-
+      
+       
+</div>
     </React.Fragment>
   );
 }
