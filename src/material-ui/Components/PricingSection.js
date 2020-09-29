@@ -55,6 +55,8 @@ const styles = theme => ({
   },
 });
 
+const malzemelerYolu = './Images/Malzemeler/';
+
 function PricingSection(props) {
   const { malzemelerObject,haberYolu} = props;
  
@@ -82,7 +84,7 @@ function PricingSection(props) {
                 </span>
               }
               features={item.malzeme_ozellikleri}
-              haberYolu={haberYolu+item.malzeme_foto_yolu+".jpg"}
+              haberYolu={malzemelerYolu+item.malzeme_foto_yolu+".jpg"}
             />
           </Grid>
            )
