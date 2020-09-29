@@ -27,9 +27,17 @@ const useStyles = makeStyles((theme) => ({
       height: '55vh',
 
     },
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(2),
+      height: '30vh',
+    },
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
-      height: '10vh',
+      height: '20vh',
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: theme.spacing(0),
+      height: '15vh',
     },
   },
 
@@ -60,17 +68,23 @@ const useStyles = makeStyles((theme) => ({
   
     [theme.breakpoints.down('sm')]: {
     fontSize: 10,
-    padding: theme.spacing(0),
+    paddingTop: theme.spacing(0),
+    paddingLeft: theme.spacing(0),
+    paddingRight: theme.spacing(0)
     },
     //laptoplar için
     [theme.breakpoints.up('md')]: {
-     fontSize: 20,
-     padding: theme.spacing(1),
+     fontSize: 15,
+     paddingTop: theme.spacing(1),
+     paddingLeft: theme.spacing(1),
+     paddingRight: theme.spacing(1)
     },
     //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
-      fontSize: 30,
-      padding: theme.spacing(2),
+      fontSize: 20,
+      paddingTop: theme.spacing(2),
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2)
   },
   },
  
@@ -78,23 +92,20 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   button:{
-    
+    padding: theme.spacing(1),
+    marginBottom:theme.spacing(1),
+
     [theme.breakpoints.down('sm')]: {
     fontSize: 10,
     
-    padding: theme.spacing(0),
     },
     //laptoplar için
     [theme.breakpoints.up('md')]: {
-     fontSize: 20,
-     
-    padding: theme.spacing(1),
+     fontSize: 15,    
     },
     //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
-      fontSize: 30,
-      
-    padding: theme.spacing(2),
+      fontSize: 20,    
   },
   },
 

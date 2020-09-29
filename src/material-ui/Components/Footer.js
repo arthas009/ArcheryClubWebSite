@@ -60,10 +60,7 @@ const footers = [
     title: 'Hakkında',
     description: ['Biz Kimiz ?', 'Misyonumuz & Vizyonumuz', 'Tarihçe'],
   },
-  {
-    title: 'Harita',
-    description: [<GoogleMap></GoogleMap>],
-  },
+ 
   {
     title: 'Sosyal Medya',
     description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,

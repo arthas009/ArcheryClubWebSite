@@ -74,7 +74,7 @@ export default function PhotoGalleryComponent(props) {
              ImageList.Images.map(tile => (
     
             <GridListTile className={classes.gridListTile} key={tile.id}>
-              <img onClick={() => handleClickOpen(tile)} src={tile.imageName} alt={tile.title} />
+              <img onClick={() => handleClickOpen(tile)} src={"http://gaziokculukresmi.com"+tile.imageName} alt={tile.title} />
               <GridListTileBar
                 title={tile.title}
                 subtitle={<span>Ekleyen: Gazi Okculuk</span>}
@@ -91,7 +91,7 @@ export default function PhotoGalleryComponent(props) {
         >
 
           {selectedTile && (
-            <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${selectedTile.src})` }}>
+            <Paper onClick={handleClose} className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${"http://gaziokculukresmi.com"+selectedTile.imageName}` }}>
               {/* Increase the priority of the hero background image */}
             </Paper >
 

@@ -340,21 +340,21 @@ export default function Galeri(props) {
     try {    
     if (section==="Klubumuz") {
       let [images] = await Promise.all([
-        fetch("http://gaziokculukresmi.com/Images/Klubumuz/"),
+        fetch("http://gaziokculukresmi.com/kulupfotolarinigetir/"),
       ]);
       name = "Klübümüz";
       b = await images.json();
     }
     else if (section==="Madalyalar") {
       let [images] = await Promise.all([
-        fetch("http://gaziokculukresmi.com/Images/Madalyalar/"),
+        fetch("http://gaziokculukresmi.com/madalyalarfotolarinigetir/"),
       ]);
       name = "Madalyalar";
       b = await images.json();
     }
     else if (section==="Sporcularimiz") {
       let [images] = await Promise.all([
-        fetch("http://gaziokculukresmi.com/Images/Sporcularimiz/"),
+        fetch("http://gaziokculukresmi.com/sporcufotolarinigetir/"),
       ]);
       name = "Sporcularimiz";
       b = await images.json();
