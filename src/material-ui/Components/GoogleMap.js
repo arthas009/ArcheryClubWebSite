@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { Grid } from '@material-ui/core';
 
 const mapStyles = {
   width: '20%',
@@ -32,7 +33,7 @@ export class MapContainer extends Component {
 
  
     return (
-     
+     <Grid>
         <Map
         google={this.props.google}
         zoom={14}
@@ -60,6 +61,7 @@ export class MapContainer extends Component {
           </div>
         </InfoWindow>
       </Map>
+      </Grid>
     );
   }
 }

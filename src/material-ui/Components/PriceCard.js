@@ -89,21 +89,22 @@ function PriceCard(props) {
       </Box>
       
         <Box display="flex" alignItems="left" mb={1}>
-          <CheckIcon
+         
+        <CheckIcon
             style={{
               color: highlighted
                 ? theme.palette.common.white
                 : theme.palette.primary.dark
             }}
+            
           />
-          <Box ml={1}>
             <Typography
               className={highlighted ? "text-white" : null}
               variant={highlighted ? "h6" : "body1"}
             >
               {features}
             </Typography>
-          </Box>
+         
         </Box> 
     </div> 
     </Box>
@@ -115,9 +116,11 @@ PriceCard.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
+  features: PropTypes.string.isRequired,
   //image: PropTypes.string.isRequired,
   //image: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   pricing: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+ // features: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   highlighted: PropTypes.bool
 };
 

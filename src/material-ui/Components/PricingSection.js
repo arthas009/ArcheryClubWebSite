@@ -83,7 +83,7 @@ function PricingSection(props) {
                   <Typography display="inline"> ₺</Typography>
                 </span>
               }
-              features={item.malzeme_ozellikleri}
+              features={item.malzeme_ozellik}
               haberYolu={malzemelerYolu+item.malzeme_foto_yolu+".jpg"}
             />
           </Grid>
