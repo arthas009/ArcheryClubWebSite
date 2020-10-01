@@ -16,9 +16,27 @@ const styles = theme => ({
     paddingRight: theme.spacing(4),
     marginTop: theme.spacing(2),
     marginLeft: theme.spacing(2),
-    
+    [theme.breakpoints.down('sm')]: {
+      width:280,
+    height:400,
+   
+    align:'center',
+    },
+    //laptoplar için
+    [theme.breakpoints.up('md')]: {
+      width: 256,
+    height:400,
+    },
+    //büyük ekranlar için
+    [theme.breakpoints.up('lg')]: {
+      width:320,
+      height:500,
+  
+  },
     border: `3px solid ${theme.palette.primary.dark}`,
     borderRadius: theme.shape.borderRadius * 2
+    
+    
   },
   cardHightlighted: {
     paddingTop: theme.spacing(8),
