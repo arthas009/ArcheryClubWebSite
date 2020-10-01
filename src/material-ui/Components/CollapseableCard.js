@@ -21,6 +21,21 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     marginLeft: theme.spacing(6),
     marginBottom: theme.spacing(2),
+   
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: theme.spacing(12),
+      alignItems:'center',
+    },  
+     
+   /* //laptop ekranları
+    [theme.breakpoints.up('md')]: {
+      width: '60rem',
+    },
+    //Büyük ekranlar
+    [theme.breakpoints.up('lg')]: {
+      width: '75rem',
+      height:'50vh',
+    },*/
   },
   media: {
     height: 0,
