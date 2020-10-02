@@ -66,7 +66,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   bosluk: {
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(5),
+    paddingRight: theme.spacing(5),
 
   },
   phoneIcon: {
@@ -154,9 +155,9 @@ export default function Iletisim() {
         </Box>
         <hr className={classes.yatayCizgi} />
       </Grid>   
-    <Grid>  
+    <Grid className={classes.bosluk} >  
          
-     <TableKurs objectKurslar={kurslar}></TableKurs>
+     <TableKurs  objectKurslar={kurslar}></TableKurs>
 
       </Grid>
       
