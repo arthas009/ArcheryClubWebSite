@@ -54,7 +54,7 @@ function Copyright() {
 const footers = [
   {
     title: 'İletişim',
-    description: ['PİYADE MAHALLESİ', 'ATİLLA EŞER CADDESİ', 'No:47/A', 'ETİMESGUT/ANKARA','+90 530 233 5075'],
+    description: ['PİYADE MAHALLESİ ATİLLA EŞER CADDESİ', 'No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
   },
   {
     title: 'Hakkında',
