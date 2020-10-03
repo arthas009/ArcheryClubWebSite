@@ -9,6 +9,8 @@ import { CardMedia,Button, Link } from '@material-ui/core/';
 
 const useStyles = makeStyles((theme) => ({
   card: {
+    marginTop: theme.spacing(3),
+
     [theme.breakpoints.down('xs')]: {
       width: "25em",
     },  
@@ -102,10 +104,10 @@ export default function FeaturedPost(props) {
           
             <CardContent className={classes.cardContent}>
               <Typography component="h2" variant="h5">
-                Okçuluğun Kökeni
+              {post.title}
               </Typography>
               <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" color="textSecondary">
-                29.08.2020
+              {post.date}
               </Typography>
               <Typography className={classes.overflowEnabled}  style={{ maxHeight: 300, overflow: "auto"  }} variant="subtitle1" paragraph noWrap>
 
