@@ -109,6 +109,8 @@ const featuredPosts = [
 
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
+    name:"OkculukHakkinda",
+    buttonText: "Devamını Okumak için ..."
   },
   {
     title: 'Fotoğraf İçerikleri',
@@ -117,6 +119,8 @@ const featuredPosts = [
       'Galerimizi Ziyaret etmek ister misiniz ?',
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
+    name:"Galeri/Sporcularimiz",
+    buttonText:"Galeriyi Ziyaret Et"
   },
 ];
 export default function MainPage({ match }) {

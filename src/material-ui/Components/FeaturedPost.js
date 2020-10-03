@@ -116,10 +116,10 @@ export default function FeaturedPost(props) {
                 {post.description.substring(0, 150)}
               </Typography>
               <Button   component={CustomLink}
-                        name={"OkculukHakkinda"}
+                        name={post.name}
                         color="inherit"
-                        key={"RouteOkculukHakkinda"}
-                       color="primary"> Devamını Okumak için ...
+                        key={"Route"+post.name}
+                        color="primary"> {post.buttonText}
               </Button>
             </CardContent>
          
