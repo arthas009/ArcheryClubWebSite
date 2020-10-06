@@ -7,7 +7,7 @@ import { Grid } from '@material-ui/core';
 //import TwitterIcon from '@material-ui/icons/Twitter';
 //import FacebookIcon from '@material-ui/icons/Facebook';
 //import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Button from '@material-ui/core/Button';
@@ -65,7 +65,7 @@ const footers = [
     title: 'Sosyal Medya',
     description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
      <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
-     <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
+     <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
   },
 ];
 const useStyles = makeStyles((theme) => ({

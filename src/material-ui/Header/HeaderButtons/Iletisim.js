@@ -8,7 +8,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import ThumbsUpDownIcon from '@material-ui/icons/ThumbsUpDown';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Button from '@material-ui/core/Button';
@@ -58,7 +58,7 @@ const iletisim_itemleri = [
     icon: [<ThumbsUpDownIcon fontSize="small" />],
     description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
     <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
-    <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" />Twitter</WhiteTextButton>],
+    <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
   },
 
   

@@ -57,18 +57,18 @@ const useStyles = makeStyles((theme) => ({
     //telefonlar için
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
-      height: '5vh',
+      height: '9vh',
       align: 'left',
     },
     //laptoplar için
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(1),
-      height: '10vh',
+      height: '15vh',
     },
     //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(6),
-      height: '12vh',
+      height: '22vh',
   },
   bosluk: {
 
