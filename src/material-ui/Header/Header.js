@@ -8,7 +8,7 @@ import { Popover, ThemeProvider } from '@material-ui/core';
 import { Grid, ButtonGroup, Box, Fab, AppBar, Paper } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 //import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -192,7 +192,7 @@ export default function Header(props) {
               <Grid>
                 <WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small" /> </WhiteTextButton>
                 <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" /></WhiteTextButton>
-                <WhiteTextButton href="https://twitter.com"><TwitterIcon fontSize="small" /></WhiteTextButton>
+                <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" /></WhiteTextButton>
 
               </Grid>
 
