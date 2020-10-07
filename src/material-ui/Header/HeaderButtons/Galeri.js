@@ -1,10 +1,10 @@
 import React from 'react';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { Button, Typography, Box} from '@material-ui/core';
+import { Button, Typography, Box } from '@material-ui/core';
 import MainFeaturedPost from '../../Components/MainFeaturedPost';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import PhotoGalleryComponent from '../../Components/PhotoGalleryComponent';
@@ -99,320 +99,127 @@ const KlübümüzImageList = [
     description: "bar",
     author: "Gazi Okçuluk"
   },
- 
+
 ];
 
-const MadalyalarImageList = [
-  {
-    id: 1,
-    src: "./Images/Madalya1.jpg",
-    title: "1. yarışma madalyası",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 2,
-    src: "./Images/Yarisma1.jpg",
-    title: "1. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 2,
-    src: "./Images/Yarisma2.jpg",
-    title: "2. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 3,
-    src: "./Images/Yarisma3.jpg",
-    title: "3. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 4,
-    src: "./Images/Yarisma4.jpg",
-    title: "4. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 5,
-    src: "./Images/Yarisma5.jpg",
-    title: "5. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 6,
-    src: "./Images/Yarisma6.jpg",
-    title: "6. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 7,
-    src: "./Images/Yarisma7.jpg",
-    title: "7. Yarışma",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-];
 
-const SporcularImageList = [
-  {
-    id: 1,
-    src: "./Images/OguzhanPolat.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 2,
-    src: "./Images/OguzhanPolat1.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 3,
-    src: "./Images/OguzhanPolat2.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 4,
-    src: "./Images/Sporcularimiz1.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 5,
-    src: "./Images/Sporcularimiz2.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 6,
-    src: "./Images/Sporcularimiz3.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 7,
-    src: "./Images/Sporcularimiz4.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 8,
-    src: "./Images/Sporcularimiz5.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 9,
-    src: "./Images/Sporcularimiz6.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 10,
-    src: "./Images/Sporcularimiz7.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 11,
-    src: "./Images/Sporcularimiz8.jpg",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 12,
-    src: "./Images/OguzhanPolat3.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 13,
-    src: "./Images/OguzhanPolat4.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 14,
-    src: "./Images/OguzhanPolat5.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 15,
-    src: "./Images/OguzhanPolat6.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 16,
-    src: "./Images/OguzhanPolat7.jpg",
-    title: "Oğuzhan Polat",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-];
-
-const KlübümüzVideoList = [
-  {
-    id: 1,
-    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-  {
-    id: 2,
-    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-];
-
-const MadalyalarVideoList = [
-  {
-    id: 1,
-    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },{
-    id: 1,
-    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-];
-
-const SporcularVideoList = [
-  {
-    id: 1,
-    src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
-    title: "",
-    description: "bar",
-    author: "Gazi Okçuluk"
-  },
-];
 
 export default function Galeri(props) {
   const classes = useStyles();
   // Category to show, images or videos
   const [category, setCategory] = React.useState("Fotoğraflar");
   const [images, setImages] = React.useState(null);
+  const [videos, setVideos] = React.useState(null);
+
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
   }
-  const {section} = props;
- 
+  const { section } = props;
+
   let name = "";
   let objectToView = {};
   let videosToView = {};
 
   let b = {};
-  async function getImageNames()
-  {
-    try {    
-    if (section==="Klubumuz") {
-      let [images] = await Promise.all([
-        fetch("http://gaziokculukresmi.com/kulupfotolarinigetir/"),
-      ]);
-      name = "Klübümüz";
-      b = await images.json();
-    }
-    else if (section==="Madalyalar") {
-      let [images] = await Promise.all([
-        fetch("http://gaziokculukresmi.com/madalyalarfotolarinigetir/"),
-      ]);
-      name = "Madalyalar";
-      b = await images.json();
-    }
-    else if (section==="Sporcularimiz") {
-      let [images] = await Promise.all([
-        fetch("http://gaziokculukresmi.com/sporcufotolarinigetir/"),
-      ]);
-      name = "Sporcularimiz";
-      b = await images.json();
-    }
-    setImages(b);
+  let c = {};
+  async function getImageNames() {
+    try {
+      if (section === "Klubumuz") {
+        let [images] = await Promise.all([
+          fetch("http://gaziokculukresmi.com/kulupfotolarinigetir/"),
+        ]);
+
+        name = "Klübümüz";
+        b = await images.json();
+
+        let [videos] = await Promise.all([
+          fetch("http://gaziokculukresmi.com/kulupvideolarinigetir/")
+        ]);
+
+        c = await videos.json();
+      }
+      else if (section === "Madalyalar") {
+        let [images] = await Promise.all([
+          fetch("http://gaziokculukresmi.com/madalyalarfotolarinigetir/"),
+
+        ]);
+        name = "Madalyalar";
+        b = await images.json();
+
+        let [videos] = await Promise.all([
+          fetch("http://gaziokculukresmi.com/madalyalarvideolarinigetir/")
+        ]);
+
+        c = await videos.json();
+
+      }
+      else if (section === "Sporcularimiz") {
+        let [images] = await Promise.all([
+          fetch("http://gaziokculukresmi.com/sporcufotolarinigetir/"),
+        ]);
+        name = "Sporcularimiz";
+        b = await images.json();
+        let [videos] = await Promise.all([
+          fetch("http://gaziokculukresmi.com/sporcuvideolarinigetir/")
+        ]);
+        c = await videos.json();
+
+      }
+      setVideos(c);
+      setImages(b);
     }
     catch (err) {
       console.log(err);
     };
   }
-  
+
   useEffect(() => {
     getImageNames();
   }, [section]);
 
   objectToView = images;
-  videosToView = SporcularVideoList; 
+  videosToView = videos;
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        {
+          mainFeaturedPost.map((item, i) =>
+            <MainFeaturedPost key={i} post={item} />
+          )
+        }
+        <Container>
+          <Grid className={classes.heaederGrid}>
+            <Box className={classes.pageHeader}>
+              <ThemeProvider theme={themeTypography}>
+                <Typography variant="overline" color="textPrimary">{name}</Typography>
+              </ThemeProvider>
+            </Box>
 
-  console.log("HELLO "+images);
-
-
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      {
-        mainFeaturedPost.map((item, i) =>
-          <MainFeaturedPost key={i} post={item} />
-        )
-      }
-      <Container>
-        <Grid className={classes.heaederGrid}>
-          <Box className={classes.pageHeader}>
-            <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">{name}</Typography>
-            </ThemeProvider>
-          </Box>
-
-          <hr className={classes.yatayCizgi} />
-        </Grid>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center">
+            <hr className={classes.yatayCizgi} />
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center">
             <Button onClick={() => changeCategory('Fotoğraflar')} className={classes.kategoriButonları} variant="contained" color="primary">
               Fotoğraflar
             </Button>
             <Button onClick={() => changeCategory('Videolar')} className={classes.kategoriButonları} variant="contained" color="primary">
               Videolar
             </Button>
-        </Grid>
-        <Grid className={classes.mainGrid}>
-            {category === "Fotoğraflar" ? 
-            <PhotoGalleryComponent ImageList={objectToView} /> : 
+          </Grid>
 
-            <VideoGalleryComponent VideoList={videosToView}/> }    
-        </Grid>
-      </Container>
-    </React.Fragment>
-  );
+          <Grid className={classes.mainGrid}>
+            {category === "Fotoğraflar" ?
+               objectToView === null ? "Fotoğraflar Yüklenirken Bir Hata Meydana Geldi":
+              <PhotoGalleryComponent ImageList={objectToView} /> :
+               videosToView === null ? "Videolar Yüklenirken Bir Hata Meydana Geldi":
+              <VideoGalleryComponent VideoList={videosToView} />}
+          </Grid>
+        </Container>
+      </React.Fragment>
+    );
+  
 }

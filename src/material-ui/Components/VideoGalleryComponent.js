@@ -50,7 +50,7 @@ export default function VideoGalleryComponent(props) {
 
     return (
             <GridList cols={1}>      
-                {VideoList.map(tile => (
+                {VideoList.Videos.map(tile => (
                     <GridListTile className={classes.gridListTile} key={tile.id}>
                         <Grid
                             container
