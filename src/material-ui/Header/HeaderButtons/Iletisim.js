@@ -173,14 +173,14 @@ export default function Iletisim() {
       </Grid>
       <div className={classes.root}>
         <Container>
-          <Grid container direction="row" justify="space-between">
+          <Grid container direction="column" justify="space-between">
 
               {iletisim_itemleri.map((iletisim_item) => (
                 <Grid item 
-                  alignItems="center" key={iletisim_item.title}>
+                  alignItems="left" key={iletisim_item.title}>
                   <Grid container direction="column"
                     justify="center"
-                    alignItems="center" key={iletisim_item.title}>
+                    alignItems="left" key={iletisim_item.title}>
                     <Typography variant="h5" color="textPrimary" gutterBottom>
                       {iletisim_item.icon}{iletisim_item.title}
                     </Typography>
