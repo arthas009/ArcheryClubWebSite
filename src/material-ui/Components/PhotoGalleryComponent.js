@@ -63,7 +63,6 @@ export default function PhotoGalleryComponent(props) {
     setSelectedTile(null);
   };
  
-  console.log(ImageList);
   if(ImageList !==null)
     return (
       <Container>
@@ -74,7 +73,7 @@ export default function PhotoGalleryComponent(props) {
              ImageList.Images.map(tile => (
     
             <GridListTile className={classes.gridListTile} key={tile.id}>
-              <img onClick={() => handleClickOpen(tile)} src={"http://gaziokculukresmi.com"+tile.imageName} alt={tile.title} />
+              <img onClick={() => handleClickOpen(tile)} src={"http://gaziokculukresmi.com"+tile.imageName} alt={"Gazi Okçuluk"} />
               <GridListTileBar
                 title={tile.title}
                 subtitle={<span>Ekleyen: Gazi Okculuk</span>}
