@@ -63,8 +63,8 @@ const footers = [
  
   {
     title: 'Sosyal Medya',
-    description: [<WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
-     <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+    description: [<WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
+     <WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
      <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
   },
 ];

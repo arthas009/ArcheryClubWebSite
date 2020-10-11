@@ -190,8 +190,8 @@ export default function Header(props) {
               </Grid>
 
               <Grid>
-                <WhiteTextButton href="https://instagram.com"><InstagramIcon fontSize="small" /> </WhiteTextButton>
-                <WhiteTextButton href="https://facebook.com"><FacebookIcon fontSize="small" /></WhiteTextButton>
+                <WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small" /> </WhiteTextButton>
+                <WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" /></WhiteTextButton>
                 <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" /></WhiteTextButton>
 
               </Grid>
