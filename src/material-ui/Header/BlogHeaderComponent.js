@@ -8,7 +8,7 @@ import { Route,Switch } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
 import Hakkında from './HeaderButtons/Hakkında';
-import FarklıBilgiler from './HeaderButtons/FarklıBilgiler';
+import Magaza from './HeaderButtons/Magaza';
 import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
 import Galeri from './HeaderButtons/Galeri';
@@ -90,8 +90,9 @@ class BlogHeaderComponent extends Component {
         url: 'Galeri'
       },
 
-      { title: 'FARKLI BİLGİLER', url: 'FarkliBilgiler' },
+      
       { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
+      { title: 'Mağaza', url: 'Magaza' },
       { title: '2. El Malzemeler', url: '2. El Malzemeler' },
       { title: 'İLETİŞİM', url: 'Iletisim' },
     ];
@@ -196,8 +197,8 @@ class BlogHeaderComponent extends Component {
             />
           <Route
             exact
-            path='/FarkliBilgiler'
-            render={() => (<FarklıBilgiler></FarklıBilgiler>)}
+            path='/Magaza'
+            render={() => (<Magaza></Magaza>)}
           />
           <Route
             exact
