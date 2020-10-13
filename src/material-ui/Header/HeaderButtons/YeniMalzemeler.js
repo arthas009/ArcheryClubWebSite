@@ -72,7 +72,7 @@ const themeTypography = createMuiTheme({
     },
   },
 });
-export default function Magaza() {
+export default function YeniMalzemeler() {
   const classes = useStyles();
   const [sifirmalzemeler, setSifirMalzemeler] = React.useState(null);
 

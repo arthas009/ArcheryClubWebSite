@@ -106,7 +106,6 @@ export default function IkinciElMalzemeler() {
   async function getMalzemeler()
   {
     try {    
-
       let [images] = await Promise.all([
         fetch("http://gaziokculukresmi.com/malzemelerigetir"),
       ]);

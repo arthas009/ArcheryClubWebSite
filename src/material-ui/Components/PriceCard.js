@@ -27,6 +27,7 @@ const styles = theme => ({
       width: 256,
     height:400,
     },
+    
     //büyük ekranlar için
     [theme.breakpoints.up('lg')]: {
       width:320,

@@ -8,7 +8,7 @@ import { Route,Switch } from 'react-router-dom';
 import Header from './Header';
 import MainPage from './HeaderButtons/MainPage';
 import Hakkında from './HeaderButtons/Hakkında';
-import Magaza from './HeaderButtons/Magaza';
+import YeniMalzemeler from './HeaderButtons/YeniMalzemeler';
 import Haberler from './HeaderButtons/Haberler';
 import Iletisim from './HeaderButtons/Iletisim';
 import Galeri from './HeaderButtons/Galeri';
@@ -92,8 +92,11 @@ class BlogHeaderComponent extends Component {
 
       
       { title: 'Okçuluk Hakkında', url: 'OkculukHakkinda' },
-      { title: 'Mağaza', url: 'Magaza' },
-      { title: '2. El Malzemeler', url: '2. El Malzemeler' },
+      { title: 'Mağaza',subtitles: [
+        { title: 'Yeni Malzemeler', url: 'YeniMalzemeler' },
+        { title: '2. El Malzemeler', url: '2. El Malzemeler' },
+      ],
+      url: 'Magaza'},
       { title: 'İLETİŞİM', url: 'Iletisim' },
     ];
 
@@ -195,10 +198,15 @@ class BlogHeaderComponent extends Component {
               path='/2. El Malzemeler'  //OkculukMalzemeleri
               render={() => (<IkinciElMalzemeler></IkinciElMalzemeler>)}
             />
+            <Route
+              exact
+              path='/Magaza/2. El Malzemeler'  //OkculukMalzemeleri
+              render={() => (<IkinciElMalzemeler></IkinciElMalzemeler>)}
+            />
           <Route
             exact
-            path='/Magaza'
-            render={() => (<Magaza></Magaza>)}
+            path='/Magaza/YeniMalzemeler'
+            render={() => (<YeniMalzemeler></YeniMalzemeler>)}
           />
           <Route
             exact

@@ -71,7 +71,7 @@ function PricingSection(props) {
             item
             xs={12}
             sm={6}
-            lg={3}
+            lg={4}
             data-aos="zoom-in-up"
           >
             <PriceCard           

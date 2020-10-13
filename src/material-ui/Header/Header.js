@@ -128,6 +128,7 @@ export default function Header(props) {
   const { sections } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEl2, setAnchorEl2] = React.useState(null);
+  const [anchorEl3, setAnchorEl3] = React.useState(null);
 
   const CustomLink = props => <Link to={"/" + props.name} {...props}></Link>;
 
@@ -144,11 +145,22 @@ export default function Header(props) {
   const handlePopover2Close = () => {
     setAnchorEl2(null);
   };
+
+  const handlePopover3Open = (event) => {
+    setAnchorEl3(event.currentTarget);
+  };
+  const handlePopover3Close = () => {
+    setAnchorEl3(null);
+  };
+
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
   const open2 = Boolean(anchorEl2);
   const id2 = open2 ? 'simple-popover2' : undefined;
+
+  const open3 = Boolean(anchorEl3);
+  const id3 = open3 ? 'simple-popover3' : undefined;
 
   /* h1 is used to display data on top left side of page */
   return (
@@ -310,6 +322,58 @@ export default function Header(props) {
                         </ButtonGroup>
                       </Popover>
                     </div>
+                      :
+                      section.title === "Mağaza" ? <div>
+                      <Fab
+                        size="medium"
+
+                        color="inherit"
+                        key={section.title}
+                        variant="oversized"
+                        className={classes.menuButton}
+                        onClick={handlePopover3Open}
+                        aria-owns={open ? 'mouse-over-popover' : undefined}
+                        aria-haspopup="true"
+                      >
+                        {section.title}
+                        <ArrowDropDownIcon />
+                      </Fab>
+                      <Popover
+                        id={id3}
+                        open={open3}
+                        anchorEl={anchorEl3}
+                        onClose={handlePopover3Close}
+                        anchorOrigin={{
+                          vertical: 'bottom',
+                          horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                          vertical: 'top',
+                          horizontal: 'center',
+                        }}
+                      >
+                        {/* onClick eventleri aynı anda 2 iş yapacağı için özel isimlerle butonlara özel oluşturulması gerekti */}
+                        <ButtonGroup orientation="vertical"
+                          color="primary"
+                          aria-label="vertical contained primary button group"
+                          variant="text">
+                          {section.subtitles.map((subsection) => (
+                            <Button
+                              component={CustomLink}
+                              color="inherit"
+                              name={"Magaza/" + subsection.url}
+                              key={"Hakkinda"}
+                              variant="oversized"
+                              className={classes.menuButton}
+                              onClick={handlePopover3Close}
+                            >
+                              {subsection.title}
+                            </Button>
+
+                          ))}
+                        </ButtonGroup>
+                      </Popover>
+                      </div>
                       :
                       <Fab
                         size="medium"
