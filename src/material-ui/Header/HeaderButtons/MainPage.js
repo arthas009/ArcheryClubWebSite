@@ -152,7 +152,7 @@ export default function MainPage({ match }) {
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">GAZİ Okçuluk</Typography>
+             <h1> <Typography variant="overline" color="textPrimary">GAZİ Okçuluk</Typography></h1>
             </ThemeProvider>
 
           </Box>
