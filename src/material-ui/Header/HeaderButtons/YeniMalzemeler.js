@@ -134,7 +134,7 @@ export default function YeniMalzemeler() {
       </Grid>
 
 <Grid className={classes.bosluk}>
-      <PricingSection sifirmalzemelerObject = {sifirmalzemeler} haberYolu = {HaberYolu}/>
+      <PricingSection malzemelerObject = {sifirmalzemeler} haberYolu = {HaberYolu}/>
       </Grid>
     
     </React.Fragment>
