@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {NewsList: null,ImagesList:null, xmlfound: false, jsonstring: "", index: 0 };
+    this.state = {NewsList: null,ImagesList:null, xmlfound: false, jsonstring: "", index: 0, Hakkinda:null, Iletisim:null};
     this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
     
@@ -104,32 +104,30 @@ class BlogHeaderComponent extends Component {
 
   /* Fetching News(Haberler) data from a local server program. */
   async componentDidMount() {
-    try {
-      /*
-      let [items, news] = await Promise.all([
-        fetch("http://localhost:4000/"),
-        fetch("http://localhost:4000/news")
-      ]);      
-      */
-      let [images,news] = await Promise.all([
-        //fetch("http://192.168.1.21:3005/Images/Sporcularimiz"),
-        //fetch("http://192.168.1.21:4000/news")     
-      ]);
-      //const b = await images.json();
-      //console.log(b);
-
-      //this.setState({ImagesList:b});
-      
-    }
-    catch (err) {
-      console.log(err);
-    };
-
+    this.getIletisim();
   }
   componentWillUnmount() {
 
   }
 
+  async getIletisim()
+  {
+    try {    
+      let [iletisim,hakkinda] = await Promise.all([
+        fetch("http://gaziokculukresmi.com/iletisimgetir"),
+        fetch("http://gaziokculukresmi.com/hakkindagetir")
+      ]);
+      const b = await iletisim.json();
+      const c = await hakkinda.json();
+      console.log(b);
+      console.log(c);
+
+      this.setState({Hakkinda:b,Iletisim:c});
+    }
+    catch (err) {
+      console.log(err);
+    };
+  }
 
   handleSelect(selectedIndex, e) {
     this.setState({
@@ -142,7 +140,7 @@ class BlogHeaderComponent extends Component {
 
     /* This will trigger a refresh when user click a button on <Header> component. Function is, as a prop, going to be
         onClick event handler function inside <Header> */
-
+    
     return (
       
       <React.Fragment>
