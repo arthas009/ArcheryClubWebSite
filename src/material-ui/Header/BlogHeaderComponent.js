@@ -127,6 +127,7 @@ class BlogHeaderComponent extends Component {
     catch (err) {
       console.log(err);
     };
+    
   }
 
   handleSelect(selectedIndex, e) {
