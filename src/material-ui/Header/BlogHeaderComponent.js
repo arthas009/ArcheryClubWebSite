@@ -113,16 +113,13 @@ class BlogHeaderComponent extends Component {
   async getIletisim()
   {
     try {    
-      let [iletisim,hakkinda] = await Promise.all([
+      let [iletisim] = await Promise.all([
         fetch("http://gaziokculukresmi.com/iletisimgetir"),
-        fetch("http://gaziokculukresmi.com/hakkindagetir")
       ]);
       const b = await iletisim.json();
-      const c = await hakkinda.json();
       console.log(b);
-      console.log(c);
 
-      this.setState({Hakkinda:b,Iletisim:c});
+      this.setState({Iletisim:b});
     }
     catch (err) {
       console.log(err);

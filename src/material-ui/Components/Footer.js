@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles,withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -35,6 +36,7 @@ const WhiteTextButton = withStyles({
 
 function Copyright() {
   const classes = useStyles();
+ 
 
   return (
 
@@ -51,23 +53,7 @@ function Copyright() {
     </Typography>
   );
 }
-const footers = [
-  {
-    title: 'İletişim',
-    description: ['PİYADE MAHALLESİ ATİLLA EŞER CADDESİ', 'No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
-  },
-  {
-    title: 'Hakkında',
-    description: ['Biz Kimiz ?', 'Misyonumuz & Vizyonumuz', 'Tarihçe'],
-  },
- 
-  {
-    title: 'Sosyal Medya',
-    description: [<WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
-     <WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
-     <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
-  },
-];
+
 const useStyles = makeStyles((theme) => ({
  
 
@@ -125,7 +111,73 @@ const useStyles = makeStyles((theme) => ({
 export default function Footer(props) {
   const classes = useStyles();
   //const { description, title } = props;
+  const [IletisimBilgileri, setIletisimBilgileri] = React.useState(null);
 
+  async function getIletisim()
+  {
+    try {    
+      let [images] = await Promise.all([
+        fetch("http://gaziokculukresmi.com/iletisimgetir"),
+      ]);
+      const b = await images.json();
+      console.log(b);
+      setIletisimBilgileri(b);
+    }
+    catch (err) {
+      console.log(err);
+    };
+  }
+  
+  useEffect(() => {
+    getIletisim();
+  }, []);
+  let footers ;
+  if(IletisimBilgileri != null){
+  footers = [
+    {
+      title: 'İletişim',
+      //description: ['PİYADE MAHALLESİ ATİLLA EŞER CADDESİ', 'No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
+       description: [IletisimBilgileri[0].adres,IletisimBilgileri[0].telefon1],
+  
+    },
+    {
+      title: 'Hakkında',
+      description: ['Biz Kimiz ?', 'Misyonumuz & Vizyonumuz', 'Tarihçe'],
+    },
+   
+    {
+      title: 'Sosyal Medya',
+      //description: [<WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
+       //<WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+       //<WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
+       description:[<WhiteTextButton href={IletisimBilgileri[0].instagram}><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
+       <WhiteTextButton href={IletisimBilgileri[0].facebook}><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+       <WhiteTextButton href={IletisimBilgileri[0].youtube}><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>
+    ]
+    },
+  ];
+}
+
+else{
+    footers = [
+    {
+      title: 'İletişim',
+      description: ['PİYADE MAHALLESİ ATİLLA EŞER CADDESİ', 'No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
+  
+    },
+    {
+      title: 'Hakkında',
+      description: ['Biz Kimiz ?', 'Misyonumuz & Vizyonumuz', 'Tarihçe'],
+    },
+   
+    {
+      title: 'Sosyal Medya',
+      description: [<WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small"/> Instagram</WhiteTextButton>,
+       <WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+       <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
+    },
+  ];
+}
   return (
     <React.Fragment>
        <hr className={classes.yukarıBosluk}></hr>
