@@ -125,7 +125,7 @@ const theme = createMuiTheme({
 
 export default function Header(props) {
   const classes = useStyles();
-  const { sections } = props;
+  const { sections,Iletisim } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorEl2, setAnchorEl2] = React.useState(null);
   const [anchorEl3, setAnchorEl3] = React.useState(null);
@@ -161,7 +161,8 @@ export default function Header(props) {
 
   const open3 = Boolean(anchorEl3);
   const id3 = open3 ? 'simple-popover3' : undefined;
-
+  if(Iletisim === null)
+  return (<React.Fragment></React.Fragment>);
   /* h1 is used to display data on top left side of page */
   return (
     <React.Fragment>
@@ -185,7 +186,7 @@ export default function Header(props) {
                     color="inherit"
                     className={classes.toolbarTitle}
                   >
-                    +90 530 233 5075
+                    {Iletisim[0].telefon1}
                </Link>
                 </Box>
                 <Box display={{ xs: 'none', md: 'inline' }}>
@@ -196,15 +197,15 @@ export default function Header(props) {
                     color="inherit"
                     className={classes.toolbarTitle}
                   >
-                    yusufalti1997@gmail.com
+                    {Iletisim[0].mail}
                </Link>
                 </Box>
               </Grid>
 
               <Grid>
-                <WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small" /> </WhiteTextButton>
-                <WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" /></WhiteTextButton>
-                <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" /></WhiteTextButton>
+                <WhiteTextButton href={Iletisim[0].instagram}><InstagramIcon fontSize="small" /> </WhiteTextButton>
+                <WhiteTextButton href={Iletisim[0].facebook}><FacebookIcon fontSize="small" /></WhiteTextButton>
+                <WhiteTextButton href={Iletisim[0].youtube}><YouTubeIcon fontSize="small" /></WhiteTextButton>
 
               </Grid>
 

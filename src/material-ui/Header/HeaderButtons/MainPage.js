@@ -123,8 +123,9 @@ const featuredPosts = [
     buttonText:"Galeriyi Ziyaret Et"
   },
 ];
-export default function MainPage({ match }) {
+export default function MainPage(props) {
   const classes = useStyles();
+  const {Fotolar} = props;
 
   return (
     <React.Fragment >
@@ -146,7 +147,7 @@ export default function MainPage({ match }) {
 
           
 
-      <SwipeableContent></SwipeableContent> 
+      <SwipeableContent fotolar={Fotolar}></SwipeableContent> 
 
         <Container>
         <Grid className={classes.heaederGrid}>

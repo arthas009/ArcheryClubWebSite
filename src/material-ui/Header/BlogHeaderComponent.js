@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 class BlogHeaderComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {NewsList: null,ImagesList:null, xmlfound: false, jsonstring: "", index: 0, Hakkinda:null, Iletisim:null};
+    this.state = {NewsList: null,ImagesList:null, xmlfound: false, jsonstring: "", index: 0, Fotolar:null, Iletisim:null};
     this.clickedName = "";
     this.handleSelect = this.handleSelect.bind(this);
     
@@ -113,13 +113,16 @@ class BlogHeaderComponent extends Component {
   async getIletisim()
   {
     try {    
-      let [iletisim] = await Promise.all([
+      let [iletisim,fotolar] = await Promise.all([
         fetch("http://gaziokculukresmi.com/iletisimgetir"),
+        fetch("http://gaziokculukresmi.com/anasayfafotolarinigetir"),
       ]);
       const b = await iletisim.json();
+      const c = await fotolar.json();
       console.log(b);
+      console.log(c);
 
-      this.setState({Iletisim:b});
+      this.setState({Iletisim:b,Fotolar:c});
     }
     catch (err) {
       console.log(err);
@@ -143,7 +146,7 @@ class BlogHeaderComponent extends Component {
       
       <React.Fragment>
         <CssBaseline />
-          <Header title="" clickedName={this.clickedName} sections={this.sections} />
+          <Header title="" clickedName={this.clickedName} sections={this.sections} Iletisim={this.state.Iletisim} />
           <Toolbar />
           <Toolbar />
          
@@ -152,12 +155,12 @@ class BlogHeaderComponent extends Component {
           <Route
             exact
             path='/'
-            render={() => (<MainPage ></MainPage>)}
+            render={() => (<MainPage Fotolar={this.state.Fotolar}></MainPage>)}
           />
           <Route
             exact
             path='/AnaSayfa'
-            render={() => (<MainPage></MainPage>)}
+            render={() => (<MainPage Fotolar={this.state.Fotolar}></MainPage>)}
           />
           <Route
             exact
@@ -212,7 +215,7 @@ class BlogHeaderComponent extends Component {
           <Route
             exact
             path='/Iletisim'
-            render={() => (<Iletisim></Iletisim>)}
+            render={() => (<Iletisim iletisim={this.state.Iletisim}></Iletisim>)}
           />
           </Switch>
       </React.Fragment>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -61,7 +62,28 @@ const themeTypography = createMuiTheme({
 
 export default function Hakkında() {
   const classes = useStyles();
+  const [Hakkinda, setHakkinda] = React.useState(null);
 
+  async function getHakkinda() {
+    try {
+
+      let [images] = await Promise.all([
+        fetch("http://gaziokculukresmi.com/hakkindagetir"),
+      ]);
+      const b = await images.json();
+      console.log(b);
+      setHakkinda(b);
+    }
+    catch (err) {
+      console.log(err);
+    };
+  }
+
+  useEffect(() => {
+    getHakkinda();
+  }, []);
+  if(Hakkinda === null)
+  return (<React.Fragment></React.Fragment>);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -69,7 +91,7 @@ export default function Hakkında() {
         mainFeaturedPost.map((item, i) =>
           <MainFeaturedPost key={i} post={item} />
         )
-      }      
+      }
       <Container>
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
@@ -84,10 +106,10 @@ export default function Hakkında() {
         <ThemeProvider theme={themeTypography}>
 
           <Grid container
-              direction="column"
-              justify="flex-start"
-              alignItems="flex-start"
-              className={classes.mainGrid}>
+            direction="column"
+            justify="flex-start"
+            alignItems="flex-start"
+            className={classes.mainGrid}>
             <Grid>
 
               <Typography
@@ -97,8 +119,8 @@ export default function Hakkında() {
 
               <Typography
               >
-                Gazi Okçuluk Klübü, kurulduğu günden bu yana işine ilk gün sahip olduğu hevesle ve azime devam etmiştir ve devam etmektedir.
-       </Typography>
+                {Hakkinda[0].biz_kimiz}
+              </Typography>
             </Grid>
 
             <Grid>
@@ -111,10 +133,10 @@ export default function Hakkında() {
 
               <Typography
               >
-                Gazi Okçuluk Klübü, misyon olarak kendine her zaman enerjik ve dinamik kalmayı, işini en iyi yapmayı edinmiştir.
-       </Typography>
-       </Grid>
-       <Grid>
+                {Hakkinda[0].misyonumuz}
+              </Typography>
+            </Grid>
+            <Grid>
               <Typography
                 variant="overline" color="textPrimary" className={classes.bodyClass}
               >
@@ -123,10 +145,11 @@ export default function Hakkında() {
               <Typography
                 className={classes.bodyClass}
               >
-                Gazi Okçuluk Klübü, vizyon olarak yenilikçi ve üretken olmayı, spor bilimine katkıda bulunmayı hedeflemiştir.
-       </Typography>
-       </Grid>
-       <Grid>
+                {Hakkinda[0].vizyonumuz}
+
+              </Typography>
+            </Grid>
+            <Grid>
               <Typography
                 variant="overline" color="textPrimary" className={classes.bodyClass}
               >
@@ -135,8 +158,9 @@ export default function Hakkında() {
               <Typography
                 className={classes.bodyClass}
               >
-                Gazi Okçuluk Klübü, ../../.... tarihinde ...... ve ....... tarafından kurulmuştur.
-       </Typography>
+                {Hakkinda[0].tarihce}
+
+              </Typography>
             </Grid>
           </Grid>
         </ThemeProvider>

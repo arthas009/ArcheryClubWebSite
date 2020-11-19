@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import { makeStyles, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -33,32 +34,8 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-const iletisim_itemleri = [
-  {
-    title: ['Adres'],
-    icon: [<LocationOnIcon fontSize="small" />],
-    description: ['Gazi Okçuluk Kulübü', 'Piyade Mahallesi Atilla Eşer Caddesi', 'No:47/A ETİMESGUT/ANKARA .'],
-  },
-  {
-    title: ['Telefon & Fax'],
-    icon: [<PhoneIcon fontSize="small" />],
-    description: ['Oguzhan POLAT: 0507 489 7520 ', 'Ümit SARIOK: 0535 080 3254', 'Kulüp: 0530 233 5075'],
-  },
-  {
-    title: ['Mail'],
-    icon: [<EmailIcon fontSize="small" />],
-    description: ['Gazi Okçuluk Kulubü.com'],
-  },
-  {
-    title: ['Sosyal Medya Hesaplarımız'],
-    icon: [<ThumbsUpDownIcon fontSize="small" />],
-    description: [<WhiteTextButton href="https://www.instagram.com/gaziokculukvespor"><InstagramIcon fontSize="small" /> Instagram</WhiteTextButton>,
-    <WhiteTextButton href="https://www.facebook.com/Gazi-okçuluk-Spor-kulübü-661656140943241"><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
-    <WhiteTextButton href="https://youtube.com"><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
-  },
 
 
-]
 const iletisim_itemleri2 = [
   {
     title: ['Harita'],
@@ -151,10 +128,64 @@ const themeTypography = createMuiTheme({
 });
 // <hr align="left" className={classes.yatayyCizgi} />
 
-export default function Iletisim() {
+export default function Iletisim(props) {
   const classes = useStyles();
-
-
+  const {Iletisim} = props;
+  let iletisim_itemleri;
+  if(Iletisim === null || Iletisim === undefined)
+  {
+     iletisim_itemleri = [
+      {
+        title: ['Adres'],
+        icon: [<LocationOnIcon fontSize="small" />],
+        description: ["adres"],
+      },
+      {
+        title: ['Telefon & Fax'],
+        icon: [<PhoneIcon fontSize="small" />],
+        description: ["telefon1", "telefon2"],
+      },
+      {
+        title: ['Mail'],
+        icon: [<EmailIcon fontSize="small" />],
+        description: ["mail"],
+      },
+      {
+        title: ['Sosyal Medya Hesaplarımız'],
+        icon: [<ThumbsUpDownIcon fontSize="small" />],
+        description: [<WhiteTextButton href={"www.instagram.com"}><InstagramIcon fontSize="small" /> Instagram</WhiteTextButton>,
+        <WhiteTextButton href={"www.facebook.com"}><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+        <WhiteTextButton href={"www.youtube.com"}><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
+      },
+    ]
+  }
+  else
+  {
+   iletisim_itemleri = [
+    {
+      title: ['Adres'],
+      icon: [<LocationOnIcon fontSize="small" />],
+      description: [Iletisim[0].adres],
+    },
+    {
+      title: ['Telefon & Fax'],
+      icon: [<PhoneIcon fontSize="small" />],
+      description: [Iletisim[0].telefon1, Iletisim.telefon2],
+    },
+    {
+      title: ['Mail'],
+      icon: [<EmailIcon fontSize="small" />],
+      description: [Iletisim[0].mail],
+    },
+    {
+      title: ['Sosyal Medya Hesaplarımız'],
+      icon: [<ThumbsUpDownIcon fontSize="small" />],
+      description: [<WhiteTextButton href={Iletisim[0].instagram}><InstagramIcon fontSize="small" /> Instagram</WhiteTextButton>,
+      <WhiteTextButton href={Iletisim[0].facebook}><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+      <WhiteTextButton href={Iletisim[0].youtube}><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
+    },
+  ]
+}
   return (
     <React.Fragment>
       <CssBaseline />

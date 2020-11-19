@@ -23,20 +23,7 @@ const mainFeaturedPost = [{
   btnUrl: '',
 }
 ];
-const iletisim_itemleri = [
-  {
-    title: [<LocationOnIcon  fontSize="small" />,'Adres'],
-    description: ['Gazi Okçuluk Kulubü', 'A Mah. B Bul. No: C/D. .', 'Etimesgut/Ankara'],
-  },
-  {
-    title: [<PhoneIcon  fontSize="small" />,'Telefon & Fax'],
-    description: ['+90 546 457 72 59', '+90 312 999 99 99'],
-  },
-  {
-    title: [<EmailIcon  fontSize="small" />,'Mail'],
-    description: ['Gazi Okçuluk Kulubü.com'],
-  },
-]
+
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),

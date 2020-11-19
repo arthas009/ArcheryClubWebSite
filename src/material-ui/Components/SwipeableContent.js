@@ -31,6 +31,35 @@ const mainFeaturedPost = [{
 ];
 
 export default function SwipeableContent(props) {
+    const {Fotolar} = props;
+    Fotolar.map((item, i) =>
+    <MainFeaturedPost key={i} post={item} isMainPage={true}  />
+)
+    let mmainFeaturedPost = [{
+        title: 'Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir',
+        description:
+            "Kendine bir hedef belirlemek istiyorsan",
+        image: Fotolar[0].imageName,
+        btnName: "İletişim",
+        btnUrl:"Iletisim"
+    },
+    {
+        title: 'Atılan her ok, hedefe değmelidir!',
+        description:
+            "",
+        image: Fotolar[0].imageName,
+        btnName:"Okçuluk Hakkında",
+        btnUrl:"OkculukHakkinda"
+    },
+    {
+        title: 'En son haberleri kaçırmayın!',
+        description:
+            "",
+        image: Fotolar[0].imageName,
+        btnName:"Haberler",
+        btnUrl:"Haberler"
+    },
+    ];
     return (
                 <Grid spacing={4}>
                     <Carousel autoPlay={true} navButtonsAlwaysInvisible={true}>
