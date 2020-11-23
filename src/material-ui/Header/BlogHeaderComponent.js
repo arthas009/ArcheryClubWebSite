@@ -119,7 +119,6 @@ class BlogHeaderComponent extends Component {
       ]);
       const b = await iletisim.json();
       const c = await fotolar.json();
-      console.log(b);
       console.log(c);
 
       this.setState({Iletisim:b,Fotolar:c});
@@ -155,12 +154,12 @@ class BlogHeaderComponent extends Component {
           <Route
             exact
             path='/'
-            render={() => (<MainPage Fotolar={this.state.Fotolar}></MainPage>)}
+            render={() => (<MainPage anasayfafotolar={this.state.Fotolar}></MainPage>)}
           />
           <Route
             exact
             path='/AnaSayfa'
-            render={() => (<MainPage Fotolar={this.state.Fotolar}></MainPage>)}
+            render={() => (<MainPage anasayfafotolar={this.state.Fotolar}></MainPage>)}
           />
           <Route
             exact

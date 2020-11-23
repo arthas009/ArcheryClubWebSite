@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FeaturedPost(props) {
   const classes = useStyles();
   const { post, fromWhere } = props;
-
+  console.log(post);
   const CustomLink = props => <Link href={"/" + props.name} {...props}></Link>;
 
   if (fromWhere === "mainPage")
@@ -129,28 +129,28 @@ export default function FeaturedPost(props) {
      
     );
 
-  else {
+  else if(fromWhere === "OkculukHakkinda"){
     return (
       <Grid item xs={6} md={6} className={classes.featuredPost}>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent className={classes.cardContent}>
               <Typography component="h2" variant="h5">
-                Okçuluğun Kökeni
+               {post.baslik_adi}
         </Typography>
               <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" color="textSecondary">
-                29.08.2020
+                {post.baslik_tarihi}
         </Typography>
               <Typography className={classes.overflowEnabled} style={{ maxHeight: 600, overflow: "auto" }} variant="subtitle1" paragraph>
 
               </Typography>
               <Typography className={classes.overflowEnabled} style={{ maxHeight: 600, overflow: "auto" }} variant="subtitle1" paragraph color="inherit">
-                {post.description}
+                {post.baslik_icerigi}
               </Typography>
 
             </CardContent>
           </div>
-          <CardMedia className={classes.cardMedia} image="https://mind4survival.com/wp-content/uploads/2018/08/Traditional-Archery-Mind4Survival.jpg" title="" />
+          <CardMedia className={classes.cardMedia} image={"http://gaziokculukresmi.com/Images/OkculukHakkinda/"+post.baslik_foto_adi} title="gaziOkcu" />
         </Card>
       </Grid>
       

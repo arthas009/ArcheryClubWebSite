@@ -71,7 +71,6 @@ export default function Hakkında() {
         fetch("http://gaziokculukresmi.com/hakkindagetir"),
       ]);
       const b = await images.json();
-      console.log(b);
       setHakkinda(b);
     }
     catch (err) {

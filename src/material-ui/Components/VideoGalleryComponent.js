@@ -58,7 +58,7 @@ export default function VideoGalleryComponent(props) {
                             alignItems="center"
                             justify="center">
                             <Box>
-                            <VideoPlayer playing={true} url={tile.src} />
+                            <VideoPlayer playing={true} url={"http://gaziokculukresmi.com/"+tile.videoName} />
                             </Box>
                             { matches ? 
                             <Typography theme={themeTypography} variant='overline'> {tile.author} </Typography>:

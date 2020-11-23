@@ -64,7 +64,6 @@ export default function Haberler(props) {
         fetch("http://gaziokculukresmi.com/haberlerigetir"),
       ]);
       const b = await images.json();
-      console.log(b);
       setHaberler(b);
     }
     catch (err) {

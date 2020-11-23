@@ -84,7 +84,6 @@ export default function YeniMalzemeler() {
         fetch("http://gaziokculukresmi.com/sifirmalzemelerigetir"),
       ]);
       const b = await images.json();
-      console.log(b);
       setSifirMalzemeler(b);
     }
     catch (err) {
