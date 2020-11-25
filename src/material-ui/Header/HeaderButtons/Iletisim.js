@@ -170,7 +170,7 @@ export default function Iletisim(props) {
     {
       title: ['Telefon & Fax'],
       icon: [<PhoneIcon fontSize="small" />],
-      description: [Iletisim[0].telefon1, Iletisim[0].telefon2, Iletisim[0].telefon3,]
+      description: [iletisim[0].telefon1, iletisim[0].telefon2, iletisim[0].telefon3]
     },
 
     {
