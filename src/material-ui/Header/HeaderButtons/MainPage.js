@@ -11,6 +11,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import MetaTags from 'react-meta-tags';
 
 
 
@@ -163,9 +164,18 @@ export default function MainPage(props) {
           <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
               <ThemeProvider theme={themeTypography}>
-                <h1> <Typography variant="overline" color="textPrimary">GAZİ Okçuluk</Typography></h1>
+                <h1> <title variant="overline" color="textPrimary"> GAZİ OKÇULUK</title></h1>
               </ThemeProvider>
-
+              <MetaTags>
+            
+            <meta id="Gazi Okçuluk Kulübü" name="GAZİ OKÇULUK KULÜBÜ: KLASİK YAY, MAKARALI YAY VE BEDENSEL ENGELLİ OKÇULUK BRANŞLARINDA SPORCU YETİŞTİRMEK ÜZERE MİLLİ SPORCUMUZ OĞUZHAN POLAT’IN BAŞKANLIĞINDA GAZİ OKÇULUK SPOR KULÜBÜ DERNEĞİ OLARAK ANKARA'DA GÖREVİMİZİ YERİNE GETİRİYORUZ.
+ANKARA'DA OKÇULUKTA İLERİ GELEN BİR KULÜP OLMAK İÇİN OKÇULUK ALANINDA DAİMA İLERLEYEN BİR BİÇİMDE ÇALIŞIYORUZ. GAZİ OKÇULUK KULÜBÜ OLARAK HER YAŞTAN İNSANA HİZMET VERİYORUZ. SİZDE ANKARA GAZİ OKÇULUK KULÜBÜNDE OLMAK İSTERSENİZ İLETİŞİM BÖLÜMÜNDEN BİZ GAZİ OKÇULUK KULÜBÜ DERNEĞİMİZE ULAŞABİLİRSİNİZ.
+GAZİ OKÇULUK KULÜBÜ DERNEĞİ İYİ GÜNLER DİLER." content="GAZİ OKÇULUK KULÜBÜ: KLASİK YAY, MAKARALI YAY VE BEDENSEL ENGELLİ OKÇULUK BRANŞLARINDA SPORCU YETİŞTİRMEK ÜZERE MİLLİ SPORCUMUZ OĞUZHAN POLAT’IN BAŞKANLIĞINDA GAZİ OKÇULUK SPOR KULÜBÜ DERNEĞİ OLARAK ANKARA'DA GÖREVİMİZİ YERİNE GETİRİYORUZ.
+ANKARA'DA OKÇULUKTA İLERİ GELEN BİR KULÜP OLMAK İÇİN OKÇULUK ALANINDA DAİMA İLERLEYEN BİR BİÇİMDE ÇALIŞIYORUZ. GAZİ OKÇULUK KULÜBÜ OLARAK HER YAŞTAN İNSANA HİZMET VERİYORUZ. SİZDE ANKARA GAZİ OKÇULUK KULÜBÜNDE OLMAK İSTERSENİZ İLETİŞİM BÖLÜMÜNDEN BİZ GAZİ OKÇULUK KULÜBÜ DERNEĞİMİZE ULAŞABİLİRSİNİZ.
+GAZİ OKÇULUK KULÜBÜ DERNEĞİ İYİ GÜNLER DİLER." />
+            <meta id="Ankara Okçuluk"  />
+            <meta id="Gazi Okçuluk"  />
+          </MetaTags>
             </Box>
             <hr />
           </Grid>
