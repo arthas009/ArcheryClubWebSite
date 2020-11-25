@@ -34,36 +34,48 @@ export default function SwipeableContent(props) {
     const { anasayfafotolar } = props;
     console.log(anasayfafotolar);
     if (anasayfafotolar != undefined) {
-        let mmainFeaturedPost = [{
+ 
+        let mmainFeaturedPost = [];
+
+        anasayfafotolar.Images.map((item, i) =>
+        i===0 ? mmainFeaturedPost.push({
             title: 'Hedefi olmayan sporcu, rehberi olmayan gezgin gibidir',
             description:
                 "Kendine bir hedef belirlemek istiyorsan",
-            image: anasayfafotolar.Images[0].imageName,
+            image: item.imageName,
             btnName: "İletişim",
             btnUrl: "Iletisim",
             imageText:"gaziOkcu"
-        },
-        {
+        }) : i===1? mmainFeaturedPost.push({
             title: 'Atılan her ok, hedefe değmelidir!',
             description:
                 "",
-            image: anasayfafotolar.Images[0].imageName,
+            image: item.imageName,
             btnName: "Okçuluk Hakkında",
             btnUrl: "OkculukHakkinda",
             imageText:"gaziOkcu"
-
-        },
-        {
+        }) : i ===2 ? mmainFeaturedPost.push({
             title: 'En son haberleri kaçırmayın!',
             description:
                 "",
-            image: anasayfafotolar.Images[0].imageName,
+            image: item.imageName,
             btnName: "Haberler",
             btnUrl: "Haberler",
-            imageText:"gaziOkcu"
+            imageText:"gaziOkcu" }):
+            
+            mmainFeaturedPost.push({
+                title: '',
+                description:
+                    "",
+                image: item.imageName,
+                btnName: "",
+                btnUrl: "",
+                imageText:"gaziOkcu"
+            })
 
-        },
-        ];
+        
+    )
+        
         return (
             <Grid spacing={4}>
                 <Carousel autoPlay={true} navButtonsAlwaysInvisible={true}>

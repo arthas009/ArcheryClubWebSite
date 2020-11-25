@@ -107,7 +107,6 @@ export default function FeaturedPost(props) {
               {post.title}
               </Typography>
               <Typography style={{ wordWrap: "break-word" }} variant="subtitle1" color="textSecondary">
-              {post.date}
               </Typography>
               <Typography className={classes.overflowEnabled}  style={{ maxHeight: 300, overflow: "auto"  }} variant="subtitle1" paragraph noWrap>
 
@@ -122,8 +121,9 @@ export default function FeaturedPost(props) {
                         color="primary"> {post.buttonText}
               </Button>
             </CardContent>
-         
-          <CardMedia className={classes.cardMedia} image="https://mind4survival.com/wp-content/uploads/2018/08/Traditional-Archery-Mind4Survival.jpg" title="" />
+          {post.title.includes("Fotoğraf") ? <CardMedia className={classes.cardMedia} image="https://cdn.steamboatpilot.com/wp-content/uploads/sites/8/2019/07/IMG_3999-1024x722.jpg" title="" />
+          :          <CardMedia className={classes.cardMedia} image={post.image} title="" />}
+
         </Card>
       </Grid>
      
