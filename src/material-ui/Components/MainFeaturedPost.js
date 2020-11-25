@@ -115,12 +115,12 @@ export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post, isMainPage } = props;
   const CustomLink = props => <Link href={"/" + props.name} {...props}></Link>;
-
+  console.log(post.image);
   if (isMainPage === true) {
     return (
       <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
         {/* Increase the priority of the hero background image */}
-        {<img style={{ display: 'none', width: '80%' }} src={post.image} alt={post.imageText} />}
+        {<img style={{ display: 'none', width: '80%' }} src={"http://gaziokculukresmi.com"+post.image} alt={post.imageText} />}
         <Grid container justify='left' className={classes.mainFeaturedPostContent}>
           <div className={classes.overlay}>
             <Typography className={classes.primaryTyphography} align="center" color="inherit" gutterBottom>

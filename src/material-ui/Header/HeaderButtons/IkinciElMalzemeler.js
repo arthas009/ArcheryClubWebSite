@@ -97,7 +97,6 @@ export default function IkinciElMalzemeler() {
         fetch("http://gaziokculukresmi.com/malzemelerigetir"),
       ]);
       const b = await images.json();
-      console.log(b);
       setMalzemeler(b);
     }
     catch (err) {

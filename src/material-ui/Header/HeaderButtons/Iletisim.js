@@ -130,15 +130,15 @@ const themeTypography = createMuiTheme({
 
 export default function Iletisim(props) {
   const classes = useStyles();
-  const {Iletisim} = props;
+  const {iletisim} = props;
   let iletisim_itemleri;
-  if(Iletisim === null || Iletisim === undefined)
+  if(iletisim === null || iletisim === undefined)
   {
      iletisim_itemleri = [
       {
         title: ['Adres'],
         icon: [<LocationOnIcon fontSize="small" />],
-        description: ["adres"],
+        description: ["adres","adres2"],
       },
       {
         title: ['Telefon & Fax'],
@@ -165,24 +165,25 @@ export default function Iletisim(props) {
     {
       title: ['Adres'],
       icon: [<LocationOnIcon fontSize="small" />],
-      description: [Iletisim[0].adres],
+      description: [iletisim[0].adres,iletisim[0].adres2],
     },
     {
       title: ['Telefon & Fax'],
       icon: [<PhoneIcon fontSize="small" />],
-      description: [Iletisim[0].telefon1, Iletisim[0].telefon2, Iletisim[0].telefon3,],
+      description: [Iletisim[0].telefon1, Iletisim[0].telefon2, Iletisim[0].telefon3,]
     },
+
     {
       title: ['Mail'],
       icon: [<EmailIcon fontSize="small" />],
-      description: [Iletisim[0].mail],
+      description: [iletisim[0].mail],
     },
     {
       title: ['Sosyal Medya Hesaplarımız'],
       icon: [<ThumbsUpDownIcon fontSize="small" />],
-      description: [<WhiteTextButton href={Iletisim[0].instagram}><InstagramIcon fontSize="small" /> Instagram</WhiteTextButton>,
-      <WhiteTextButton href={Iletisim[0].facebook}><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
-      <WhiteTextButton href={Iletisim[0].youtube}><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
+      description: [<WhiteTextButton href={iletisim[0].instagram}><InstagramIcon fontSize="small" /> Instagram</WhiteTextButton>,
+      <WhiteTextButton href={iletisim[0].facebook}><FacebookIcon fontSize="small" />Facebook</WhiteTextButton>,
+      <WhiteTextButton href={iletisim[0].youtube}><YouTubeIcon fontSize="small" />YouTube</WhiteTextButton>],
     },
   ]
 }

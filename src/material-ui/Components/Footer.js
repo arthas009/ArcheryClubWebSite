@@ -120,7 +120,6 @@ export default function Footer(props) {
         fetch("http://gaziokculukresmi.com/iletisimgetir"),
       ]);
       const b = await images.json();
-      console.log(b);
       setIletisimBilgileri(b);
     }
     catch (err) {
@@ -137,7 +136,7 @@ export default function Footer(props) {
     {
       title: 'İletişim',
       //description: ['PİYADE MAHALLESİ ATİLLA EŞER CADDESİ', 'No:47/A ETİMESGUT/ANKARA','+90 530 233 5075'],
-       description: [IletisimBilgileri[0].adres,IletisimBilgileri[0].telefon1],
+       description: [IletisimBilgileri[0].adres,IletisimBilgileri[0].adres2,IletisimBilgileri[0].telefon1],
   
     },
     {

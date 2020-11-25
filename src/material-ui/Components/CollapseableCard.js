@@ -70,7 +70,7 @@ export default function CollapseableCard(props) {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            
           </Avatar>
         }
         action={
@@ -92,12 +92,8 @@ export default function CollapseableCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+       
+       
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -111,18 +107,14 @@ export default function CollapseableCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography paragraph></Typography>
           <Typography paragraph>
-            ALTYAZI1
           </Typography>
           <Typography paragraph>
-           ALTYAZI2
           </Typography>
           <Typography paragraph>
-        ALTYAZI3
           </Typography>
           <Typography>
-          ALTYAZI3
           </Typography>
         </CardContent>
       </Collapse>

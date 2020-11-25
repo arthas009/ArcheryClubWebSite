@@ -106,7 +106,6 @@ export default function Iletisim() {
         fetch("http://gaziokculukresmi.com/kurslarigetir"),
       ]);
       const b = await images.json();
-      console.log(b);
       setKurslar(b);
     }
     catch (err) {
