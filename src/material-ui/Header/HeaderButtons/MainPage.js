@@ -12,8 +12,19 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import MetaTags from 'react-meta-tags';
+import Helmet from "react-helmet";
 
-
+<div className="application">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Gazi Okçuluk</title>
+                <meta name="Gazi Okçuluk" content="GAZİ OKÇULUK KULÜBÜ: KLASİK YAY, MAKARALI YAY VE BEDENSEL ENGELLİ OKÇULUK BRANŞLARINDA SPORCU YETİŞTİRMEK ÜZERE MİLLİ SPORCUMUZ OĞUZHAN POLAT’IN BAŞKANLIĞINDA GAZİ OKÇULUK SPOR KULÜBÜ DERNEĞİ OLARAK ANKARA'DA GÖREVİMİZİ YERİNE GETİRİYORUZ.
+ANKARA'DA OKÇULUKTA İLERİ GELEN BİR KULÜP OLMAK İÇİN OKÇULUK ALANINDA DAİMA İLERLEYEN BİR BİÇİMDE ÇALIŞIYORUZ. GAZİ OKÇULUK KULÜBÜ OLARAK HER YAŞTAN İNSANA HİZMET VERİYORUZ. SİZDE ANKARA GAZİ OKÇULUK KULÜBÜNDE OLMAK İSTERSENİZ İLETİŞİM BÖLÜMÜNDEN BİZ GAZİ OKÇULUK KULÜBÜ DERNEĞİMİZE ULAŞABİLİRSİNİZ.
+GAZİ OKÇULUK KULÜBÜ DERNEĞİ İYİ GÜNLER DİLER." />
+                <Link rel="Gazi Okçuluk" href="http://www.gaziokculukresmi.com/" />
+            </Helmet>
+            ...
+        </div>
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -166,16 +177,7 @@ export default function MainPage(props) {
               <ThemeProvider theme={themeTypography}>
                 <h1> <title variant="overline" color="textPrimary"> GAZİ OKÇULUK</title></h1>
               </ThemeProvider>
-              <MetaTags>
-            
-            <meta id="Gazi Okçuluk Kulübü" name="GAZİ OKÇULUK KULÜBÜ: KLASİK YAY, MAKARALI YAY VE BEDENSEL ENGELLİ OKÇULUK BRANŞLARINDA SPORCU YETİŞTİRMEK ÜZERE MİLLİ SPORCUMUZ OĞUZHAN POLAT’IN BAŞKANLIĞINDA GAZİ OKÇULUK SPOR KULÜBÜ DERNEĞİ OLARAK ANKARA'DA GÖREVİMİZİ YERİNE GETİRİYORUZ.
-ANKARA'DA OKÇULUKTA İLERİ GELEN BİR KULÜP OLMAK İÇİN OKÇULUK ALANINDA DAİMA İLERLEYEN BİR BİÇİMDE ÇALIŞIYORUZ. GAZİ OKÇULUK KULÜBÜ OLARAK HER YAŞTAN İNSANA HİZMET VERİYORUZ. SİZDE ANKARA GAZİ OKÇULUK KULÜBÜNDE OLMAK İSTERSENİZ İLETİŞİM BÖLÜMÜNDEN BİZ GAZİ OKÇULUK KULÜBÜ DERNEĞİMİZE ULAŞABİLİRSİNİZ.
-GAZİ OKÇULUK KULÜBÜ DERNEĞİ İYİ GÜNLER DİLER." content="GAZİ OKÇULUK KULÜBÜ: KLASİK YAY, MAKARALI YAY VE BEDENSEL ENGELLİ OKÇULUK BRANŞLARINDA SPORCU YETİŞTİRMEK ÜZERE MİLLİ SPORCUMUZ OĞUZHAN POLAT’IN BAŞKANLIĞINDA GAZİ OKÇULUK SPOR KULÜBÜ DERNEĞİ OLARAK ANKARA'DA GÖREVİMİZİ YERİNE GETİRİYORUZ.
-ANKARA'DA OKÇULUKTA İLERİ GELEN BİR KULÜP OLMAK İÇİN OKÇULUK ALANINDA DAİMA İLERLEYEN BİR BİÇİMDE ÇALIŞIYORUZ. GAZİ OKÇULUK KULÜBÜ OLARAK HER YAŞTAN İNSANA HİZMET VERİYORUZ. SİZDE ANKARA GAZİ OKÇULUK KULÜBÜNDE OLMAK İSTERSENİZ İLETİŞİM BÖLÜMÜNDEN BİZ GAZİ OKÇULUK KULÜBÜ DERNEĞİMİZE ULAŞABİLİRSİNİZ.
-GAZİ OKÇULUK KULÜBÜ DERNEĞİ İYİ GÜNLER DİLER." />
-            <meta id="Ankara Okçuluk"  />
-            <meta id="Gazi Okçuluk"  />
-          </MetaTags>
+             
             </Box>
             <hr />
           </Grid>
