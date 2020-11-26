@@ -125,7 +125,7 @@ export default function Iletisim() {
           <Grid className={classes.heaederGrid}>
             <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">KURSLARIMIZ</Typography>
+            <h1> <Typography variant="overline" color="textPrimary">KURSLARIMIZ</Typography></h1> 
             </ThemeProvider>
             </Box>
             <hr className={classes.yatayCizgi} />

@@ -95,7 +95,7 @@ export default function Hakkında() {
         <Grid className={classes.heaederGrid}>
           <Box className={classes.pageHeader}>
             <ThemeProvider theme={themeTypography}>
-              <Typography variant="overline" color="textPrimary">Hakkında</Typography>
+            <h1>  <Typography variant="overline" color="textPrimary">Hakkında</Typography></h1>
             </ThemeProvider>
 
           </Box>

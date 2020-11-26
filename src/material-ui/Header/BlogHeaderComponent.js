@@ -53,7 +53,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
 }));
-
+const NoMatchPage = () => {
+  return (
+    <h3>404 - Not found</h3>
+  );
+};
 
 class BlogHeaderComponent extends Component {
   constructor(props) {
@@ -216,6 +220,7 @@ class BlogHeaderComponent extends Component {
             path='/Iletisim'
             render={() => (<Iletisim iletisim={this.state.Iletisim}></Iletisim>)}
           />
+          <Route component={NoMatchPage} />
           </Switch>
       </React.Fragment>
     );
